@@ -1,0 +1,60 @@
+# What the things in the inventory are, wherever the hero is.
+
+on look phone
+  say lena phone.look
+end
+
+on use phone
+  say lena phone.use
+end
+
+on look page
+  say lena page.look.1
+  say lena page.look.2
+  say lena page.look.3
+end
+
+on use page
+  say lena page.use
+end
+
+on use phone page
+  sound camera
+  say lena phone.page
+end
+
+on look bonefolder
+  say lena bonefolder.look
+end
+
+on look brush
+  say lena brush.look
+end
+
+on look damp-brush
+  say lena damp-brush.look
+end
+
+on look coin
+  say lena coin.look
+end
+
+on look cup
+  say lena cup.look
+end
+
+on look coffee
+  say lena coffee.look
+end
+
+on use coffee
+  say lena coffee.use
+end
+
+on look sandwich
+  say lena sandwich.look
+end
+
+on use sandwich
+  say lena sandwich.use
+end

@@ -1,0 +1,12 @@
+# The Seal of the Templars: the rooms, who plays in them, the people and the scripts.
+# start <room> <spot>                     where a new game begins
+# room <id> <hero>                        a room (rooms/<id>.txt) and who the player is there
+# person <id> <room> <x> <y> <facing> [height h] [hidden]
+# script <file>                           scripts/<file>; all of them together are the story's script
+
+start workshop start
+
+room workshop lena
+
+script common.txt
+script workshop.txt

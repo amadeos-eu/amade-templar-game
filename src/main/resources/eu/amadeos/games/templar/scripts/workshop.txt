@@ -1,0 +1,233 @@
+# Act 1, scene 1: the restoration workshop. Lena finds the page in the binding of the psalter.
+
+on enter workshop
+  if not act1
+    set act1
+    lose ledger
+    gain phone
+    title card.today
+    say lena workshop.intro.1
+    say lena workshop.intro.2
+    set goal 10
+  end
+end
+
+on look window
+  say lena window.look
+end
+
+on use window
+  say lena window.use
+end
+
+on look pigeon
+  say lena pigeon.look
+end
+
+on use pigeon
+  say lena pigeon.use
+end
+
+on look engraving
+  say lena engraving.look
+end
+
+on use engraving
+  say lena engraving.use
+end
+
+on look shelves
+  say lena shelves.look
+end
+
+on use shelves
+  say lena shelves.use
+end
+
+on look coat
+  say lena coat.look
+end
+
+on use coat
+  if took-coin
+    say lena coat.empty
+  else
+    anim lena reach
+    sound coin
+    gain coin
+    set took-coin
+    say lena coat.coin
+  end
+end
+
+on look door
+  say lena door.look
+end
+
+on exit door
+  if not has page
+    say lena door.not-yet
+    stop
+  end
+  sound door
+  goto reading workshop-door
+end
+
+on look bench
+  say lena bench.look
+end
+
+on use bench
+  say lena bench.use
+end
+
+on look press
+  say lena press.look
+end
+
+on use press
+  say lena press.use
+end
+
+on look books
+  say lena books.look
+end
+
+on use books
+  say lena books.use
+end
+
+on look lamp
+  say lena lamp.look
+end
+
+on use lamp
+  say lena lamp.use
+end
+
+on look jar
+  say lena jar.look
+end
+
+on use jar
+  say lena jar.use
+end
+
+on look gluepot
+  say lena gluepot.look
+end
+
+on use gluepot
+  say lena gluepot.use
+end
+
+on look cup
+  say lena mug.look
+end
+
+on use cup
+  say lena mug.use
+end
+
+on look psalter
+  if found-page
+    say lena psalter.look.after
+  else
+    say lena psalter.look.1
+    say lena psalter.look.2
+    set goal 11
+  end
+end
+
+on use psalter
+  if found-page
+    say lena psalter.use.after
+  else
+    anim lena reach
+    say lena psalter.use
+    set goal 11
+  end
+end
+
+on look flap
+  say lena flap.look
+end
+
+on use flap
+  say lena flap.look
+end
+
+on use brush
+  anim lena reach
+  hide brush
+  gain brush
+  say lena brush.take
+end
+
+on use brush jar
+  anim lena reach
+  lose brush
+  gain damp-brush
+  say lena brush.damp
+end
+
+on use brush psalter
+  say lena brush.dry
+end
+
+on use damp-brush psalter
+  if found-page
+    say lena psalter.use.after
+    stop
+  end
+  anim lena reach
+  lose damp-brush
+  gain brush
+  set softened
+  say lena psalter.damp
+  set goal 12
+end
+
+on use bonefolder
+  anim lena reach
+  hide bonefolder
+  gain bonefolder
+  say lena bonefolder.take
+end
+
+on use bonefolder psalter
+  if found-page
+    say lena psalter.use.after
+  else
+    if not softened
+      anim lena reach
+      say lena bonefolder.dry
+      set goal 11
+    else
+      anim lena reach
+      sound paper
+      show flap
+      say lena discover.1
+      sound discovery
+      anim lena reach
+      gain page
+      set found-page
+      say lena discover.2
+      say lena discover.3
+      set goal 13
+    end
+  end
+end
+
+on use page psalter
+  say lena page.psalter
+end
+
+on use phone psalter
+  sound camera
+  say lena phone.psalter
+end
+
+on use coin coat
+  say lena coin.coat
+end
