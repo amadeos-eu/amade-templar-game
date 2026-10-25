@@ -43,7 +43,7 @@ public record Look(String name, double height, double build, boolean female, Col
 
     public enum Extra {
         GLASSES, ROUND_GLASSES, SUNGLASSES, CROSS, LILIES, CAP, HELMET, COIF, SPEAR, SELFIE_STICK, HANDBAG, BOWTIE,
-        SCARF, UMBRELLA, BELT, POUCH, ROLL_NECK, HOOD, TORCH, EARRINGS
+        SCARF, UMBRELLA, BELT, POUCH, ROLL_NECK, HOOD, TORCH, EARRINGS, LANTERN
     }
 
     public Look {

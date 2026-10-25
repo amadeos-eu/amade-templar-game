@@ -265,7 +265,7 @@ public final class Figure {
         // a woman: a rounded seat behind, a narrow waist, and the bust standing out in front
         Path2D body = f
                 ? t.smooth(-9.4 * b, -3, -9.2 * b, 3, -6 * b, 12, -6.6 * b, 24, -5.8 * b, 34, 0, 37, 4.6, 34.5, 6.8 * b, 29.6,
-                8.4 * b, 27.8, 9.2 * b, 24.6, 8.7 * b, 21.4, 7 * b, 18.8, 5.4 * b, 17.4, 4.9 * b, 12, 6.8 * b, 4, 7.4 * b, -3)
+                7.7 * b, 27.9, 8.3 * b, 24.8, 7.9 * b, 21.6, 6.5 * b, 19, 5.4 * b, 17.4, 4.9 * b, 12, 6.8 * b, 4, 7.4 * b, -3)
                 : t.shape(-7.5 * b, -1, -7.5 * b, 12, -8 * b, 26, -6.5 * b, 35, 4, 36, 6.5 * b, 30, 7 * b, 22, 6.5 * b, 12, 7 * b, -1);
         Color top = look.top();
         Garment gm = look.garment();
@@ -280,8 +280,8 @@ public final class Figure {
             case APRON -> {
                 Color a = look.garmentColor();
                 Path2D bib = f
-                        ? t.smooth(1.5, 28, 5.6, 29, 7.2 * b, 28.6, 8.8 * b, 27.4, 9.4 * b, 24.3, 8.9 * b, 21.1,
-                        7.1 * b, 18.5, 5.6 * b, 17,
+                        ? t.smooth(1.5, 28, 5.6, 29, 6.8 * b, 28.6, 8.0 * b, 27.5, 8.5 * b, 24.5, 8.1 * b, 21.3,
+                        6.6 * b, 18.7, 5.6 * b, 17,
                         5.1 * b, 11.5, 7 * b, 3.5, 7.6 * b, 2, 1, 2)
                         : t.shape(1.5, 26, 5.2, 27, 6.6 * b, 18, 6.5 * b, 11, 7.6 * b, 2, 1, 2);
                 Brush.horizontal(g, bib, t.at(1, 10).getX(), lighter(a, 0.1), t.at(8, 10).getX(), darker(a, 0.25));
@@ -1188,6 +1188,20 @@ public final class Figure {
             g.setColor(c(0x8a8e94));
             g.setStroke(Brush.line(0.8));
             g.draw(new Line2D.Double(x + 1.6, y - 40, x + 1.6, y - 44));
+        }
+        if (look.has(Extra.LANTERN)) {
+            // a shuttered lantern of horn and iron, hanging from the hand by its ring
+            g.setColor(c(0x2a2420));
+            g.setStroke(Brush.line(0.7));
+            g.draw(new Arc2D.Double(x - 2, y - 1, 4, 4, 0, 180, Arc2D.OPEN));
+            g.fill(poly(x - 4.4, y + 3, x + 4.4, y + 3, x + 3.4, y + 1.4, x - 3.4, y + 1.4));
+            g.setColor(c(0xf0c060));
+            g.fill(new RoundRectangle2D.Double(x - 3.6, y + 3, 7.2, 8, 1.5, 1.5));
+            g.setColor(c(0xfff0b0));
+            g.fill(new Ellipse2D.Double(x - 1.2, y + 4.8, 2.4, 3.6));
+            g.setColor(c(0x2a2420));
+            g.draw(new Line2D.Double(x, y + 3, x, y + 11));
+            g.fill(new Rectangle2D.Double(x - 4.2, y + 11, 8.4, 1.6));
         }
         if (look.has(Extra.TORCH)) {
             g.setColor(c(0x5a3a1a));
