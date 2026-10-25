@@ -352,16 +352,18 @@ public final class ReadingRoom extends RoomArt {
         g.setColor(c(0xefe6d0));
         g.fill(poly(x + 40, y - 6, x + 66, y - 7, x + 70, y + 1, x + 42, y + 2));
         g.fill(poly(x + 46, y - 9, x + 70, y - 8, x + 72, y - 2, x + 47, y - 2));
-        g.setColor(c(0x1a1a1a));
-        g.fill(new RoundRectangle2D.Double(x + 82, y - 12, 18, 10, 4, 4));
-        g.fill(new RoundRectangle2D.Double(x + 80, y - 17, 22, 5, 3, 3));
+        g.setColor(c(0x2a1a16));
+        g.fill(new RoundRectangle2D.Double(x + 144, y - 10, 16, 8, 4, 4));
+        g.fill(new RoundRectangle2D.Double(x + 142, y - 14, 20, 4, 3, 3));
+        g.setColor(c(0xd8d0c0));
+        g.fill(new Ellipse2D.Double(x + 149, y - 9, 6, 5));
         // the conversion tables: a fat brown volume
-        g.setPaint(new GradientPaint((float) x + 124, 0, c(0x8a5a2a), (float) x + 150, 0, c(0x5a3418)));
-        g.fill(poly(x + 124, y - 14, x + 152, y - 14, x + 154, y - 4, x + 122, y - 4));
+        g.setPaint(new GradientPaint((float) x + 106, 0, c(0x8a5a2a), (float) x + 132, 0, c(0x5a3418)));
+        g.fill(poly(x + 106, y - 14, x + 134, y - 14, x + 136, y - 4, x + 104, y - 4));
         g.setColor(c(0xe8dcc0));
-        g.fill(new Rectangle2D.Double(x + 124, y - 6, 28, 2));
+        g.fill(new Rectangle2D.Double(x + 106, y - 6, 28, 2));
         g.setColor(c(0xd8b860));
-        g.fill(new Rectangle2D.Double(x + 134, y - 12, 8, 1.5));
+        g.fill(new Rectangle2D.Double(x + 116, y - 12, 8, 1.5));
         // the green banker's lamp
         g.setColor(c(0xb08a40));
         g.fill(new Rectangle2D.Double(x + 37, y - 30, 2, 20));
