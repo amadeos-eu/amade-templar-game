@@ -1,0 +1,26 @@
+# The reading room of the library, next door to the workshop, after closing time.
+room reading
+background reading
+depth 272 1.0 400 1.38
+floor 0 286  640 286  640 400  0 400
+hole 206 340  434 340  434 376  206 376            # the reading table
+hole 426 280  614 280  614 340  426 340            # Lefort's desk, he stands behind it
+hole 24 288  106 288  106 300  24 300              # the coffee machine
+spot workshop-door 187 296 down
+spot street 622 352 left
+
+hotspot machine 30 136 70 156 stand 70 310 up
+hotspot rack 104 230 50 64 stand 128 300 up
+hotspot lefort-cup 134 228 14 16 stand 128 300 up
+hotspot bookcase 226 30 140 236 stand 300 300 up
+hotspot ladder 370 30 44 236 stand 392 300 up
+hotspot tall-window 422 30 146 180 stand 410 300 up
+hotspot clock 316 24 28 32 stand 330 300 up
+hotspot reading-table 214 286 212 24 stand 320 384 up
+hotspot desk 432 236 176 100 stand 420 330 right
+hotspot ledger-tables 552 234 34 14 stand 420 330 right
+exit atelier 150 106 74 164 stand 187 292 up to workshop door
+exit street 588 104 52 208 stand 622 340 right to square arrival
+
+layer desk 0 0 baseline 338
+layer table 0 0 baseline 374

@@ -68,8 +68,15 @@ public final class Shot {
     public static void main(String[] args) throws Exception {
         Shot shot = new Shot(Locale.ENGLISH);
         Messages msg = Messages.load(TemplarModule.class, TemplarModule.MESSAGES, Locale.ENGLISH);
-        shot.start(Adventure.begin(Story.load(), msg::get));
+        Adventure adventure = Adventure.begin(Story.load(), msg::get);
+        shot.start(adventure);
         double seconds = args.length > 1 ? Double.parseDouble(args[1]) : 1;
+        String room = System.getProperty("templar.room");        // e.g. reading/workshop-door
+        if (room != null) {
+            shot.run(1);
+            while (adventure.skip()) shot.run(0.1);
+            adventure.enter(room.split("/")[0], room.split("/")[1]);
+        }
         shot.run(seconds);
         for (int i = 2; i + 2 < args.length + 1 && i + 1 < args.length; i += 3) {
             int button = Integer.parseInt(args[i]);

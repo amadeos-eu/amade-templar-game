@@ -11,6 +11,7 @@ public final class Rooms {
 
     static {
         ART.put("workshop", Workshop::new);
+        ART.put("reading", ReadingRoom::new);
     }
 
     private Rooms() {

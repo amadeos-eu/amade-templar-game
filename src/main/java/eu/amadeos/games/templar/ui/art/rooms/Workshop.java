@@ -84,8 +84,7 @@ public final class Workshop extends RoomArt {
                     l.fill(AffineTransform.getRotateInstance(-0.1, 250, 246).createTransformedShape(
                             new Rectangle2D.Double(263, 244, 7, 4.6)));
                 }, 339),
-                "flap", new Prop(Workshop::liftedFlap, 339),
-                "coin", new Prop(l -> { }, 0));
+                "flap", new Prop(Workshop::liftedFlap, 339));
     }
 
     @Override

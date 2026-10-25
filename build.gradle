@@ -234,5 +234,6 @@ tasks.register('shot', JavaExec) {
     group = 'documentation'
     classpath = sourceSets.test.runtimeClasspath
     mainClass = 'eu.amadeos.games.templar.ui.game.Shot'
+    if (project.hasProperty('room')) systemProperty 'templar.room', project.property('room')
     args = (project.findProperty('args') ?: 'build/shot.png 1').toString().split(' ').toList()
 }

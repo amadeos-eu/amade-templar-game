@@ -7,6 +7,10 @@
 start workshop start
 
 room workshop lena
+room reading lena
+
+person lefort reading 522 306 left
 
 script common.txt
 script workshop.txt
+script reading.txt

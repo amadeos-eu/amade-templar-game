@@ -22,7 +22,7 @@ hotspot lamp 330 180 40 26 stand 352 300 right
 hotspot jar 233 226 15 22 stand 240 300 right
 hotspot gluepot 256 232 18 14 stand 240 300 right
 hotspot brush 244 241 28 10 stand 240 300 right
-hotspot cup 397 221 16 14 stand 370 300 right
+hotspot mug 397 221 16 14 stand 370 300 right
 hotspot psalter 286 234 72 22 stand 288 300 right
 hotspot flap 294 228 30 14 stand 288 300 right
 hotspot bonefolder 358 242 30 12 stand 330 300 right

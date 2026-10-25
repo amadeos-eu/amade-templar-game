@@ -65,7 +65,7 @@ public final class ReadingRoom extends RoomArt {
 
     @Override
     protected Map<String, Prop> props() {
-        return Map.of("cup", new Prop(l -> cup(l, 128, 236), 293));
+        return Map.of("lefort-cup", new Prop(l -> cup(l, 138, 236), 293));
     }
 
     @Override

@@ -121,11 +121,11 @@ on use gluepot
   say lena gluepot.use
 end
 
-on look cup
+on look mug
   say lena mug.look
 end
 
-on use cup
+on use mug
   say lena mug.use
 end
 
