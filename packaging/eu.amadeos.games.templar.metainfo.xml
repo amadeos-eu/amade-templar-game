@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AppStream metadata of amade-templar-game, installed as /usr/share/metainfo/eu.amadeos.games.templar.metainfo.xml.
+     amadeOS Software shows it for the installed package; a repository's appstream-generator reads it too. -->
+<component type="desktop-application">
+  <id>eu.amadeos.games.templar</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>EUPL-1.2</project_license>
+
+  <name>amadeOS The Seal of the Templars</name>
+  <name xml:lang="de">amadeOS Das Siegel der Templer</name>
+  <name xml:lang="fr">amadeOS Le Sceau des Templiers</name>
+  <name xml:lang="es">amadeOS El sello de los templarios</name>
+  <name xml:lang="it">amadeOS Il sigillo dei Templari</name>
+
+  <summary>A point-and-click mystery in Paris, from the night of the Templars' arrest in 1307 to today</summary>
+  <summary xml:lang="de">Ein Point-and-Click-Krimi in Paris, von der Nacht der Templerverhaftung 1307 bis heute</summary>
+  <summary xml:lang="fr">Une enquête pointer-cliquer à Paris, de la nuit de l'arrestation des Templiers en 1307 à aujourd'hui</summary>
+  <summary xml:lang="es">Un misterio de apuntar y hacer clic en París, desde la noche del arresto de los templarios en 1307 hasta hoy</summary>
+  <summary xml:lang="it">Un giallo punta e clicca a Parigi, dalla notte dell'arresto dei Templari nel 1307 a oggi</summary>
+
+  <description>
+    <p>The adventure of the amadeOS desktop. Paris, 12 October 1307: the squire Aimery must get the last page of the Temple's accounts with the Crown out of the house before the King's men come. Paris, today: the book restorer Lena Vogt finds that page in the binding of a medieval psalter, and with it a debt the King of France never paid.</p>
+    <p xml:lang="de">Das Adventure des amadeOS-Desktops. Paris, 12. Oktober 1307: Der Knappe Aimery muss die letzte Seite der Abrechnung des Tempels mit der Krone aus dem Haus schaffen, bevor die Männer des Königs kommen. Paris, heute: Die Buchrestauratorin Lena Vogt findet diese Seite im Einband eines mittelalterlichen Psalters, und mit ihr eine Schuld, die der König von Frankreich nie bezahlt hat.</p>
+    <p xml:lang="fr">L'aventure du bureau amadeOS. Paris, 12 octobre 1307 : l'écuyer Aimery doit faire sortir de la maison la dernière page des comptes du Temple avec la Couronne avant l'arrivée des hommes du roi. Paris, aujourd'hui : la restauratrice de livres Lena Vogt trouve cette page dans la reliure d'un psautier médiéval, et avec elle une dette que le roi de France n'a jamais payée.</p>
+    <p xml:lang="es">La aventura del escritorio amadeOS. París, 12 de octubre de 1307: el escudero Aimery debe sacar de la casa la última página de las cuentas del Temple con la Corona antes de que lleguen los hombres del rey. París, hoy: la restauradora de libros Lena Vogt encuentra esa página en la encuadernación de un salterio medieval, y con ella una deuda que el rey de Francia nunca pagó.</p>
+    <p xml:lang="it">L'avventura del desktop amadeOS. Parigi, 12 ottobre 1307: lo scudiero Aimery deve portare fuori dalla casa l'ultima pagina dei conti del Tempio con la Corona prima che arrivino gli uomini del re. Parigi, oggi: la restauratrice di libri Lena Vogt trova quella pagina nella legatura di un salterio medievale, e con essa un debito che il re di Francia non ha mai pagato.</p>
+    <ul>
+      <li>A prologue in the Paris Temple in 1307 and a first act in today's Paris: workshop, library, Square du Temple, Pont Neuf</li>
+      <li xml:lang="de">Ein Prolog im Pariser Tempel 1307 und ein erster Akt im heutigen Paris: Werkstatt, Bibliothek, Square du Temple, Pont Neuf</li>
+      <li xml:lang="fr">Un prologue au Temple de Paris en 1307 et un premier acte dans le Paris d'aujourd'hui : atelier, bibliothèque, square du Temple, Pont-Neuf</li>
+      <li xml:lang="es">Un prólogo en el Temple de París en 1307 y un primer acto en el París de hoy: taller, biblioteca, Square du Temple, Pont Neuf</li>
+      <li xml:lang="it">Un prologo nel Tempio di Parigi nel 1307 e un primo atto nella Parigi di oggi: laboratorio, biblioteca, Square du Temple, Pont Neuf</li>
+      <li>Painted rooms, people drawn to real proportions, dialogues with choices</li>
+      <li xml:lang="de">Gemalte Räume, Menschen in echten Proportionen, Dialoge mit Auswahl</li>
+      <li xml:lang="fr">Des lieux peints, des personnages aux vraies proportions, des dialogues à choix</li>
+      <li xml:lang="es">Escenarios pintados, personajes con proporciones reales, diálogos con opciones</li>
+      <li xml:lang="it">Ambienti dipinti, personaggi in proporzioni reali, dialoghi a scelta</li>
+      <li>True history: legends are called legends</li>
+      <li xml:lang="de">Wahre Geschichte: Legenden heißen hier Legenden</li>
+      <li xml:lang="fr">De l'histoire vraie : les légendes sont appelées légendes</li>
+      <li xml:lang="es">Historia verdadera: las leyendas se llaman leyendas</li>
+      <li xml:lang="it">Storia vera: le leggende si chiamano leggende</li>
+      <li>A notebook with the next goal and a hint; the game saves itself in every room</li>
+      <li xml:lang="de">Ein Notizbuch mit dem nächsten Ziel und einem Tipp; das Spiel speichert sich in jedem Raum</li>
+      <li xml:lang="fr">Un carnet avec le prochain objectif et un indice ; le jeu s'enregistre dans chaque lieu</li>
+      <li xml:lang="es">Una libreta con el siguiente objetivo y una pista; el juego se guarda en cada escenario</li>
+      <li xml:lang="it">Un taccuino con il prossimo obiettivo e un suggerimento; il gioco si salva in ogni ambiente</li>
+      <li>Built on amade-game-engine; plays on other operating systems as well</li>
+      <li xml:lang="de">Gebaut auf amade-game-engine; läuft auch auf anderen Betriebssystemen</li>
+      <li xml:lang="fr">Construit sur amade-game-engine ; fonctionne aussi sur d'autres systèmes d'exploitation</li>
+      <li xml:lang="es">Hecho con amade-game-engine; funciona también en otros sistemas operativos</li>
+      <li xml:lang="it">Costruito su amade-game-engine; funziona anche su altri sistemi operativi</li>
+    </ul>
+  </description>
+
+  <launchable type="desktop-id">amade-templar-game.desktop</launchable>
+  <icon type="stock">amade-templar-game</icon>
+  <categories>
+    <category>Game</category>
+    <category>AdventureGame</category>
+  </categories>
+
+  <url type="homepage">https://github.com/datazuul/amade-templar-game</url>
+  <url type="bugtracker">https://github.com/datazuul/amade-templar-game/issues</url>
+  <developer id="eu.amadeos">
+    <name>amadeOS Project</name>
+  </developer>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>Lena's restoration workshop in the evening</caption>
+      <caption xml:lang="de">Lenas Restaurierungswerkstatt am Abend</caption>
+      <caption xml:lang="fr">L'atelier de restauration de Lena, le soir</caption>
+      <caption xml:lang="es">El taller de restauración de Lena al anochecer</caption>
+      <caption xml:lang="it">Il laboratorio di restauro di Lena, la sera</caption>
+      <image>https://raw.githubusercontent.com/datazuul/amade-templar-game/main/docs/screenshots/amade-templar-game.png</image>
+    </screenshot>
+  </screenshots>
+
+  <provides>
+    <binary>amade-templar-game</binary>
+  </provides>
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-realistic">mild</content_attribute>
+  </content_rating>
+</component>

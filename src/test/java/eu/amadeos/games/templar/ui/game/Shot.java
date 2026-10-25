@@ -24,22 +24,37 @@ import java.util.Locale;
  */
 public final class Shot {
     final Mouse mouse = new Mouse();
+    final long[] now = {0};
+    final Keyboard keyboard = new Keyboard(() -> now[0]);
+    final Messages msg;
     final TemplarGame game;
 
     Shot(Locale locale) throws Exception {
-        Messages msg = Messages.load(TemplarModule.class, TemplarModule.MESSAGES, locale);
+        msg = Messages.load(TemplarModule.class, TemplarModule.MESSAGES, locale);
         Mixer mixer = new Mixer();
         mixer.setMuted(true);
-        game = new TemplarGame(new Keyboard(() -> 0), mouse, msg, mixer,
+        game = new TemplarGame(keyboard, mouse, msg, mixer,
                 new SaveFile(Files.createTempDirectory("templar").resolve("game.save")));
     }
 
+    Adventure adventure;
+
     TemplarGame.PlayScene start(Adventure adventure) {
+        this.adventure = adventure;
         return game.play(adventure);
     }
 
     void run(double seconds) {
-        for (int i = 0; i < seconds * TemplarGame.UPDATES_PER_SECOND; i++) game.update(1.0 / TemplarGame.UPDATES_PER_SECOND);
+        for (int i = 0; i < seconds * TemplarGame.UPDATES_PER_SECOND; i++) {
+            now[0] += 1_000_000_000L / TemplarGame.UPDATES_PER_SECOND;
+            game.update(1.0 / TemplarGame.UPDATES_PER_SECOND);
+        }
+    }
+
+    void key(int code) {
+        keyboard.pressed(code, now[0]);
+        keyboard.released(code, now[0] + 1_000_000);
+        run(1.0 / 30);
     }
 
     void point(double x, double y) {
