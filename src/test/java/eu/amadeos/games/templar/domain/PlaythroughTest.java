@@ -125,6 +125,35 @@ class PlaythroughTest {
         assertEquals(33, game.flags().get("goal"));
     }
 
+    void square() {
+        use("board");
+        choose("no");
+        use("kev");
+        choose("film");
+        choose("curse");
+        choose("bye");
+        use("half-sandwich");
+        use("metro");
+    }
+
+    @Test
+    void thePigeonsClearTheWayToThePlaqueAndActOneEnds() {
+        workshop();
+        readingRoom();
+        square();
+        assertEquals("bridge", game.room().id());
+        use("plaque");
+        assertTrue(game.isChoosing(), "the driver stands in front of the plaque, a click on it talks to him");
+        choose("no");
+        assertFalse(game.flags().is("read-plaque"));
+        use("sandwich", "driver");
+        assertTrue(game.flags().is("driver-gone"));
+        use("plaque");
+        assertTrue(game.flags().is("read-plaque"));
+        use("phone", "plaque");
+        assertTrue(game.flags().is("finished"));
+    }
+
     @Test
     void lefortReadsThePageAfterHisCoffee() {
         workshop();

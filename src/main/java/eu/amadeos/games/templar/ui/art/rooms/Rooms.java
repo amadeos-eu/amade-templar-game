@@ -13,6 +13,7 @@ public final class Rooms {
         ART.put("workshop", Workshop::new);
         ART.put("reading", ReadingRoom::new);
         ART.put("square", Square::new);
+        ART.put("bridge", Bridge::new);
     }
 
     private Rooms() {

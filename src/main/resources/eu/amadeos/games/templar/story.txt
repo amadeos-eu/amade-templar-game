@@ -9,13 +9,19 @@ start workshop start
 room workshop lena
 room reading lena
 room square lena
+room bridge lena
 
 person lefort reading 522 306 left
 person kev square 432 338 left
 person helene square 10 362 right hidden
 person pigeon square 250 372 right height 14
+person driver bridge 536 330 left
+person guide bridge 20 350 right hidden
+person tourist1 bridge 0 364 right hidden
+person tourist2 bridge 6 376 right hidden
 
 script common.txt
 script workshop.txt
 script reading.txt
 script square.txt
+script bridge.txt
