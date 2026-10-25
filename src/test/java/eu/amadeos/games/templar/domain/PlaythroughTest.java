@@ -89,6 +89,42 @@ class PlaythroughTest {
         assertEquals(13, game.flags().get("goal"));
     }
 
+    void readingRoom() {
+        use("door");
+        use("lefort");
+        choose("page");
+        choose("bye");
+        use("lefort-cup");
+        use("coin", "machine");
+        use("lefort");
+        choose("give");
+        choose("all");
+        choose("bye");
+        use("street");
+    }
+
+    @Test
+    void theSquareGivesTheWayToThePontNeuf() {
+        workshop();
+        readingRoom();
+        assertEquals("square", game.room().id());
+        use("metro");
+        assertEquals("square", game.room().id(), "the metro waits until Lena knows where to go");
+        use("board");
+        assertTrue(game.isChoosing(), "Hélène makes her offer");
+        choose("offer");
+        choose("no");
+        assertTrue(game.flags().is("met-helene"));
+        use("kev");
+        choose("film");
+        choose("curse");
+        choose("bye");
+        assertEquals(32, game.flags().get("goal"));
+        use("half-sandwich");
+        assertTrue(game.inventory().has("sandwich"));
+        assertEquals(33, game.flags().get("goal"));
+    }
+
     @Test
     void lefortReadsThePageAfterHisCoffee() {
         workshop();

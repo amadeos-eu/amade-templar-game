@@ -8,9 +8,14 @@ start workshop start
 
 room workshop lena
 room reading lena
+room square lena
 
 person lefort reading 522 306 left
+person kev square 432 338 left
+person helene square 10 362 right hidden
+person pigeon square 250 372 right height 14
 
 script common.txt
 script workshop.txt
 script reading.txt
+script square.txt

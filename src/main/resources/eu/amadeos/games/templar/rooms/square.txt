@@ -1,0 +1,23 @@
+# The Square du Temple at dusk, where the enclosure of the Templars stood.
+room square
+background square
+depth 268 0.8 400 1.28
+floor 0 318  120 300  150 270  430 270  470 294  560 304  640 336  640 400  0 400
+hole 296 322  408 322  408 338  296 338            # the bench
+hole 196 284  212 284  212 294  196 294            # the lamppost
+spot arrival 34 352 right
+spot metro 590 356 left
+
+hotspot houses 0 50 640 186 stand 320 290 up
+hotspot railing 0 206 640 52 stand 320 290 up
+hotspot playground 466 200 136 72 stand 450 300 up
+hotspot board 58 162 96 130 stand 110 316 up
+hotspot lamppost 194 100 20 192 stand 222 300 left
+hotspot bench 298 278 108 58 stand 352 346 up
+hotspot kev-sandwich 358 296 28 12 stand 372 346 up
+hotspot half-sandwich 272 344 28 10 stand 300 362 left
+exit metro 556 136 84 198 stand 604 346 right to bridge arrival
+exit marais 0 250 26 112 stand 16 352 left to reading street
+
+layer bench 0 0 baseline 338
+hidden half-sandwich
