@@ -44,11 +44,11 @@ on use parapet
   say lena parapet.use
 end
 
-on look lamp
+on look bridge-lamp
   say lena bridge-lamp.look
 end
 
-on use lamp
+on use bridge-lamp
   say lena bridge-lamp.use
 end
 

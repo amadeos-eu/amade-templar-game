@@ -10,6 +10,9 @@ public final class Rooms {
     private static final Map<String, Supplier<RoomArt>> ART = new LinkedHashMap<>();
 
     static {
+        ART.put("chapter", Chapter::new);
+        ART.put("courtyard", Courtyard::new);
+        ART.put("library", Library::new);
         ART.put("workshop", Workshop::new);
         ART.put("reading", ReadingRoom::new);
         ART.put("square", Square::new);

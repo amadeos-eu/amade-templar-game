@@ -58,3 +58,49 @@ end
 on use sandwich
   say lena sandwich.use
 end
+
+# Aimery's things, in 1307.
+
+on look ledger
+  if sealed
+    say aimery ledger.look.sealed
+  else
+    say aimery ledger.look
+  end
+end
+
+on look key
+  say aimery key.look
+end
+
+on look seal
+  say aimery seal.look
+end
+
+on look wax
+  say aimery wax.look
+end
+
+on look soft-wax
+  say aimery soft-wax.look
+end
+
+on look cheese
+  say aimery cheese.look
+end
+
+on use cheese
+  say aimery cheese.use
+end
+
+on look knife
+  say aimery knife.look
+end
+
+on look glue
+  say aimery glue.look
+end
+
+on use seal wax
+  say aimery seal.hardwax
+end

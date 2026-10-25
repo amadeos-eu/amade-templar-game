@@ -20,11 +20,11 @@ on use window
   say lena window.use
 end
 
-on look pigeon
+on look window-pigeon
   say lena pigeon.look
 end
 
-on use pigeon
+on use window-pigeon
   say lena pigeon.use
 end
 

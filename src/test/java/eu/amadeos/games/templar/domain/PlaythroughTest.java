@@ -7,6 +7,7 @@ import eu.amadeos.gameengine.math.Vector;
 import eu.amadeos.games.templar.bootstrap.TemplarModule;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -55,6 +56,13 @@ class PlaythroughTest {
         settle();
     }
 
+    void combine(String item, String other) {
+        settle();
+        game.clickItem(Interaction.LEFT, item);
+        game.clickItem(Interaction.LEFT, other);
+        settle();
+    }
+
     void choose(String option) {
         settle();
         assertTrue(game.isChoosing(), "a dialog should wait for " + option);
@@ -62,7 +70,34 @@ class PlaythroughTest {
         settle();
     }
 
+    void prologue() {
+        settle();
+        assertEquals("chapter", game.room().id());
+        assertTrue(game.inventory().has("ledger"));
+        use("key", "chest");
+        use("wax-stick");
+        use("supper");
+        use("wax", "candles");
+        combine("soft-wax", "ledger");
+        combine("seal", "ledger");
+        assertTrue(game.flags().is("sealed"));
+        use("courtyard-door");
+        assertEquals("courtyard", game.room().id());
+        use("cheese", "guard");
+        assertTrue(game.flags().is("guard-gone"));
+        use("gate");
+        assertTrue(game.flags().is("soldiers"));
+        use("library");
+        assertEquals("library", game.room().id());
+        use("copy-knife");
+        use("glue-pot");
+        use("knife", "temple-psalter");
+        use("ledger", "temple-psalter");
+        use("glue", "temple-psalter");
+    }
+
     void workshop() {
+        prologue();
         settle();
         assertEquals("workshop", game.room().id());
         use("coat");
@@ -75,7 +110,24 @@ class PlaythroughTest {
     }
 
     @Test
+    void theChamberDoorWaitsForTheSeal() {
+        settle();
+        use("courtyard-door");
+        assertEquals("chapter", game.room().id());
+    }
+
+    @Test
+    void aimeryHidesThePageAndLenaWakesUpInTheWorkshop() {
+        prologue();
+        settle();
+        assertEquals("workshop", game.room().id());
+        assertEquals("lena", game.hero().id());
+        assertEquals(List.of("phone"), game.inventory().items());
+    }
+
+    @Test
     void theWorkshopDoorWaitsForThePage() {
+        prologue();
         settle();
         use("door");
         assertEquals("workshop", game.room().id());

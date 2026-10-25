@@ -10,7 +10,7 @@ spot start 296 300 right
 spot door 400 286 down
 
 hotspot window poly 40 120  40 98  70 52  115 44  160 52  190 98  190 214  40 214 stand 116 286 up
-hotspot pigeon 148 196 30 20 stand 150 286 up
+hotspot window-pigeon 148 196 30 20 stand 150 286 up
 hotspot engraving 296 66 66 82 stand 330 286 up
 hotspot shelves 500 30 140 220 stand 566 300 up
 hotspot coat 432 114 30 104 stand 446 284 up

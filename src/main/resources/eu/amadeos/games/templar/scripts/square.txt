@@ -41,11 +41,11 @@ on use lamppost
   say lena lamppost.use
 end
 
-on look bench
+on look park-bench
   say lena bench.square.look
 end
 
-on use bench
+on use park-bench
   say lena bench.square.use
 end
 

@@ -10,7 +10,7 @@ hotspot far-bank 0 128 640 74 stand 320 300 up
 hotspot river 0 204 640 32 stand 320 300 up
 hotspot statue 80 70 82 170 stand 130 300 up
 hotspot parapet 0 236 470 50 stand 340 300 up
-hotspot lamp 232 90 40 200 stand 270 304 left
+hotspot bridge-lamp 232 90 40 200 stand 270 304 left
 hotspot wall 470 144 170 146 stand 540 300 up
 hotspot steps 596 236 44 54 stand 610 304 right
 hotspot plaque 503 193 66 42 stand 536 302 up

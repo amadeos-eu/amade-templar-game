@@ -1,0 +1,24 @@
+# The treasurer's chamber of the Paris Temple, 12 October 1307, at night.
+room chapter
+background chapter
+depth 272 0.95 400 1.3
+floor 0 282  640 282  640 400  0 400
+hole 226 336  438 336  438 352  226 352            # the table
+hole 506 314  610 314  610 332  506 332            # the chest
+spot start 170 334 right
+spot door 80 300 right
+
+hotspot lancet 392 46 62 150 stand 420 296 up
+hotspot banner 194 58 76 130 stand 230 296 up
+hotspot book-stand 446 196 46 90 stand 440 300 right
+hotspot chest 508 252 100 76 stand 486 340 right
+hotspot chest-open 508 222 100 106 stand 486 340 right
+hotspot table 230 264 204 88 stand 330 368 up
+hotspot accounts 244 266 44 12 stand 270 368 up
+hotspot candles 304 244 56 32 stand 330 368 up
+hotspot supper 394 260 26 16 stand 400 368 up
+hotspot wax-stick 260 264 24 12 stand 270 368 up
+exit courtyard-door 32 120 80 154 stand 72 296 left to courtyard chapter
+
+layer table 0 0 baseline 350
+hidden chest-open

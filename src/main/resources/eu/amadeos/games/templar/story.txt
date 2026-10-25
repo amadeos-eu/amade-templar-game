@@ -4,13 +4,21 @@
 # person <id> <room> <x> <y> <facing> [height h] [hidden]
 # script <file>                           scripts/<file>; all of them together are the story's script
 
-start workshop start
+start chapter start
 
+room chapter aimery
+room courtyard aimery
+room library aimery
 room workshop lena
 room reading lena
 room square lena
 room bridge lena
 
+person gerard chapter 470 324 left
+person guard courtyard 566 318 left
+person cat courtyard 252 366 right height 22
+person soldier library 30 330 right hidden
+person soldier2 library 12 352 right hidden
 person lefort reading 522 306 left
 person kev square 432 338 left
 person helene square 10 362 right hidden
@@ -21,6 +29,9 @@ person tourist1 bridge 0 364 right hidden
 person tourist2 bridge 6 376 right hidden
 
 script common.txt
+script chapter.txt
+script courtyard.txt
+script library.txt
 script workshop.txt
 script reading.txt
 script square.txt
