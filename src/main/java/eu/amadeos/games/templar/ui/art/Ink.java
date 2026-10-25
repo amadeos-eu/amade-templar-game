@@ -41,6 +41,7 @@ public final class Ink {
         layer(target, scale, scale, drawing);
     }
 
+    // --8<-- [start:layer]
     /** As {@link #layer(BufferedImage, double, Consumer)}, with a line {@code width} target pixels wide. */
     public static void layer(BufferedImage target, double scale, double width, Consumer<Graphics2D> drawing) {
         BufferedImage layer = new BufferedImage(target.getWidth(), target.getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -54,6 +55,7 @@ public final class Ink {
         g.drawImage(layer, 0, 0, null);
         g.dispose();
     }
+    // --8<-- [end:layer]
 
     /** Puts an ink line around what is drawn on {@code image} itself; for sprites drawn on their own image. */
     public static BufferedImage outlined(BufferedImage image, double width) {

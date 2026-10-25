@@ -41,6 +41,7 @@ public final class Sprites {
      */
     public void draw(Graphics2D g, String id, Look look, Direction facing, String pose, double t, double x, double y,
                      double scale, Color tint) {
+        // --8<-- [start:draw]
         int frame = switch (pose) {
             case "stand" -> 0;
             case "walk" -> Math.floorMod((int) Math.floor(t * WALK_FRAMES), WALK_FRAMES);
@@ -50,6 +51,7 @@ public final class Sprites {
         String name = look == null ? id : look.name() + "/" + look.garment() + look.extras().size();
         Key key = new Key(name, facing, pose, frame, tint.getRGB());
         Sprite sprite = cache.computeIfAbsent(key, k -> render(id, look, facing, pose, frame, tint));
+        // --8<-- [end:draw]
         double k = scale / RES;
         Object keep = g.getRenderingHint(RenderingHints.KEY_INTERPOLATION);
         g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);

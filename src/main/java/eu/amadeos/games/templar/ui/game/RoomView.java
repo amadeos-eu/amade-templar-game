@@ -28,6 +28,7 @@ final class RoomView {
 
     private final Sprites sprites = new Sprites();
 
+    // --8<-- [start:draw]
     void draw(Graphics2D g, Adventure adventure, Painted painted, double time) {
         Room room = adventure.room();
         painted.drawBackground(g);
@@ -52,6 +53,7 @@ final class RoomView {
         painted.art().light(g, time);
         painted.art().live(g, time);
     }
+    // --8<-- [end:draw]
 
     /** Where the top of a person's head is, for the line they speak. */
     static Point2D head(Adventure adventure, String id) {

@@ -175,6 +175,7 @@ on use brush psalter
   say lena brush.dry
 end
 
+# --8<-- [start:bonefolder]
 on use damp-brush psalter
   if found-page
     say lena psalter.use.after
@@ -218,6 +219,7 @@ on use bonefolder psalter
     end
   end
 end
+# --8<-- [end:bonefolder]
 
 on use page psalter
   say lena page.psalter

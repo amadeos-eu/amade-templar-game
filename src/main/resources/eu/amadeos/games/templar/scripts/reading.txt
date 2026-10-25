@@ -1,5 +1,6 @@
 # Act 1, scene 2: the reading room. Monsieur Lefort reads the page, once he has had his coffee.
 
+# --8<-- [start:lefort]
 on enter reading
   if not met-lefort
     set met-lefort
@@ -25,6 +26,7 @@ option lefort page lefort.q.page once if has page
   set lefort 1
   set goal 21
 end
+# --8<-- [end:lefort]
 
 option lefort why lefort.q.coffee if lefort == 1
   say lena lefort.coffee.1

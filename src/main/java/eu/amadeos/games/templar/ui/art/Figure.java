@@ -41,6 +41,7 @@ public final class Figure {
     private Figure() {
     }
 
+    // --8<-- [start:draw]
     public static void draw(Graphics2D g, Look look, View view, Pose pose) {
         AffineTransform keep = g.getTransform();
         g.scale(look.height() / H, look.height() / H);
@@ -48,6 +49,7 @@ public final class Figure {
         else straight(g, look, pose, view == View.FRONT);
         g.setTransform(keep);
     }
+    // --8<-- [end:draw]
 
     // ---- from the side ---------------------------------------------------------------------------------
 

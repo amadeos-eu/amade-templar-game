@@ -20,6 +20,7 @@ class PlaythroughTest {
 
     final Adventure game = Adventure.begin(Story.load(), MSG::get);
 
+    // --8<-- [start:settle]
     /** Lets the game run, clicking away every line, until the player may act again. */
     void settle() {
         for (int i = 0; i < 30 * 120; i++) {
@@ -29,6 +30,7 @@ class PlaythroughTest {
         }
         throw new AssertionError("the game never came to rest");
     }
+    // --8<-- [end:settle]
 
     Vector at(String id) {
         for (Adventure.Figure f : game.figures()) {
@@ -70,6 +72,7 @@ class PlaythroughTest {
         settle();
     }
 
+    // --8<-- [start:prologue]
     void prologue() {
         settle();
         assertEquals("chapter", game.room().id());
@@ -95,6 +98,7 @@ class PlaythroughTest {
         use("ledger", "temple-psalter");
         use("glue", "temple-psalter");
     }
+    // --8<-- [end:prologue]
 
     void workshop() {
         prologue();

@@ -117,6 +117,7 @@ public final class Adventure implements ScriptRunner.Stage {
 
     // ---- what the player does ------------------------------------------------------------------------
 
+    // --8<-- [start:click]
     /**
      * A click at a point of the room. While someone speaks, a click ends the line; while a script plays
      * otherwise, clicks do nothing. The right button puts back an item in hand, or looks; the left button
@@ -147,6 +148,7 @@ public final class Adventure implements ScriptRunner.Stage {
             act(trigger, spot);
         });
     }
+    // --8<-- [end:click]
 
     /**
      * A click on an item in the inventory bar: the right button looks at it; the left button takes it in hand,
@@ -355,6 +357,7 @@ public final class Adventure implements ScriptRunner.Stage {
         hero.place(at, facing);
     }
 
+    // --8<-- [start:people]
     /** The topmost thing under the point: a person, else a hotspot of the room; null for none. */
     public Hotspot hotspotAt(Vector p) {
         List<Figure> nearFirst = new ArrayList<>(figures());
@@ -378,6 +381,7 @@ public final class Adventure implements ScriptRunner.Stage {
         return new Hotspot(f.id(), Hotspot.rectangle(at.x() - w / 2, at.y() - h, w, h), stand,
                 side < 0 ? Direction.RIGHT : Direction.LEFT);
     }
+    // --8<-- [end:people]
 
     private Vector place(String place) {
         Figure person = person(place);

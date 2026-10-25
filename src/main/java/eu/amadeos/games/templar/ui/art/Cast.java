@@ -18,6 +18,7 @@ public final class Cast {
 
     // ---- today ----
 
+    // --8<-- [start:lena]
     /** Lena Vogt, book restorer from Leipzig: navy roll-neck, dark trousers, auburn ponytail, glasses. */
     public static final Look LENA = new Look("lena", 115, 1.02, true, Look.SKIN_LIGHT, c(0x7a3a20), Hair.PONYTAIL,
             Beard.NONE, c(0x2e3548), c(0x2e3548), c(0x2c2e36), c(0x4a2a1a), Garment.APRON, c(0xddcba6), 34,
@@ -26,6 +27,7 @@ public final class Cast {
     /** Lena outdoors: her rust-red coat and the teal scarf from the hook in the workshop. */
     public static final Look LENA_OUT = LENA.wearing(Garment.COAT, c(0x7a2e28), 38,
             EnumSet.of(Extra.GLASSES, Extra.ROLL_NECK, Extra.SCARF));
+    // --8<-- [end:lena]
 
     /** Monsieur Lefort, the archivist: bald with a grey fringe, round glasses, tweed and a bow tie. */
     public static final Look LEFORT = new Look("lefort", 110, 1.06, false, Look.SKIN_FAIR, c(0xb8b4ac), Hair.FRINGE,

@@ -96,6 +96,7 @@ class StoryTest {
         assertEquals(new TreeSet<>(), missing(keys));
     }
 
+    // --8<-- [start:unique]
     /** Scripts are written per thing, not per room: two rooms with a "window" would answer each other's clicks. */
     @Test
     void hotspotNamesAreUniqueAcrossRooms() {
@@ -112,6 +113,7 @@ class StoryTest {
         }
         assertEquals(new TreeSet<>(), twice);
     }
+    // --8<-- [end:unique]
 
     @Test
     void everyDoorLeadsToARoomAndASpot() throws IOException {

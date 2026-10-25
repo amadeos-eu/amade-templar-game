@@ -27,6 +27,7 @@ public record Pose(double lean, double crouch, double nearHip, double nearKnee, 
      * One moment of a walk: {@code phase} 0 to 1 is a whole cycle of two steps. Each leg swings forward with
      * its knee bent and comes down nearly straight; the arms swing against the legs.
      */
+    // --8<-- [start:walk]
     public static Pose walk(double phase) {
         double near = phase * Math.PI * 2, far = near + Math.PI;
         return new Pose(0.05, 0, thigh(near), knee(near), thigh(far), knee(far),
@@ -46,6 +47,7 @@ public record Pose(double lean, double crouch, double nearHip, double nearKnee, 
     private static double elbow(double forward) {
         return 0.16 + 0.32 * Math.max(0, forward);
     }
+    // --8<-- [end:walk]
 
     /**
      * The pose of a named animation at {@code t}, 0 to 1 through it: {@code reach} bends over a table,
