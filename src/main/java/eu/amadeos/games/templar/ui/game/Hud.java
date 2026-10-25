@@ -18,6 +18,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -206,18 +207,21 @@ final class Hud {
         alpha = Math.max(0, alpha);
         g.setColor(new Color(0, 0, 0, (int) (200 * Math.min(1, age / 0.4))));
         g.fill(new Rectangle2D.Double(0, 0, W, H));
-        g.setFont(CARD);
-        FontMetrics fm = g.getFontMetrics();
-        String[] lines = a.card().text().split("\\|");
-        double y = H / 2 - (lines.length - 1) * 15;
-        for (String line : lines) {
-            String s = line.strip();
-            int w = fm.stringWidth(s);
-            g.setColor(new Color(GOLD.getRed(), GOLD.getGreen(), GOLD.getBlue(), (int) (255 * alpha)));
-            g.drawString(s, (float) (W / 2 - w / 2.0), (float) y);
-            y += 30;
-            g.setFont(NOTE.deriveFont(15f));
-            fm = g.getFontMetrics();
+        // the first part is the heading; the rest is wrapped to the width of the screen, as long as a language makes it
+        String[] parts = a.card().text().split("\\|");
+        List<String> lines = new ArrayList<>();
+        lines.add(parts[0].strip());
+        Font note = NOTE.deriveFont(15f);
+        for (int i = 1; i < parts.length; i++) {
+            lines.addAll(SpokenText.wrap(parts[i].strip(), note, g.getFontRenderContext(), W - 60));
+        }
+        double y = H / 2 - (lines.size() - 1) * 12;
+        g.setColor(new Color(GOLD.getRed(), GOLD.getGreen(), GOLD.getBlue(), (int) (255 * alpha)));
+        for (int i = 0; i < lines.size(); i++) {
+            g.setFont(i == 0 ? CARD : note);
+            FontMetrics fm = g.getFontMetrics();
+            g.drawString(lines.get(i), (float) (W / 2 - fm.stringWidth(lines.get(i)) / 2.0), (float) y);
+            y += i == 0 ? 30 : 20;
         }
     }
 

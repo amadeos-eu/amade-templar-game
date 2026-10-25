@@ -81,8 +81,9 @@ public final class Shot {
     }
 
     public static void main(String[] args) throws Exception {
-        Shot shot = new Shot(Locale.ENGLISH);
-        Messages msg = Messages.load(TemplarModule.class, TemplarModule.MESSAGES, Locale.ENGLISH);
+        Locale locale = Locale.of(System.getProperty("templar.lang", "en"));   // e.g. de
+        Shot shot = new Shot(locale);
+        Messages msg = Messages.load(TemplarModule.class, TemplarModule.MESSAGES, locale);
         Adventure adventure = Adventure.begin(Story.load(), msg::get);
         shot.start(adventure);
         double seconds = args.length > 1 ? Double.parseDouble(args[1]) : 1;
