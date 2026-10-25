@@ -19,8 +19,8 @@ public final class Cast {
     // ---- today ----
 
     // --8<-- [start:lena]
-    /** Lena Vogt, book restorer from Leipzig: navy roll-neck, dark trousers, auburn ponytail, glasses. */
-    public static final Look LENA = new Look("lena", 115, 1.02, true, Look.SKIN_LIGHT, c(0x7a3a20), Hair.PONYTAIL,
+    /** Lena Vogt, book restorer from Leipzig: navy roll-neck, dark trousers, long auburn hair, glasses. */
+    public static final Look LENA = new Look("lena", 115, 1.02, true, Look.SKIN_LIGHT, c(0x7a3a20), Hair.LONG,
             Beard.NONE, c(0x2e3548), c(0x2e3548), c(0x2c2e36), c(0x4a2a1a), Garment.APRON, c(0xddcba6), 34,
             EnumSet.of(Extra.GLASSES, Extra.ROLL_NECK), c(0x2e5a6a));
 

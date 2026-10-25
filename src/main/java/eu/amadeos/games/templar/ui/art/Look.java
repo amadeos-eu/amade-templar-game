@@ -18,7 +18,7 @@ public record Look(String name, double height, double build, boolean female, Col
                    Beard beard, Color top, Color sleeve, Color legs, Color shoes, Garment garment, Color garmentColor,
                    double hem, Set<Extra> extras, Color accent) {
 
-    public enum Hair { PONYTAIL, SHORT, BOWL, FRINGE, CHIGNON, CROPPED, BALD }
+    public enum Hair { LONG, SHORT, BOWL, FRINGE, CHIGNON, CROPPED, BALD }
 
     public enum Beard { NONE, STUBBLE, FULL, MOUSTACHE }
 

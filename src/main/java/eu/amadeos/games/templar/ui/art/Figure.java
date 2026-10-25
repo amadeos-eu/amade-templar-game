@@ -130,16 +130,28 @@ public final class Figure {
             int n = vu.length / 2;
             Point2D[] q = new Point2D[n];
             for (int i = 0; i < n; i++) q[i] = at(vu[2 * i], vu[2 * i + 1]);
-            Path2D p = new Path2D.Double();
-            p.moveTo(q[0].getX(), q[0].getY());
-            for (int i = 0; i < n; i++) {
-                Point2D a = q[(i - 1 + n) % n], b = q[i], c = q[(i + 1) % n], d = q[(i + 2) % n];
-                p.curveTo(b.getX() + (c.getX() - a.getX()) / 6, b.getY() + (c.getY() - a.getY()) / 6,
-                        c.getX() - (d.getX() - b.getX()) / 6, c.getY() - (d.getY() - b.getY()) / 6, c.getX(), c.getY());
-            }
-            p.closePath();
-            return p;
+            return through(q);
         }
+    }
+
+    /** A closed, rounded outline through the points x, y, x, y, ... (Catmull-Rom), for hair and soft shapes. */
+    static Path2D curve(double... xy) {
+        Point2D[] q = new Point2D[xy.length / 2];
+        for (int i = 0; i < q.length; i++) q[i] = new Point2D.Double(xy[2 * i], xy[2 * i + 1]);
+        return through(q);
+    }
+
+    private static Path2D through(Point2D[] q) {
+        int n = q.length;
+        Path2D p = new Path2D.Double();
+        p.moveTo(q[0].getX(), q[0].getY());
+        for (int i = 0; i < n; i++) {
+            Point2D a = q[(i - 1 + n) % n], b = q[i], c = q[(i + 1) % n], d = q[(i + 2) % n];
+            p.curveTo(b.getX() + (c.getX() - a.getX()) / 6, b.getY() + (c.getY() - a.getY()) / 6,
+                    c.getX() - (d.getX() - b.getX()) / 6, c.getY() - (d.getY() - b.getY()) / 6, c.getX(), c.getY());
+        }
+        p.closePath();
+        return p;
     }
 
     private static Color sleeve(Look look) {
@@ -252,8 +264,8 @@ public final class Figure {
         double b = look.build() * 1.1;
         // a woman: a rounded seat behind, a narrow waist, and the bust standing out in front
         Path2D body = f
-                ? t.smooth(-9.4 * b, -3, -9.2 * b, 3, -6 * b, 12, -6.6 * b, 24, -5.8 * b, 34, 0, 37, 4.6, 34.5, 6.6 * b, 29,
-                10.2 * b, 24.5, 8.6 * b, 20.2, 5.4 * b, 17, 4.9 * b, 12, 6.8 * b, 4, 7.4 * b, -3)
+                ? t.smooth(-9.4 * b, -3, -9.2 * b, 3, -6 * b, 12, -6.6 * b, 24, -5.8 * b, 34, 0, 37, 4.6, 34.5, 6.8 * b, 29.6,
+                9.2 * b, 27.6, 10.3 * b, 24.4, 9.6 * b, 21.2, 7.6 * b, 18.6, 5.4 * b, 17.4, 4.9 * b, 12, 6.8 * b, 4, 7.4 * b, -3)
                 : t.shape(-7.5 * b, -1, -7.5 * b, 12, -8 * b, 26, -6.5 * b, 35, 4, 36, 6.5 * b, 30, 7 * b, 22, 6.5 * b, 12, 7 * b, -1);
         Color top = look.top();
         Garment gm = look.garment();
@@ -268,7 +280,8 @@ public final class Figure {
             case APRON -> {
                 Color a = look.garmentColor();
                 Path2D bib = f
-                        ? t.smooth(1.5, 28, 5.6, 29, 7.8 * b, 27, 10.4 * b, 24.2, 8.7 * b, 19.8, 5.6 * b, 16.6,
+                        ? t.smooth(1.5, 28, 5.6, 29, 7.6 * b, 28.4, 9.6 * b, 27.2, 10.5 * b, 24.1, 9.8 * b, 20.9,
+                        7.7 * b, 18.3, 5.6 * b, 17,
                         5.1 * b, 11.5, 7 * b, 3.5, 7.6 * b, 2, 1, 2)
                         : t.shape(1.5, 26, 5.2, 27, 6.6 * b, 18, 6.5 * b, 11, 7.6 * b, 2, 1, 2);
                 Brush.horizontal(g, bib, t.at(1, 10).getX(), lighter(a, 0.1), t.at(8, 10).getX(), darker(a, 0.25));
@@ -394,9 +407,10 @@ public final class Figure {
         Color skinLit = lighter(look.skin(), 0.1), skinMid = look.skin(), skinDark = darker(look.skin(), 0.35);
         Color hair = look.hair();
         Hair style = look.hairStyle();
-        if (style == Hair.PONYTAIL) {
-            g.setPaint(new GradientPaint(4, 0, hair, 10, 18, darker(hair, 0.4)));
-            g.fill(poly(5, 1, 9.5, 2, 11, 10, 9.5, 19, 7.5, 12, 5.5, 6));
+        if (style == Hair.LONG) {
+            // the hair behind the head and the neck, falling to the shoulders
+            g.setPaint(new GradientPaint(2, -10, hair, 9, 20, darker(hair, 0.45)));
+            g.fill(curve(1, -11.8, 6.6, -9, 9.2, -2, 9.8, 6, 10.4, 13, 9.6, 19.5, 6.4, 21.2, 3.6, 18, 2.6, 11, 1.2, 4));
         }
         if (style == Hair.CHIGNON) {
             g.setColor(hair);
@@ -463,7 +477,7 @@ public final class Figure {
         if (look.has(Extra.CAP)) {
             g.setColor(look.accent());
             g.fill(poly(-6.5, -6.5, -4, -11.5, 2, -13, 6.5, -10, 7.4, -5.5, 3, -6.5));
-            g.fill(poly(5.5, -9, 12, -8.5, 12.5, -7, 6.5, -6.2));       // the peak at the back
+            g.fill(poly(-5.2, -7.4, -11.6, -3, -11.2, -1.6, -5.6, -5.2));  // the peak, tipped down over the eyes
             g.setColor(darker(look.accent(), 0.3));
             g.draw(new Line2D.Double(-6, -6.6, 6.8, -5.8));
         }
@@ -478,7 +492,22 @@ public final class Figure {
         Color hair = look.hair();
         Color dark = darker(hair, 0.45);
         switch (look.hairStyle()) {
-            case PONYTAIL, CHIGNON -> {
+            case LONG -> {
+                // over the top and down over the ear, in soft waves
+                Path2D h = curve(-7.3, -4.4, -6.2, -9.8, -1, -12.8, 5, -11.8, 8.6, -6.6, 9.3, 0.5, 8.6, 7, 6.2, 10.4,
+                        3, 9.6, 0.8, 6.6, 0.1, 1.5, -0.8, -3.4, -3.8, -6.4);
+                g.setPaint(new GradientPaint(-6, -12, lighter(hair, 0.16), 8, 8, dark));
+                g.fill(h);
+                g.setStroke(Brush.line(0.45));
+                g.setColor(lighter(hair, 0.3));
+                for (int i = 0; i < 5; i++) {
+                    double o = i * 1.5;
+                    g.draw(new CubicCurve2D.Double(-4.5 + o, -9.5 - o * 0.3, 1 + o * 0.6, -11, 4 + o * 0.5, -2 + o, 2.2 + o * 0.9, 6 + o * 0.4));
+                }
+                g.setColor(darker(hair, 0.25));
+                g.draw(new CubicCurve2D.Double(0.6, -2, 0.2, 2, 1.4, 5, 0.9, 7.4));                     // the edge over the ear
+            }
+            case CHIGNON -> {
                 Path2D h = poly(-6.8, -5, -5.5, -9.5, -1, -12, 4.5, -11, 7.6, -6.5, 7.8, 1, 6, 4, 4.6, -1, 1.5, -3, -3, -6.2);
                 g.setPaint(new GradientPaint(-6, -12, lighter(hair, 0.15), 7, 2, dark));
                 g.fill(h);
@@ -863,14 +892,21 @@ public final class Figure {
         boolean f = look.female();
         Hair style = look.hairStyle();
         double w = f ? 6.3 : 6.7;
-        if (style == Hair.PONYTAIL || style == Hair.CHIGNON) {
+        if (style == Hair.CHIGNON) {
             g.setColor(darker(hair, 0.35));
             g.fill(new Ellipse2D.Double(-w - 0.8, -10.5, w * 2 + 1.6, 14));
         }
-        // ears
-        g.setColor(darker(skin, 0.1));
-        g.fill(new Ellipse2D.Double(-w - 1.6, -2.2, 2.8, 4.6));
-        g.fill(new Ellipse2D.Double(w - 1.2, -2.2, 2.8, 4.6));
+        if (style == Hair.LONG) {
+            // the hair behind the face, down to the shoulders
+            g.setPaint(new GradientPaint(0, -12, darker(hair, 0.2), 0, 16, darker(hair, 0.5)));
+            g.fill(curve(-w - 1.8, -8, 0, -13.4, w + 1.8, -8, w + 3, 0, w + 3.6, 8, w + 3.2, 14.5, w + 0.4, 16,
+                    0, 13, -w - 0.4, 16, -w - 3.2, 14.5, -w - 3.6, 8, -w - 3, 0));
+        } else {
+            // ears
+            g.setColor(darker(skin, 0.1));
+            g.fill(new Ellipse2D.Double(-w - 1.6, -2.2, 2.8, 4.6));
+            g.fill(new Ellipse2D.Double(w - 1.2, -2.2, 2.8, 4.6));
+        }
         Path2D face = new Path2D.Double();
         face.moveTo(-w, -4);
         face.curveTo(-w, -11.5, w, -11.5, w, -4);
@@ -944,7 +980,26 @@ public final class Figure {
         // hair
         Color dark = darker(hair, 0.45);
         switch (style) {
-            case PONYTAIL, CHIGNON -> {
+            case LONG -> {
+                // parted on the right, falling over both ears to below the chin
+                Path2D h = new Path2D.Double();
+                h.moveTo(-w - 1.6, 9);
+                h.curveTo(-w - 3.2, -14, w + 3.2, -14, w + 1.6, 9);
+                h.curveTo(w + 0.4, 8.6, w - 0.2, 4, w - 0.3, -2);
+                h.curveTo(w - 0.6, -5, 3, -7.8, -0.6, -8.2);
+                h.curveTo(-3, -7.2, -w + 0.3, -5, -w + 0.3, -2);
+                h.curveTo(-w + 0.2, 4, -w - 0.4, 8.6, -w - 1.6, 9);
+                h.closePath();
+                g.setPaint(new GradientPaint(-6, -11, lighter(hair, 0.16), 6, 8, dark));
+                g.fill(h);
+                g.setStroke(Brush.line(0.4));
+                g.setColor(lighter(hair, 0.3));
+                for (int i = 0; i < 4; i++) {
+                    g.draw(new QuadCurve2D.Double(-1 + i * 0.5, -8.6, -w - 0.4 + i * 0.6, -6 + i, -w - 0.6 + i * 0.5, 6 - i));
+                    g.draw(new QuadCurve2D.Double(0.4 + i * 0.6, -8.8, w + 0.6 - i * 0.4, -6 + i, w + 0.8 - i * 0.5, 6 - i));
+                }
+            }
+            case CHIGNON -> {
                 Path2D h = new Path2D.Double();
                 h.moveTo(-w - 0.6, -1.5);
                 h.curveTo(-w - 1.2, -13, w + 1.2, -13, w + 0.6, -1.5);
@@ -1025,9 +1080,11 @@ public final class Figure {
     private static void headBack(Graphics2D g, Look look) {
         Color skin = look.skin(), hair = look.hair();
         double w = look.female() ? 6.3 : 6.7;
-        g.setColor(darker(skin, 0.15));
-        g.fill(new Ellipse2D.Double(-w - 1.6, -2.2, 2.8, 4.6));
-        g.fill(new Ellipse2D.Double(w - 1.2, -2.2, 2.8, 4.6));
+        if (look.hairStyle() != Hair.LONG) {
+            g.setColor(darker(skin, 0.15));
+            g.fill(new Ellipse2D.Double(-w - 1.6, -2.2, 2.8, 4.6));
+            g.fill(new Ellipse2D.Double(w - 1.2, -2.2, 2.8, 4.6));
+        }
         Path2D skull = new Path2D.Double();
         skull.moveTo(-w, -3);
         skull.curveTo(-w, -11.8, w, -11.8, w, -3);
@@ -1043,17 +1100,20 @@ public final class Figure {
             g.setPaint(new GradientPaint(-6, 0, lighter(hair, 0.1), 6, 4, darker(hair, 0.35)));
             g.fill(poly(-w - 0.6, -2.5, w + 0.6, -2.5, w * 0.8, 2.5, 0, 3.4, -w * 0.8, 2.5));
         }
-        if (style == Hair.PONYTAIL) {
-            g.setPaint(new GradientPaint(0, -2, hair, 0, 16, darker(hair, 0.45)));
-            g.fill(poly(-1.6, -1, 1.6, -1, 2.6, 6, 1.8, 15, 0, 17, -1.8, 15, -2.6, 6));
-            g.setColor(darker(hair, 0.5));
-            g.fill(new RoundRectangle2D.Double(-1.8, -1.6, 3.6, 1.6, 1, 1));
+        if (style == Hair.LONG) {
+            // one full mass from the crown over the ears to the shoulders
+            g.setPaint(new GradientPaint((float) -w, -10, lighter(hair, 0.1), (float) w, 16, darker(hair, 0.45)));
+            g.fill(curve(0, -12.6, w + 0.6, -10, w + 2, -3, w + 2.8, 5, w + 3.2, 12, w + 1.6, 16.4, 0, 17.4,
+                    -w - 1.6, 16.4, -w - 3.2, 12, -w - 2.8, 5, -w - 2, -3, -w - 0.6, -10));
+            g.setStroke(Brush.line(0.45));
+            g.setColor(darker(hair, 0.32));
+            for (int i = -3; i <= 3; i++) g.draw(new CubicCurve2D.Double(i * 0.5, -11.5, i * 2.6, -5, i * 2.4, 6, i * 2.2, 16));
         }
         if (style == Hair.CHIGNON) {
             g.setPaint(new GradientPaint(-3, -6, lighter(hair, 0.1), 3, 1, darker(hair, 0.4)));
             g.fill(new Ellipse2D.Double(-3.8, -6, 7.6, 7));
         }
-        if (style != Hair.BALD && style != Hair.FRINGE) {
+        if (style != Hair.BALD && style != Hair.FRINGE && style != Hair.LONG) {
             g.setStroke(Brush.line(0.4));
             g.setColor(darker(hair, 0.3));
             for (int i = -2; i <= 2; i++) g.draw(new QuadCurve2D.Double(i * 0.6, -10, i * 2.4, -4, i * 2.2, 3));
@@ -1072,9 +1132,13 @@ public final class Figure {
             cap.curveTo(-w - 1, -14.5, w + 1, -14.5, w + 0.8, -4.6);
             cap.closePath();
             g.fill(cap);
-            if (!front) {
-                g.setColor(darker(look.accent(), 0.2));
-                g.fill(new RoundRectangle2D.Double(-w + 0.4, -7.5, w * 2 - 0.8, 4, 2, 2));  // the peak, turned back
+            if (front) {
+                Path2D peak = new Path2D.Double();                                         // seen from below, tipped down
+                peak.moveTo(-w - 1.6, -5.2);
+                peak.curveTo(-w, -6.2, w, -6.2, w + 1.6, -5.2);
+                peak.curveTo(w + 0.6, -2, -w - 0.6, -2, -w - 1.6, -5.2);
+                g.setColor(darker(look.accent(), 0.25));
+                g.fill(peak);
             } else {
                 g.setColor(c(0xd8d0c0));
                 g.fill(new RoundRectangle2D.Double(-2.6, -6.6, 5.2, 2, 1, 1));            // the strap at the back
@@ -1110,11 +1174,24 @@ public final class Figure {
             g.fill(new Ellipse2D.Double(ex - 0.8, ey - 4, 1.6, 1.6));
         }
         if (look.has(Extra.UMBRELLA)) {
+            // furled and held up high, so the group can follow it through the crowd
             g.setColor(c(0x3a2a20));
-            g.setStroke(Brush.line(1));
-            g.draw(new Line2D.Double(x, y, x, y - 34));
+            g.setStroke(Brush.line(1.1));
+            g.draw(new Arc2D.Double(x - 1.6, y + 1, 3.2, 4, 180, 180, Arc2D.OPEN));
+            g.draw(new Line2D.Double(x + 1.6, y + 3, x + 1.6, y - 40));
+            Path2D canopy = curve(x + 1.6, y - 40, x + 3.6, y - 30, x + 4.4, y - 20, x + 3.2, y - 13,
+                    x + 1.6, y - 12, x, y - 13, x - 1.2, y - 20, x - 0.4, y - 30);
             g.setColor(look.accent());
-            g.fill(new Arc2D.Double(x - 11, y - 44, 22, 18, 0, 180, Arc2D.CHORD));
+            g.fill(canopy);
+            g.setColor(look.accent().darker());
+            g.setStroke(Brush.line(0.5));
+            g.draw(canopy);
+            g.draw(new Line2D.Double(x + 1.6, y - 38, x + 2.6, y - 14));
+            g.draw(new Line2D.Double(x + 1.6, y - 38, x + 0.6, y - 14));
+            g.fill(new Ellipse2D.Double(x + 0.4, y - 18, 2.4, 1.8));
+            g.setColor(c(0x8a8e94));
+            g.setStroke(Brush.line(0.8));
+            g.draw(new Line2D.Double(x + 1.6, y - 40, x + 1.6, y - 44));
         }
         if (look.has(Extra.TORCH)) {
             g.setColor(c(0x5a3a1a));
