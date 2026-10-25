@@ -1,0 +1,20 @@
+# La Rochelle, a night at the end of October 1307: a wooden quay in the fog, and a ship that waits.
+room quay
+background quay
+depth 286 0.9 400 1.3
+floor 0 300  600 294  600 400  0 400
+hole 250 352  276 352  276 362  250 362            # the mooring post
+spot start 80 350 right
+
+hotspot fog 0 0 640 120 stand 300 320 up
+hotspot town-walls 0 110 300 120 stand 200 310 up
+hotspot ship 420 70 220 200 stand 540 320 right
+hotspot ship-light 548 90 24 24 stand 540 320 right
+hotspot sea 300 230 340 60 stand 400 310 up
+hotspot mooring-post 246 320 34 42 stand 230 364 right
+hotspot sea-chest 400 300 44 30 stand 380 340 right
+hotspot gangplank 560 250 60 60 stand 560 320 right
+
+layer post 0 0 baseline 362
+hidden ship-light
+hidden sea-chest

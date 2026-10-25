@@ -65,6 +65,23 @@ public final class Screenshots {
         room("square", "arrival", 1, 250, 340).save(new File(dir, "square.png"));
         room("bridge", "arrival", 1, 380, 350).save(new File(dir, "bridge.png"));
 
+        // The first flashback: Aimery in the prison cart, singing the message to Raoul in Latin.
+        Shot cart = room("cart", "start");
+        for (int i = 0; i < 4; i++) {
+            cart.run(1);
+            while (cart.adventure.skip()) cart.run(0.1);
+        }
+        cart.adventure.flags().set("may-sing");
+        cart.click(Interaction.LEFT, 546, 300);
+        cart.run(2);
+        while (cart.adventure.skip()) cart.run(0.1);
+        cart.run(0.5);
+        cart.save(new File(dir, "cart.png"));
+
+        room("harbour", "arrival", 1, 420, 340).save(new File(dir, "harbour.png"));
+        room("court", "arrival", 1, 300, 330).save(new File(dir, "court.png"));
+        room("quay", "start", 1, 200, 340).save(new File(dir, "quay.png"));
+
         // The notebook over the workshop.
         Shot notebook = room("workshop", "start", 1, 330, 304);
         notebook.key(KeyEvent.VK_N);
@@ -139,7 +156,8 @@ public final class Screenshots {
     /** The people of the prologue and Act 1, from the side, the front and the back. */
     static void cast(File file) throws Exception {
         Look[] looks = {Cast.AIMERY, Cast.GERARD, Cast.GUARD, Cast.SOLDIER, Cast.LENA, Cast.LENA_OUT, Cast.LEFORT,
-                Cast.KEV, Cast.HELENE, Cast.DRIVER, Cast.GUIDE, Cast.TOURIST_A, Cast.TOURIST_B};
+                Cast.KEV, Cast.HELENE, Cast.DRIVER, Cast.GUIDE, Cast.TOURIST_A, Cast.TOURIST_B, Cast.RAOUL,
+                Cast.ETIENNE, Cast.CAPTAIN, Cast.FISHERMAN, Cast.MORIN};
         double scale = 2;
         int cw = 70, ch = 150, cols = looks.length;
         BufferedImage image = new BufferedImage((int) (cols * cw * scale), (int) (ch * scale), BufferedImage.TYPE_INT_ARGB);

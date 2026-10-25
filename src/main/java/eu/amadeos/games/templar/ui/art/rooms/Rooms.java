@@ -17,6 +17,10 @@ public final class Rooms {
         ART.put("reading", ReadingRoom::new);
         ART.put("square", Square::new);
         ART.put("bridge", Bridge::new);
+        ART.put("cart", Cart::new);
+        ART.put("harbour", Harbour::new);
+        ART.put("court", Court::new);
+        ART.put("quay", Quay::new);
     }
 
     private Rooms() {

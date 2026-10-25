@@ -207,7 +207,139 @@ class PlaythroughTest {
         use("plaque");
         assertTrue(game.flags().is("read-plaque"));
         use("phone", "plaque");
+        assertEquals("cart", game.room().id(), "act 1 ends and the first flashback begins");
+        assertEquals("aimery", game.hero().id());
+        assertTrue(game.inventory().items().isEmpty(), "Lena's things wait for her");
+    }
+
+    void actOne() {
+        workshop();
+        readingRoom();
+        square();
+        use("sandwich", "driver");
+        use("plaque");
+        use("phone", "plaque");
+    }
+
+    // --8<-- [start:cart]
+    void cart() {
+        use("gerard-cart");
+        choose("how");
+        choose("bye");
+        use("soldier-cart");
+        choose("pray");
+        choose("bye");
+        use("raoul");
+        choose("hear");
+        choose("where");
+        choose("half");
+    }
+    // --8<-- [end:cart]
+
+    @Test
+    void shoutingInFrenchMakesTheSoldierChaseRaoulAwayButNeverEndsTheGame() {
+        actOne();
+        for (int i = 0; i < 3; i++) {
+            use("raoul");
+            choose("page");
+        }
+        assertEquals(0, game.flags().get("suspicion"), "after the third shout the soldier sends Raoul off, and he comes back");
+        assertTrue(game.figures().stream().anyMatch(f -> f.id().equals("raoul")));
+        cart();
+        assertEquals("harbour", game.room().id());
+    }
+
+    @Test
+    void aimerySingsTheMessageInLatin() {
+        actOne();
+        use("raoul");
+        assertTrue(game.isChoosing());
+        assertTrue(game.choices().stream().noneMatch(c -> c.id().equals("hear")), "no psalm before the soldier allows prayer");
+        choose("bye");
+        cart();
+        assertEquals("harbour", game.room().id());
+        assertEquals("lena", game.hero().id());
+        assertTrue(game.inventory().has("phone"));
+        assertTrue(game.inventory().has("page"));
+        assertTrue(game.inventory().has("bonefolder"));
+    }
+
+    void harbour() {
+        use("fisherman");
+        choose("templars");
+        choose("bye");
+        use("phone", "barometer");
+        use("fisherman");
+        choose("barometer");
+        choose("bye");
+        use("old-town");
+    }
+
+    @Test
+    void theFishermanTellsTheWayForAForecast() {
+        actOne();
+        cart();
+        use("old-town");
+        assertEquals("harbour", game.room().id(), "the old town waits until Lena knows where to look");
+        use("phone", "barometer");
+        use("fisherman");
+        choose("templars");
+        assertEquals(62, game.flags().get("goal"), "the barometer read first counts as soon as he asks");
+        choose("barometer");
+        choose("bye");
+        assertTrue(game.flags().is("fisher-done"));
+        use("old-town");
+        assertEquals("court", game.room().id());
+    }
+
+    void court() {
+        use("napkin");
+        use("napkin", "chalkboard");
+        use("morin");
+        choose("menu");
+        choose("bye");
+        use("chalkboard");
+        use("bonefolder", "relief");
+        use("kev-court");
+        choose("lift");
+        use("hollow");
+    }
+
+    @Test
+    void theBoardStaysUntilMadameMorinAllowsIt() {
+        actOne();
+        cart();
+        harbour();
+        use("chalkboard");
+        assertFalse(game.flags().is("board-moved"));
+        use("morin");
+        choose("board");
+        choose("bye");
+        assertFalse(game.flags().is("allowed"));
+    }
+
+    @Test
+    void theTokenFromTomarLeadsToTheShipInTheFogAndActTwoEnds() {
+        actOne();
+        cart();
+        harbour();
+        court();
+        assertEquals("quay", game.room().id());
+        assertEquals("raoul", game.hero().id());
+        assertEquals(List.of("lantern"), game.inventory().items());
+        assertTrue(game.figures().stream().noneMatch(f -> f.id().equals("etienne")),
+                "Étienne waits in the fog until the lantern signals");
+        use("lantern", "ship");
+        assertTrue(game.flags().is("signalled"));
+        use("etienne");
+        choose("page");
+        assertTrue(game.flags().is("fog-seen"));
+        settle();
+        assertEquals("court", game.room().id());
         assertTrue(game.flags().is("finished"));
+        assertTrue(game.inventory().has("token"));
+        assertTrue(game.inventory().has("page"));
+        assertFalse(game.inventory().has("lantern"));
     }
 
     @Test

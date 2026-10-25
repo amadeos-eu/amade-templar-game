@@ -1,0 +1,25 @@
+# The old harbour of La Rochelle at dusk, between its two towers.
+room harbour
+background harbour
+depth 280 0.86 400 1.3
+floor 0 300  130 296  640 292  640 400  0 400
+hole 506 298  570 298  570 316  506 316            # the nets
+hole 316 352  336 352  336 362  316 362            # the bollard
+spot arrival 600 360 left
+spot old-town 156 318 right
+
+hotspot sunset 250 120 150 70 stand 320 300 up
+hotspot saint-nicolas 150 40 104 170 stand 220 300 up
+hotspot chain-tower 400 96 76 116 stand 420 300 up
+hotspot harbour-water 0 210 640 54 stand 330 300 up
+hotspot boat 380 196 140 70 stand 450 300 up
+hotspot nets 500 280 78 36 stand 490 330 right
+hotspot gulls 220 268 80 22 stand 260 300 up
+hotspot clock-gate 0 30 70 120 stand 156 318 up
+hotspot office 70 116 76 150 stand 120 304 up
+hotspot barometer 96 186 26 30 stand 112 304 up
+hotspot quay-lamp 604 130 22 166 stand 600 310 right
+hotspot quay-bollard 312 330 28 32 stand 300 364 right
+exit old-town 0 250 40 150 stand 20 340 left to court arrival
+
+layer bollard 0 0 baseline 362

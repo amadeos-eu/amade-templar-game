@@ -165,7 +165,7 @@ on use phone plaque
   say lena calendar.3
   say lena calendar.4
   title card.act1.end
-  set finished
+  goto cart start
 end
 
 on look guide

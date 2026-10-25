@@ -59,6 +59,23 @@ on use sandwich
   say lena sandwich.use
 end
 
+on look token
+  say lena token.look
+end
+
+on use token
+  say lena token.use
+end
+
+on use phone token
+  sound camera
+  say lena phone.token
+end
+
+on use napkin page
+  say lena napkin.page
+end
+
 # Aimery's things, in 1307.
 
 on look ledger

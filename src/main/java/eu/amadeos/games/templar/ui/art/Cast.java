@@ -62,6 +62,16 @@ public final class Cast {
             Beard.NONE, c(0x6a9a5a), c(0x6a9a5a), c(0x5a5a6a), c(0x8a6a4a), Garment.NONE, c(0), 0,
             EnumSet.of(Extra.HANDBAG, Extra.GLASSES), c(0x6a9a5a));
 
+    /** The old fisherman of La Rochelle: grey beard, a sailor's cap, a yellow oilskin over a navy jumper. */
+    public static final Look FISHERMAN = new Look("fisherman", 114, 1.12, false, Look.SKIN_WEATHERED, c(0xc8c4bc),
+            Hair.SHORT, Beard.FULL, c(0x2a3a5a), c(0x2a3a5a), c(0x3a3a3a), c(0x2a2a2a), Garment.COAT, c(0xe0aa1c), 40,
+            EnumSet.of(Extra.CAP), c(0x1a2a4a));
+
+    /** Madame Morin of the café in the Cour du Temple: grey chignon, plum dress, a white apron, glasses. */
+    public static final Look MORIN = new Look("morin", 108, 1.08, true, Look.SKIN_FAIR, c(0xb8b0a8), Hair.CHIGNON,
+            Beard.NONE, c(0x5a2a3a), c(0x5a2a3a), c(0x2a2a2a), c(0x2a1a12), Garment.APRON, c(0xf0ece0), 30,
+            EnumSet.of(Extra.GLASSES), c(0x5a2a3a));
+
     // ---- 1307 ----
 
     /** Aimery, a squire of sixteen: brown tunic with belt and pouch, green hose, a bowl cut. */
@@ -84,18 +94,41 @@ public final class Cast {
             Beard.STUBBLE, c(0x8a8e96), c(0x8a8e96), c(0x8a8e96), c(0x2a1c12), Garment.SURCOAT, c(0x22388a), 30,
             EnumSet.of(Extra.LILIES, Extra.COIF, Extra.TORCH), c(0x22388a));
 
+    /** Brother Raoul after the arrests: no helmet and no cross, a carter's brown hood over his habit. */
+    public static final Look RAOUL = new Look("raoul", 122, 1.15, false, Look.SKIN_WEATHERED, c(0x4a3020), Hair.CROPPED,
+            Beard.FULL, c(0x5a4a36), c(0x5a4a36), c(0x3a3630), c(0x2a1c12), Garment.MANTLE, c(0x6a5436), 30,
+            EnumSet.of(Extra.HOOD, Extra.BELT), c(0x6a5436));
+
+    /** Raoul on the quay at La Rochelle, with a shuttered lantern. */
+    public static final Look RAOUL_LANTERN = RAOUL.wearing(Garment.MANTLE, c(0x6a5436), 30,
+            EnumSet.of(Extra.HOOD, Extra.BELT, Extra.LANTERN));
+
+    /** Brother Étienne of the Templars' house at La Rochelle: white mantle, brown beard. */
+    public static final Look ETIENNE = new Look("etienne", 115, 1.0, false, Look.SKIN_LIGHT, c(0x5a3a20), Hair.CROPPED,
+            Beard.FULL, c(0xe8e2d4), c(0xe8e2d4), c(0xe8e2d4), c(0x3a2a1c), Garment.MANTLE, c(0xf2eee4), 5,
+            EnumSet.of(Extra.CROSS, Extra.BELT), c(0xb0201a));
+
+    /** The Portuguese captain: a red tunic, a dark beard, a belt with a pouch. */
+    public static final Look CAPTAIN = new Look("captain", 118, 1.1, false, Look.SKIN_OLIVE, c(0x1a1410), Hair.SHORT,
+            Beard.FULL, c(0x6a2a22), c(0x6a2a22), c(0x3a3428), c(0x2a1a10), Garment.TUNIC, c(0x6a2a22), 50,
+            EnumSet.of(Extra.BELT, Extra.POUCH), c(0x6a2a22));
+
     private static final Map<String, Look> BY_ID = Map.ofEntries(
             Map.entry("lena", LENA), Map.entry("lefort", LEFORT), Map.entry("kev", KEV), Map.entry("helene", HELENE),
             Map.entry("driver", DRIVER), Map.entry("guide", GUIDE), Map.entry("tourist1", TOURIST_A),
             Map.entry("tourist2", TOURIST_B), Map.entry("aimery", AIMERY), Map.entry("gerard", GERARD),
-            Map.entry("guard", GUARD), Map.entry("soldier", SOLDIER), Map.entry("soldier2", SOLDIER));
+            Map.entry("guard", GUARD), Map.entry("soldier", SOLDIER), Map.entry("soldier2", SOLDIER),
+            Map.entry("gerard-cart", GERARD), Map.entry("soldier-cart", SOLDIER), Map.entry("raoul", RAOUL),
+            Map.entry("fisherman", FISHERMAN), Map.entry("kev-harbour", KEV), Map.entry("kev-court", KEV),
+            Map.entry("morin", MORIN), Map.entry("etienne", ETIENNE), Map.entry("captain", CAPTAIN));
 
     /** Rooms where Lena has her coat on. */
-    private static final Set<String> OUTDOORS = Set.of("square", "bridge");
+    private static final Set<String> OUTDOORS = Set.of("square", "bridge", "harbour", "court");
 
     /** The look of a person in a room, or null for an animal or someone drawn otherwise. */
     public static Look of(String id, String room) {
         if (id.equals("lena") && OUTDOORS.contains(room)) return LENA_OUT;
+        if (id.equals("raoul") && room.equals("quay")) return RAOUL_LANTERN;
         return BY_ID.get(id);
     }
 }
