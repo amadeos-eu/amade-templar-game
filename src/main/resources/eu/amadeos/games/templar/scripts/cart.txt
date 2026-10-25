@@ -1,5 +1,6 @@
 # Flashback 1: the Rue du Temple at dawn, 13 October 1307. Aimery, arrested, sings a message to Brother Raoul.
 
+# --8<-- [start:handover]
 on enter cart
   if not been-cart
     set been-cart
@@ -32,6 +33,7 @@ on enter cart
     set goal 50
   end
 end
+# --8<-- [end:handover]
 
 on look dawn
   say aimery dawn.look
@@ -171,6 +173,7 @@ end
 option shout page shout.q.page
   say aimery shout.page
   say soldier-cart shout.quiet
+  # --8<-- [start:suspicion]
   add suspicion 1
   if suspicion >= 3
     say soldier-cart shout.angry
@@ -184,6 +187,7 @@ option shout page shout.q.page
     exit
   end
   exit
+  # --8<-- [end:suspicion]
 end
 
 option shout psst shout.q.psst
