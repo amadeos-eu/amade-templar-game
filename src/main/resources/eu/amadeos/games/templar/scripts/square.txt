@@ -1,0 +1,240 @@
+# Act 1, scene 3: the Square du Temple. The old engraving, Hélène's offer, Kev and his sandwich.
+
+on enter square
+  if not been-square
+    set been-square
+    say lena square.intro.1
+    say lena square.intro.2
+    set goal 30
+  end
+end
+
+on look houses
+  say lena houses.look
+end
+
+on use houses
+  say lena houses.use
+end
+
+on look railing
+  say lena railing.look
+end
+
+on use railing
+  say lena railing.use
+end
+
+on look playground
+  say lena playground.look
+end
+
+on use playground
+  say lena playground.use
+end
+
+on look lamppost
+  say lena lamppost.look
+end
+
+on use lamppost
+  say lena lamppost.use
+end
+
+on look park-bench
+  say lena bench.square.look
+end
+
+on use park-bench
+  say lena bench.square.use
+end
+
+on look kev-sandwich
+  say lena kev-sandwich.look
+end
+
+on use kev-sandwich
+  say lena kev-sandwich.use
+end
+
+on look half-sandwich
+  say lena half-sandwich.look
+end
+
+on use half-sandwich
+  anim lena pickup
+  hide half-sandwich
+  gain sandwich
+  say lena half-sandwich.take
+  if molay
+    set goal 33
+  end
+end
+
+on look board
+  say lena board.look.1
+  say lena board.look.2
+  if not read-board
+    set read-board
+    say lena board.look.3
+    set goal 31
+    show helene
+    walk helene 176 336
+    face helene left
+    face lena right
+    say helene helene.hello
+    dialog helene
+  end
+end
+
+on use board
+  say lena board.look.1
+  say lena board.look.2
+  if not read-board
+    set read-board
+    say lena board.look.3
+    set goal 31
+    show helene
+    walk helene 176 336
+    face helene left
+    face lena right
+    say helene helene.hello
+    dialog helene
+  end
+end
+
+on look helene
+  say lena helene.look
+end
+
+on talk helene
+  dialog helene
+end
+
+option helene who helene.q.who once
+  say helene helene.who.1
+  say helene helene.who.2
+end
+
+option helene how helene.q.how once
+  say helene helene.how.1
+  say helene helene.how.2
+end
+
+option helene offer helene.q.offer once
+  say helene helene.offer.1
+  say lena helene.offer.2
+  say helene helene.offer.3
+end
+
+option helene no helene.q.no
+  say lena helene.no.1
+  say helene helene.no.2
+  walk helene 10 362
+  hide helene
+  set met-helene
+  exit
+end
+
+on look kev
+  say lena kev.look
+end
+
+on talk kev
+  dialog kev
+end
+
+option kev who kev.q.who once
+  say kev kev.who.1
+  say kev kev.who.2
+  say lena kev.who.3
+end
+
+option kev templars kev.q.templars once
+  say kev kev.templars.1
+  say lena kev.templars.2
+  say kev kev.templars.3
+end
+
+option kev curse kev.q.curse once if read-board
+  say kev kev.curse.1
+  say kev kev.curse.2
+  say lena kev.curse.3
+  say lena kev.curse.4
+  say kev kev.curse.5
+  say lena kev.curse.6
+  set molay
+  if has sandwich
+    set goal 33
+  else
+    set goal 32
+  end
+end
+
+option kev film kev.q.film once if read-board
+  say kev kev.film.1
+  walk kev 150 322
+  face kev left
+  say kev kev.film.2
+  walk pigeon 362 332
+  sound coo
+  hide kev-sandwich
+  show half-sandwich
+  walk pigeon 640 380
+  hide pigeon
+  face kev right
+  say kev kev.film.3
+  say kev kev.film.4
+  walk kev 432 338
+  face kev left
+end
+
+option kev bye kev.q.bye
+  say kev kev.bye
+  exit
+end
+
+on look pigeon
+  say lena pigeon.square.look
+end
+
+on talk pigeon
+  say pigeon pigeon.coo
+end
+
+on use sandwich pigeon
+  say lena pigeon.square.feed
+end
+
+on use sandwich kev
+  say kev kev.sandwich
+end
+
+on use page kev
+  say lena kev.page
+end
+
+on use page helene
+  say lena helene.page
+end
+
+on look metro
+  say lena metro.look
+end
+
+on exit metro
+  if not molay
+    say lena metro.not-yet
+    stop
+  end
+  sound door
+  goto bridge arrival
+end
+
+on look marais
+  say lena marais.look
+end
+
+on exit marais
+  goto reading street
+end

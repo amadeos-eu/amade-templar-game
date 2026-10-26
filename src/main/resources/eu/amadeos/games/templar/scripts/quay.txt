@@ -1,0 +1,160 @@
+# Flashback 2: La Rochelle at the end of October 1307. Brother Raoul finds the ship in the fog.
+
+on enter quay
+  if not been-quay
+    set been-quay
+    gain lantern
+    title card.fog
+    say raoul quay.intro.1
+    say raoul quay.intro.2
+    set goal 80
+  end
+end
+
+on look fog
+  say raoul fog.look
+end
+
+on look town-walls
+  say raoul town-walls.look
+end
+
+on look ship
+  if signalled
+    say raoul ship.seen
+  else
+    say raoul ship.look
+  end
+end
+
+on look ship-light
+  say raoul ship.seen
+end
+
+on look sea
+  say raoul sea.look
+end
+
+on use sea
+  say raoul sea.use
+end
+
+on look mooring-post
+  say raoul mooring-post.look
+end
+
+on use mooring-post
+  say raoul mooring-post.use
+end
+
+on look gangplank
+  say raoul gangplank.look
+end
+
+on use gangplank
+  if signalled
+    say raoul gangplank.no
+  else
+    say raoul gangplank.fog
+  end
+end
+
+on look lantern
+  say raoul lantern.look
+end
+
+on use lantern
+  say raoul lantern.use
+end
+
+on use lantern fog
+  say raoul lantern.wrong
+end
+
+on use lantern sea
+  say raoul lantern.wrong
+end
+
+on use lantern ship
+  if signalled
+    say raoul ship.seen
+    stop
+  end
+  anim raoul reach
+  say raoul signal.1
+  wait 1.2
+  show ship-light
+  sound discovery
+  say raoul signal.2
+  set signalled
+  show etienne
+  show captain
+  show sea-chest
+  walk etienne 320 330
+  face etienne left
+  say etienne signal.3
+  say raoul signal.4
+  set goal 81
+end
+
+on look sea-chest
+  say raoul sea-chest.look
+end
+
+on use sea-chest
+  say raoul sea-chest.use
+end
+
+on look etienne
+  say raoul etienne.look
+end
+
+on talk etienne
+  dialog etienne
+end
+
+option etienne paris etienne.q.paris once
+  say raoul etienne.paris.1
+  say etienne etienne.paris.2
+  say etienne etienne.paris.3
+end
+
+option etienne gold etienne.q.gold once
+  say raoul etienne.gold.1
+  say etienne etienne.gold.2
+end
+
+option etienne page etienne.q.page once
+  say raoul etienne.page.1
+  say etienne etienne.page.2
+  say etienne etienne.page.3
+  face captain left
+  say captain etienne.page.4
+  say captain etienne.page.5
+  say raoul etienne.page.6
+  say captain etienne.page.7
+  say raoul etienne.page.8
+  hide sea-chest
+  hide captain
+  sound door
+  wait 1
+  hide ship-light
+  lose lantern
+  set fog-seen
+  title card.fog.end
+  goto court after
+  exit
+end
+
+option etienne bye etienne.q.bye
+  say etienne etienne.bye
+  exit
+end
+
+on look captain
+  say raoul captain.look
+end
+
+on talk captain
+  say captain captain.talk
+end

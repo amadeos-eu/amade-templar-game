@@ -1,0 +1,21 @@
+# The library of the Paris Temple, the same night.
+room library
+background library
+depth 270 0.92 400 1.3
+floor 0 282  640 282  640 400  0 400
+hole 210 340  338 340  338 354  210 354            # the copyist's desk
+hole 456 292  500 292  500 302  456 302            # the lectern
+spot door 72 302 right
+
+hotspot cupboard 206 56 168 200 stand 290 296 up
+hotspot library-window 134 64 52 92 stand 160 296 up
+hotspot chests 388 222 240 52 stand 600 300 up
+hotspot copy-desk 214 268 120 84 stand 270 364 up
+hotspot copy-knife 238 274 32 12 stand 270 364 up
+hotspot glue-pot 298 256 18 26 stand 300 364 up
+hotspot candle 494 180 24 24 stand 450 312 right
+hotspot lectern 452 216 60 84 stand 446 312 right
+hotspot temple-psalter 458 218 44 22 stand 446 312 right
+exit library-exit 24 128 74 142 stand 64 300 left to courtyard library
+
+layer desk 0 0 baseline 354

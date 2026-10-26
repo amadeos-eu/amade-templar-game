@@ -1,0 +1,21 @@
+# The Pont Neuf at night, by the plaque for Jacques de Molay.
+room bridge
+background bridge
+depth 290 0.9 400 1.3
+floor 0 294  640 294  640 400  0 400
+hole 28 372  52 372  52 388  28 388                # the bollard
+spot arrival 64 362 right
+
+hotspot far-bank 0 128 640 74 stand 320 300 up
+hotspot river 0 204 640 32 stand 320 300 up
+hotspot statue 80 70 82 170 stand 130 300 up
+hotspot parapet 0 236 470 50 stand 340 300 up
+hotspot bridge-lamp 232 90 40 200 stand 270 304 left
+hotspot wall 470 144 170 146 stand 540 300 up
+hotspot steps 596 236 44 54 stand 610 304 right
+hotspot plaque 503 193 66 42 stand 536 302 up
+hotspot swarm 494 318 84 32 stand 470 344 right
+exit metro-bridge 0 270 22 120 stand 14 362 left to square metro
+
+layer bollard 0 0 baseline 388
+hidden swarm

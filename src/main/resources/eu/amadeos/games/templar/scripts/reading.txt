@@ -1,0 +1,259 @@
+# Act 1, scene 2: the reading room. Monsieur Lefort reads the page, once he has had his coffee.
+
+# --8<-- [start:lefort]
+on enter reading
+  if not met-lefort
+    set met-lefort
+    face lena right
+    say lefort lefort.hello.1
+    say lena lefort.hello.2
+    say lefort lefort.hello.3
+    set goal 20
+  end
+end
+
+on talk lefort
+  dialog lefort
+end
+
+option lefort page lefort.q.page once if has page
+  say lena lefort.page.1
+  anim lena reach
+  say lefort lefort.page.2
+  say lefort lefort.page.3
+  say lena lefort.page.4
+  say lefort lefort.page.5
+  set lefort 1
+  set goal 21
+end
+# --8<-- [end:lefort]
+
+option lefort why lefort.q.coffee if lefort == 1
+  say lena lefort.coffee.1
+  say lefort lefort.coffee.2
+  say lefort lefort.coffee.3
+end
+
+option lefort give lefort.q.give once if has coffee
+  anim lena reach
+  lose coffee
+  set lefort 2
+  say lefort lefort.give.1
+  say lefort lefort.give.2
+  say lefort lefort.give.3
+  say lena lefort.give.4
+  say lefort lefort.give.5
+  say lefort lefort.give.6
+  set goal 22
+  dialog sum
+end
+
+option lefort sum lefort.q.sum if lefort == 2
+  if read-sum
+    say lefort lefort.sum.again
+  else
+    say lefort lefort.give.6
+    dialog sum
+  end
+end
+
+option lefort history lefort.q.history once
+  say lena lefort.history.1
+  say lefort lefort.history.2
+  say lefort lefort.history.3
+  say lefort lefort.history.4
+end
+
+option lefort friday lefort.q.friday once if lefort == 2
+  say lefort lefort.friday.1
+  say lefort lefort.friday.2
+  say lena lefort.friday.3
+  say lefort lefort.friday.4
+end
+
+option lefort temple lefort.q.temple once if read-sum
+  say lefort lefort.temple.1
+  say lefort lefort.temple.2
+  say lena lefort.temple.3
+end
+
+option lefort bye dialog.bye
+  say lefort lefort.bye
+  exit
+end
+
+option sum twelve sum.12
+  say lena sum.answer.12
+  say lefort sum.wrong
+end
+
+option sum twenty sum.20
+  say lena sum.answer.20
+  say lefort sum.wrong
+end
+
+option sum all sum.240 if not read-sum
+  say lena sum.answer.240
+  say lefort sum.right.1
+  say lena sum.right.2
+  say lefort sum.right.3
+  set read-sum
+  set goal 23
+  exit
+end
+
+option sum later sum.later
+  say lefort sum.later.answer
+  exit
+end
+
+on look lefort
+  say lena lefort.look
+end
+
+on use coffee lefort
+  dialog lefort
+end
+
+on use page lefort
+  dialog lefort
+end
+
+on look machine
+  say lena machine.look
+end
+
+on use machine
+  if not has cup
+    say lena machine.no-cup
+  else
+    say lena machine.no-coin
+  end
+end
+
+on use coin machine
+  if not has cup
+    say lena machine.no-cup
+  else
+    anim lena reach
+    lose coin
+    lose cup
+    sound coffee
+    wait 1.2
+    anim lena reach
+    gain coffee
+    say lena machine.coffee
+  end
+end
+
+on use cup machine
+  if not has coin
+    say lena machine.no-coin
+  else
+    anim lena reach
+    lose coin
+    lose cup
+    sound coffee
+    wait 1.2
+    anim lena reach
+    gain coffee
+    say lena machine.coffee
+  end
+end
+
+on look rack
+  say lena rack.look
+end
+
+on use rack
+  say lena rack.use
+end
+
+on look lefort-cup
+  say lena lefort-cup.look
+end
+
+on use lefort-cup
+  anim lena reach
+  hide lefort-cup
+  gain cup
+  say lena lefort-cup.take
+end
+
+on look bookcase
+  say lena bookcase.look
+end
+
+on use bookcase
+  say lena bookcase.use
+end
+
+on look ladder
+  say lena ladder.look
+end
+
+on use ladder
+  say lena ladder.use
+end
+
+on look tall-window
+  say lena tall-window.look
+end
+
+on use tall-window
+  say lena tall-window.use
+end
+
+on look clock
+  say lena clock.look
+end
+
+on use clock
+  say lena clock.use
+end
+
+on look reading-table
+  say lena reading-table.look
+end
+
+on use reading-table
+  say lena reading-table.use
+end
+
+on look desk
+  say lena desk.look
+end
+
+on use desk
+  say lena desk.use
+end
+
+on look ledger-tables
+  say lena ledger-tables.look
+end
+
+on use ledger-tables
+  say lefort ledger-tables.use
+end
+
+on look atelier
+  say lena atelier.look
+end
+
+on exit atelier
+  sound door
+  goto workshop door
+end
+
+on look street
+  say lena street.look
+end
+
+on exit street
+  if not read-sum
+    say lena street.not-yet
+    stop
+  end
+  sound door
+  goto square arrival
+end

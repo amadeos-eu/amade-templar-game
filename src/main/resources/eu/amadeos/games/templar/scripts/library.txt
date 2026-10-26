@@ -1,0 +1,161 @@
+# Prologue, scene 3: the library of the Temple. Aimery hides the page in a psalter, and the King's men come.
+
+on enter library
+  if not been-library
+    set been-library
+    say aimery library.intro.1
+    say aimery library.intro.2
+    set goal 7
+  end
+end
+
+on look cupboard
+  say aimery cupboard.look
+end
+
+on use cupboard
+  say aimery cupboard.use
+end
+
+on look library-window
+  say aimery library-window.look
+end
+
+on use library-window
+  say aimery library-window.use
+end
+
+on look chests
+  say aimery chests.look
+end
+
+on use chests
+  say aimery chests.use
+end
+
+on use ledger chests
+  say aimery chests.ledger
+end
+
+on use ledger cupboard
+  say aimery chests.ledger
+end
+
+on look copy-desk
+  say aimery copy-desk.look
+end
+
+on use copy-desk
+  say aimery copy-desk.use
+end
+
+on look copy-knife
+  say aimery copy-knife.look
+end
+
+on use copy-knife
+  anim aimery reach
+  hide copy-knife
+  gain knife
+  say aimery copy-knife.take
+end
+
+on look glue-pot
+  say aimery glue-pot.look
+end
+
+on use glue-pot
+  anim aimery reach
+  hide glue-pot
+  gain glue
+  say aimery glue-pot.take
+end
+
+on look candle
+  say aimery library-candle.look
+end
+
+on look lectern
+  say aimery lectern.look
+end
+
+on look temple-psalter
+  if glued
+    say aimery temple-psalter.done
+  else
+    say aimery temple-psalter.look.1
+    say aimery temple-psalter.look.2
+    set goal 7
+  end
+end
+
+on use temple-psalter
+  if glued
+    say aimery temple-psalter.done
+  else
+    if cut
+      say aimery temple-psalter.open
+    else
+      say aimery temple-psalter.look.2
+      set goal 7
+    end
+  end
+end
+
+on use knife temple-psalter
+  if cut
+    say aimery temple-psalter.open
+    stop
+  end
+  anim aimery reach
+  sound paper
+  set cut
+  say aimery temple-psalter.cut
+  set goal 8
+end
+
+on use ledger temple-psalter
+  if not cut
+    say aimery temple-psalter.no-room
+    stop
+  end
+  anim aimery reach
+  lose ledger
+  set hidden-page
+  say aimery temple-psalter.hidden
+  set goal 9
+end
+
+on use glue temple-psalter
+  if not hidden-page
+    say aimery temple-psalter.no-glue
+    stop
+  end
+  anim aimery reach
+  lose glue
+  lose knife
+  set glued
+  say aimery temple-psalter.glued
+  sound door
+  show soldier
+  show soldier2
+  walk soldier 150 330
+  say soldier library.soldier.1
+  face aimery left
+  say aimery library.aimery.1
+  say soldier library.soldier.2
+  title card.arrest
+  goto workshop start
+end
+
+on look soldier
+  say aimery soldier.look
+end
+
+on look library-exit
+  say aimery library-exit.look
+end
+
+on exit library-exit
+  say aimery library-exit.no
+end

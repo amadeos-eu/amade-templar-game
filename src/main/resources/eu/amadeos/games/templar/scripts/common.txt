@@ -1,0 +1,123 @@
+# What the things in the inventory are, wherever the hero is.
+
+on look phone
+  say lena phone.look
+end
+
+on use phone
+  say lena phone.use
+end
+
+on look page
+  say lena page.look.1
+  say lena page.look.2
+  say lena page.look.3
+end
+
+on use page
+  say lena page.use
+end
+
+on use phone page
+  sound camera
+  say lena phone.page
+end
+
+on look bonefolder
+  say lena bonefolder.look
+end
+
+on look brush
+  say lena brush.look
+end
+
+on look damp-brush
+  say lena damp-brush.look
+end
+
+on look coin
+  say lena coin.look
+end
+
+on look cup
+  say lena cup.look
+end
+
+on look coffee
+  say lena coffee.look
+end
+
+on use coffee
+  say lena coffee.use
+end
+
+on look sandwich
+  say lena sandwich.look
+end
+
+on use sandwich
+  say lena sandwich.use
+end
+
+on look token
+  say lena token.look
+end
+
+on use token
+  say lena token.use
+end
+
+on use phone token
+  sound camera
+  say lena phone.token
+end
+
+on use napkin page
+  say lena napkin.page
+end
+
+# Aimery's things, in 1307.
+
+on look ledger
+  if sealed
+    say aimery ledger.look.sealed
+  else
+    say aimery ledger.look
+  end
+end
+
+on look key
+  say aimery key.look
+end
+
+on look seal
+  say aimery seal.look
+end
+
+on look wax
+  say aimery wax.look
+end
+
+on look soft-wax
+  say aimery soft-wax.look
+end
+
+on look cheese
+  say aimery cheese.look
+end
+
+on use cheese
+  say aimery cheese.use
+end
+
+on look knife
+  say aimery knife.look
+end
+
+on look glue
+  say aimery glue.look
+end
+
+on use seal wax
+  say aimery seal.hardwax
+end

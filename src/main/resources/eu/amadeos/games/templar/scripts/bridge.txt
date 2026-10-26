@@ -1,0 +1,182 @@
+# Act 1, scene 4: the Pont Neuf at night. Hélène's driver, the pigeons, a tour group, and the plaque.
+
+on enter bridge
+  if not been-bridge
+    set been-bridge
+    say lena bridge.intro
+    face driver left
+    say driver driver.hello.1
+    say lena driver.hello.2
+    say driver driver.hello.3
+    set goal 40
+  end
+end
+
+on look far-bank
+  say lena far-bank.look
+end
+
+on look river
+  say lena river.look
+end
+
+on use river
+  say lena river.use
+end
+
+on look statue
+  say lena statue.look
+end
+
+on use statue
+  say lena statue.use
+end
+
+on use sandwich statue
+  say lena statue.sandwich
+end
+
+on look parapet
+  say lena parapet.look
+end
+
+on use parapet
+  say lena parapet.use
+end
+
+on look bridge-lamp
+  say lena bridge-lamp.look
+end
+
+on use bridge-lamp
+  say lena bridge-lamp.use
+end
+
+on look wall
+  say lena wall.look
+end
+
+on use wall
+  say lena wall.use
+end
+
+on look steps
+  say lena steps.look
+end
+
+on use steps
+  say lena steps.use
+end
+
+on look plaque
+  if not driver-gone
+    say lena plaque.blocked
+    stop
+  end
+  say lena plaque.look.1
+  say lena plaque.look.2
+  if not read-plaque
+    set read-plaque
+    say lena plaque.look.3
+    set goal 41
+  end
+end
+
+on use plaque
+  if not driver-gone
+    say lena plaque.blocked
+    stop
+  end
+  say lena plaque.look.1
+  say lena plaque.look.2
+  if not read-plaque
+    set read-plaque
+    say lena plaque.look.3
+    set goal 41
+  end
+end
+
+on look driver
+  say lena driver.look
+end
+
+on talk driver
+  dialog driver
+end
+
+option driver who driver.q.who once
+  say driver driver.who.1
+  say driver driver.who.2
+end
+
+option driver no driver.q.no
+  say lena driver.no.1
+  say driver driver.no.2
+  exit
+end
+
+on use page driver
+  say lena driver.page
+end
+
+on use sandwich driver
+  anim lena reach
+  lose sandwich
+  sound pigeons
+  show swarm
+  say lena driver.sandwich
+  say driver driver.pigeons
+  show guide
+  show tourist1
+  show tourist2
+  walk guide 250 350
+  walk tourist1 200 364
+  walk tourist2 290 372
+  face guide right
+  say guide guide.tour.1
+  say guide guide.tour.2
+  say lena guide.tour.3
+  say guide guide.tour.4
+  say tourist1 guide.tour.5
+  say driver driver.leave
+  walk driver 620 300
+  hide driver
+  hide swarm
+  set driver-gone
+  say guide guide.tour.6
+  walk guide 10 362
+  walk tourist1 10 372
+  walk tourist2 10 382
+  hide guide
+  hide tourist1
+  hide tourist2
+  set goal 41
+end
+
+on use phone plaque
+  if not read-plaque
+    say lena phone.plaque.early
+    stop
+  end
+  anim lena phone
+  say lena calendar.1
+  say lena calendar.2
+  sound discovery
+  say lena calendar.3
+  say lena calendar.4
+  title card.act1.end
+  goto cart start
+end
+
+on look guide
+  say lena guide.look
+end
+
+on exit metro-bridge
+  sound door
+  goto square metro
+end
+
+on look swarm
+  say lena swarm.look
+end

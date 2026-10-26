@@ -1,0 +1,33 @@
+# Lena's restoration workshop, Paris, today, in the evening.
+room workshop
+background workshop
+depth 262 1.12 400 1.45
+floor 30 272  498 272  502 284  604 288  640 330  640 400  0 400  0 300
+hole 204 318  444 318  444 342  204 342            # the workbench
+hole 12 364  120 364  120 400  12 400              # the book press
+hole 552 384  640 384  640 400  552 400            # the pile of books
+spot start 296 300 right
+spot door 400 286 down
+
+hotspot window poly 40 120  40 98  70 52  115 44  160 52  190 98  190 214  40 214 stand 116 286 up
+hotspot window-pigeon 148 196 30 20 stand 150 286 up
+hotspot engraving 296 66 66 82 stand 330 286 up
+hotspot shelves 500 30 140 220 stand 566 300 up
+hotspot coat 432 114 30 104 stand 446 284 up
+exit door 366 102 66 160 stand 400 280 up to reading workshop-door
+hotspot bench 214 238 220 26 stand 330 352 up
+hotspot press 18 270 96 130 stand 140 384 left
+hotspot books 554 338 86 62 stand 536 384 right
+hotspot lamp 330 180 40 26 stand 352 300 right
+hotspot jar 233 226 15 22 stand 240 300 right
+hotspot gluepot 256 232 18 14 stand 240 300 right
+hotspot brush 244 241 28 10 stand 240 300 right
+hotspot mug 397 221 16 14 stand 370 300 right
+hotspot psalter 286 234 72 22 stand 288 300 right
+hotspot flap 294 228 30 14 stand 288 300 right
+hotspot bonefolder 358 242 30 12 stand 330 300 right
+
+layer bench 0 0 baseline 342
+layer press 0 0 baseline 400
+layer books 0 0 baseline 400
+hidden flap

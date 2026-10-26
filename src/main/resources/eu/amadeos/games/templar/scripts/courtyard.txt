@@ -1,0 +1,150 @@
+# Prologue, scene 2: the courtyard of the Temple. The guard at the gate, the stable cat, and the King's men.
+
+on enter courtyard
+  if not been-courtyard
+    set been-courtyard
+    say aimery courtyard.intro
+  end
+end
+
+on look tower
+  say aimery tower.look
+end
+
+on use tower
+  say aimery tower.use
+end
+
+on look cloister
+  say aimery cloister.look
+end
+
+on use cloister
+  say aimery cloister.use
+end
+
+on look moon
+  say aimery moon.look
+end
+
+on look well
+  say aimery well.look
+end
+
+on use well
+  say aimery well.use
+end
+
+on look torch
+  say aimery torch.look
+end
+
+on use torch
+  say aimery torch.use
+end
+
+on look guard
+  say aimery guard.look
+end
+
+on talk guard
+  dialog guard
+end
+
+option guard open guard.q.open
+  say aimery guard.open.1
+  say guard guard.open.2
+end
+
+option guard cat guard.q.cat once
+  say guard guard.cat.1
+  say guard guard.cat.2
+  set goal 4
+end
+
+option guard bye guard.q.bye
+  say guard guard.bye
+  exit
+end
+
+on look cat
+  say aimery cat.look
+end
+
+on talk cat
+  say cat cat.mew
+  say aimery cat.talk
+end
+
+on use cheese cat
+  say aimery cheese.cat
+end
+
+on use cheese guard
+  anim aimery reach
+  lose cheese
+  say aimery cheese.throw
+  sound cat
+  walk cat 520 330
+  say guard guard.sees.1
+  say guard guard.sees.2
+  walk cat 70 300
+  hide cat
+  walk guard 70 304
+  hide guard
+  set guard-gone
+  set goal 5
+end
+
+on use ledger guard
+  say aimery ledger.guard
+end
+
+on look gate
+  say aimery gate.look
+end
+
+on exit gate
+  if not guard-gone
+    say guard guard.block
+    stop
+  end
+  if soldiers
+    say aimery gate.soldiers
+    stop
+  end
+  anim aimery reach
+  sound alarm
+  say aimery gate.1
+  say soldier gate.2
+  say aimery gate.3
+  say aimery gate.4
+  set soldiers
+  set goal 6
+end
+
+on look library
+  say aimery library-door.look
+end
+
+on exit library
+  if not soldiers
+    say aimery library-door.not-yet
+    stop
+  end
+  sound door
+  goto library door
+end
+
+on look chapter
+  say aimery chapter-door.look
+end
+
+on exit chapter
+  if soldiers
+    say aimery chapter-door.barred
+    stop
+  end
+  sound door
+  goto chapter door
+end

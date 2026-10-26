@@ -1,0 +1,19 @@
+# The courtyard of the Paris Temple, the same night.
+room courtyard
+background courtyard
+depth 270 0.9 400 1.28
+floor 0 282  640 282  640 400  0 400
+hole 144 330  232 330  232 352  144 352            # the well
+spot chapter 34 304 right
+spot library 302 292 down
+
+hotspot tower 220 0 156 210 stand 300 296 up
+hotspot cloister 0 150 200 118 stand 100 300 up
+hotspot moon 76 32 28 28 stand 120 300 up
+hotspot well 146 246 84 104 stand 250 350 left
+hotspot torch 516 168 22 42 stand 520 300 up
+exit gate 548 120 92 150 stand 590 304 right to courtyard library
+exit library 278 190 48 82 stand 302 290 up to library door
+exit chapter 0 190 28 84 stand 14 304 left to chapter door
+
+layer well 0 0 baseline 352

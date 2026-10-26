@@ -1,0 +1,16 @@
+# The Rue du Temple at dawn on 13 October 1307: the prison cart in front of the Temple gate.
+room cart
+background cart
+depth 290 0.95 400 1.3
+floor 182 296  318 296  318 306  182 306
+spot start 286 302 right
+
+hotspot dawn 300 0 340 90 stand 290 302 up
+hotspot temple-tower 150 10 130 150 stand 240 302 up
+hotspot temple-gate 40 150 120 116 stand 200 302 left
+hotspot street-houses 360 40 280 220 stand 300 302 right
+hotspot bars 176 196 150 100 stand 286 302 up
+hotspot wheel 278 296 76 72 stand 300 302 down
+hotspot cabbages 566 286 74 56 stand 312 302 right
+
+layer bars 0 0 baseline 312

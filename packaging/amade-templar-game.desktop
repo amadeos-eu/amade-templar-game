@@ -1,0 +1,24 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=amadeOS The Seal of the Templars
+Name[de]=amadeOS Das Siegel der Templer
+Name[fr]=amadeOS Le Sceau des Templiers
+Name[es]=amadeOS El sello de los templarios
+Name[it]=amadeOS Il sigillo dei Templari
+GenericName=Point-and-Click Adventure
+GenericName[de]=Point-and-Click-Adventure
+GenericName[fr]=Jeu d'aventure pointer-cliquer
+GenericName[es]=Aventura gráfica
+GenericName[it]=Avventura punta e clicca
+Comment=A book restorer in Paris finds a page hidden in a medieval psalter and follows it back to the night before the Templars were arrested
+Comment[de]=Eine Buchrestauratorin in Paris findet eine Seite, versteckt in einem mittelalterlichen Psalter, und folgt ihr zurück in die Nacht vor der Verhaftung der Templer
+Comment[fr]=Une restauratrice de livres à Paris trouve une page cachée dans un psautier médiéval et la suit jusqu'à la nuit qui précéda l'arrestation des Templiers
+Comment[es]=Una restauradora de libros en París encuentra una página escondida en un salterio medieval y la sigue hasta la noche antes del arresto de los templarios
+Comment[it]=Una restauratrice di libri a Parigi trova una pagina nascosta in un salterio medievale e la segue fino alla notte prima dell'arresto dei Templari
+Icon=amade-templar-game
+Exec=/usr/bin/amade-templar-game
+Terminal=false
+Categories=Game;AdventureGame;
+Keywords=adventure;point-and-click;templars;history;mystery;paris;medieval;puzzle;game;
+StartupNotify=true

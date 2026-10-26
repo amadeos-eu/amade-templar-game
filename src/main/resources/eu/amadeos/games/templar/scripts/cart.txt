@@ -1,0 +1,317 @@
+# Flashback 1: the Rue du Temple at dawn, 13 October 1307. Aimery, arrested, sings a message to Brother Raoul.
+
+# --8<-- [start:handover]
+on enter cart
+  if not been-cart
+    set been-cart
+    if has phone
+      set kept-phone
+      lose phone
+    end
+    if has page
+      set kept-page
+      lose page
+    end
+    if has bonefolder
+      set kept-bonefolder
+      lose bonefolder
+    end
+    if has brush
+      set kept-brush
+      lose brush
+    end
+    title card.cart
+    say aimery cart.intro.1
+    say gerard-cart cart.intro.2
+    say aimery cart.intro.3
+    say gerard-cart cart.intro.4
+    show raoul
+    sound door
+    wait 0.6
+    say aimery cart.intro.5
+    say aimery cart.intro.6
+    set goal 50
+  end
+end
+# --8<-- [end:handover]
+
+on look dawn
+  say aimery dawn.look
+end
+
+on look temple-tower
+  say aimery temple-tower.look
+end
+
+on use temple-tower
+  say aimery temple-tower.use
+end
+
+on look temple-gate
+  say aimery temple-gate.look
+end
+
+on use temple-gate
+  say aimery temple-gate.use
+end
+
+on look street-houses
+  say aimery cart-houses.look
+end
+
+on use street-houses
+  say aimery cart-houses.use
+end
+
+on look bars
+  say aimery bars.look
+end
+
+on use bars
+  anim aimery reach
+  say aimery bars.use
+end
+
+on look wheel
+  say aimery wheel.look
+end
+
+on use wheel
+  say aimery wheel.use
+end
+
+on look cabbages
+  say aimery cabbages.look
+end
+
+on use cabbages
+  say aimery cabbages.use
+end
+
+# ---- Brother Gérard, in the cart ----
+
+on look gerard-cart
+  say aimery gerard-cart.look
+end
+
+on talk gerard-cart
+  dialog gerard-cart
+end
+
+option gerard-cart now gerard-cart.q.now once
+  say aimery gerard-cart.now.1
+  say gerard-cart gerard-cart.now.2
+  say gerard-cart gerard-cart.now.3
+end
+
+option gerard-cart how gerard-cart.q.how
+  say aimery gerard-cart.how.1
+  say gerard-cart gerard-cart.how.2
+  say gerard-cart gerard-cart.how.3
+  set latin-hint
+end
+
+option gerard-cart bye gerard-cart.q.bye
+  say gerard-cart gerard-cart.bye
+  exit
+end
+
+# ---- the King's man ----
+
+on look soldier-cart
+  say aimery soldier-cart.look
+end
+
+on talk soldier-cart
+  dialog soldier-cart
+end
+
+option soldier-cart where soldier-cart.q.where once
+  say aimery soldier-cart.where.1
+  say soldier-cart soldier-cart.where.2
+end
+
+option soldier-cart horse soldier-cart.q.horse once
+  say aimery soldier-cart.horse.1
+  say soldier-cart soldier-cart.horse.2
+end
+
+option soldier-cart pray soldier-cart.q.pray
+  say aimery soldier-cart.pray.1
+  say soldier-cart soldier-cart.pray.2
+  say soldier-cart soldier-cart.pray.3
+  if not may-sing
+    set may-sing
+    set goal 51
+  end
+end
+
+option soldier-cart bye soldier-cart.q.bye
+  say soldier-cart soldier-cart.bye
+  exit
+end
+
+# ---- Brother Raoul, a carter with cabbages ----
+
+on look raoul
+  say aimery raoul.look
+end
+
+on use raoul
+  say aimery raoul.use
+end
+
+on talk raoul
+  if may-sing
+    say aimery psalm.start
+    dialog psalm
+  else
+    dialog shout
+  end
+end
+
+option shout page shout.q.page
+  say aimery shout.page
+  say soldier-cart shout.quiet
+  # --8<-- [start:suspicion]
+  add suspicion 1
+  if suspicion >= 3
+    say soldier-cart shout.angry
+    hide raoul
+    say aimery shout.gone
+    wait 1.5
+    show raoul
+    say aimery shout.back
+    set suspicion 0
+    set psalm 0
+    exit
+  end
+  exit
+  # --8<-- [end:suspicion]
+end
+
+option shout psst shout.q.psst
+  say aimery shout.psst
+  say aimery shout.deaf
+  say soldier-cart shout.eyes
+  add suspicion 1
+  if suspicion >= 3
+    say soldier-cart shout.angry
+    hide raoul
+    say aimery shout.gone
+    wait 1.5
+    show raoul
+    say aimery shout.back
+    set suspicion 0
+    set psalm 0
+    exit
+  end
+  exit
+end
+
+option shout bye shout.q.bye
+  exit
+end
+
+# The psalm: three lines, each must be in Latin and carry the message.
+
+option psalm hear psalm.q.hear if psalm == 0
+  say aimery psalm.hear.1
+  say raoul psalm.hear.2
+  say soldier-cart psalm.monks
+  set psalm 1
+end
+
+option psalm kyrie psalm.q.kyrie if psalm == 0
+  say aimery psalm.kyrie.1
+  say aimery psalm.kyrie.2
+end
+
+option psalm psst psalm.q.psst if psalm == 0
+  say aimery psalm.psst
+  say soldier-cart shout.quiet
+  add suspicion 1
+  if suspicion >= 3
+    say soldier-cart shout.angry
+    hide raoul
+    say aimery shout.gone
+    wait 1.5
+    show raoul
+    say aimery shout.back
+    set suspicion 0
+    set psalm 0
+    exit
+  end
+end
+
+option psalm where psalm.q.where if psalm == 1
+  say aimery psalm.where.1
+  say raoul psalm.where.2
+  set psalm 2
+end
+
+option psalm cheese psalm.q.cheese if psalm == 1
+  say aimery psalm.cheese.1
+  say raoul psalm.cheese.2
+  say aimery psalm.cheese.3
+end
+
+option psalm french psalm.q.french if psalm == 1
+  say aimery psalm.french
+  say soldier-cart shout.quiet
+  add suspicion 1
+  if suspicion >= 3
+    say soldier-cart shout.angry
+    hide raoul
+    say aimery shout.gone
+    wait 1.5
+    show raoul
+    say aimery shout.back
+    set suspicion 0
+    set psalm 0
+    exit
+  end
+end
+
+option psalm half psalm.q.half if psalm == 2
+  say aimery psalm.half.1
+  say raoul psalm.half.2
+  sound discovery
+  say aimery psalm.half.3
+  say raoul psalm.half.4
+  say aimery psalm.half.5
+  say soldier-cart psalm.end.1
+  sound door
+  say gerard-cart psalm.end.2
+  set goal 52
+  title card.cart.end
+  goto harbour arrival
+  exit
+end
+
+option psalm cat psalm.q.cat if psalm == 2
+  say aimery psalm.cat.1
+  say raoul psalm.cat.2
+end
+
+option psalm ask psalm.q.ask if psalm == 2
+  say aimery psalm.ask
+  say soldier-cart shout.quiet
+  add suspicion 1
+  if suspicion >= 3
+    say soldier-cart shout.angry
+    hide raoul
+    say aimery shout.gone
+    wait 1.5
+    show raoul
+    say aimery shout.back
+    set suspicion 0
+    set psalm 0
+    exit
+  end
+end
+
+option psalm stop psalm.q.stop
+  say aimery psalm.stop
+  exit
+end

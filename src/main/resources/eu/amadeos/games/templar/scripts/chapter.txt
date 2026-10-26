@@ -1,0 +1,197 @@
+# Prologue, scene 1: the treasurer's chamber of the Paris Temple, 12 October 1307. Brother Gérard and the page.
+
+on enter chapter
+  if not prologue
+    set prologue
+    title card.1307
+    say gerard gerard.intro.1
+    say aimery gerard.intro.2
+    say gerard gerard.intro.3
+    say gerard gerard.intro.4
+    gain ledger
+    say gerard gerard.intro.5
+    gain key
+    set goal 1
+  end
+end
+
+on look gerard
+  say aimery gerard.look
+end
+
+on talk gerard
+  dialog gerard
+end
+
+option gerard why gerard.q.why once
+  say aimery gerard.why.1
+  say gerard gerard.why.2
+  say gerard gerard.why.3
+end
+
+option gerard king gerard.q.king once
+  say gerard gerard.king.1
+  say gerard gerard.king.2
+end
+
+option gerard how gerard.q.how if not sealed
+  say gerard gerard.how
+end
+
+option gerard where gerard.q.where if sealed
+  say gerard gerard.where.1
+  say gerard gerard.where.2
+end
+
+option gerard bye gerard.q.bye
+  say gerard gerard.bye
+  exit
+end
+
+on look lancet
+  say aimery lancet.look
+end
+
+on use lancet
+  say aimery lancet.use
+end
+
+on look banner
+  say aimery banner.look
+end
+
+on use banner
+  say aimery banner.use
+end
+
+on look book-stand
+  say aimery book-stand.look
+end
+
+on use book-stand
+  say aimery book-stand.use
+end
+
+on look chest
+  say aimery chest.look
+end
+
+on use chest
+  say aimery chest.locked
+end
+
+on use key chest
+  anim aimery reach
+  sound creak
+  lose key
+  show chest-open
+  anim aimery reach
+  gain seal
+  say aimery chest.open
+  set goal 2
+end
+
+on look chest-open
+  say aimery chest-open.look
+end
+
+on use chest-open
+  say aimery chest-open.look
+end
+
+on look table
+  say aimery table.look
+end
+
+on use table
+  say aimery table.use
+end
+
+on look accounts
+  say aimery accounts.look
+end
+
+on use accounts
+  say aimery accounts.use
+end
+
+on look candles
+  say aimery candles.look
+end
+
+on use candles
+  say aimery candles.use
+end
+
+on use wax candles
+  anim aimery reach
+  lose wax
+  gain soft-wax
+  say aimery wax.soften
+end
+
+on use ledger candles
+  say aimery ledger.candle
+end
+
+on look supper
+  say aimery supper.look
+end
+
+on use supper
+  anim aimery reach
+  hide supper
+  gain cheese
+  say aimery supper.take
+end
+
+on look wax-stick
+  say aimery wax-stick.look
+end
+
+on use wax-stick
+  anim aimery reach
+  hide wax-stick
+  gain wax
+  say aimery wax-stick.take
+end
+
+on use wax ledger
+  say aimery wax.hard
+end
+
+on use soft-wax ledger
+  anim aimery reach
+  lose soft-wax
+  set waxed
+  say aimery ledger.waxed
+  set goal 2
+end
+
+on use seal ledger
+  if not waxed
+    say aimery seal.nowax
+    stop
+  end
+  anim aimery reach
+  sound seal
+  lose seal
+  set sealed
+  say aimery seal.done
+  say gerard seal.gerard.1
+  say gerard seal.gerard.2
+  set goal 3
+end
+
+on use seal soft-wax
+  say aimery seal.softwax
+end
+
+on exit courtyard-door
+  if not sealed
+    say gerard door.unsealed
+    stop
+  end
+  sound door
+  goto courtyard chapter
+end

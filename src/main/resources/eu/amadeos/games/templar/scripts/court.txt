@@ -1,0 +1,325 @@
+# Act 2, scene 6: the Cour du Temple at night, where the Templars of La Rochelle had their house.
+
+on enter court
+  if fog-seen
+    if not act2-done
+      set act2-done
+    if kept-phone
+      gain phone
+    end
+    if kept-page
+      gain page
+    end
+    if kept-bonefolder
+      gain bonefolder
+    end
+    if kept-brush
+      gain brush
+    end
+    if kept-napkin
+      gain napkin
+    end
+    if kept-token
+      gain token
+    end
+      say lena court.end.1
+      say lena court.end.2
+      say lena court.end.3
+      anim kev-court point
+      say kev-court court.end.4
+      say lena court.end.5
+      say kev-court court.end.6
+      say lena court.end.7
+      title card.act2.end
+      set finished
+    end
+    stop
+  end
+  if not been-court
+    set been-court
+    say lena court.intro.1
+    say kev-court court.intro.2
+    say lena court.intro.3
+    set goal 70
+  end
+end
+
+on look night-sky
+  say lena night-sky.look
+end
+
+on look old-wall
+  say lena old-wall.look
+end
+
+on use old-wall
+  say lena old-wall.use
+end
+
+on look street-sign
+  say lena street-sign.look
+end
+
+on look cafe
+  say lena cafe.look
+end
+
+on use cafe
+  say lena cafe.use
+end
+
+on look cafe-window
+  say lena cafe-window.look
+end
+
+on look terrace-lights
+  say lena terrace-lights.look
+end
+
+on exit back-harbour
+  if finished
+    stop
+  end
+  goto harbour old-town
+end
+
+# ---- the menu board and the stone behind it ----
+
+on look chalkboard
+  if decoded
+    say lena chalkboard.decoded
+  else
+    say lena chalkboard.look.1
+    say lena chalkboard.look.2
+  end
+  say lena chalkboard.behind
+end
+
+on use chalkboard
+  if not allowed
+    say lena chalkboard.ask
+    stop
+  end
+  anim lena reach
+  sound door
+  hide chalkboard
+  show moved-board
+  set board-moved
+  say lena chalkboard.moved
+  set goal 72
+end
+
+on use napkin chalkboard
+  if decoded
+    say lena chalkboard.decoded
+    stop
+  end
+  anim lena point
+  say lena decode.1
+  say lena decode.2
+  say kev-court decode.3
+  say lena decode.4
+  set decoded
+  set goal 71
+end
+
+on look moved-board
+  say lena chalkboard.decoded
+end
+
+on look relief
+  if not board-moved
+    say lena relief.hidden
+    stop
+  end
+  say lena relief.look.1
+  say lena relief.look.2
+  if not stone-loose
+    set goal 73
+  end
+end
+
+on use relief
+  if not board-moved
+    say lena relief.blocked
+    stop
+  end
+  if stone-loose
+    say lena relief.heavy
+  else
+    say lena relief.use
+  end
+end
+
+on use bonefolder relief
+  if not board-moved
+    say lena relief.blocked
+    stop
+  end
+  if stone-loose
+    say lena relief.heavy
+    stop
+  end
+  anim lena reach
+  sound paper
+  set stone-loose
+  say lena relief.loose.1
+  say lena relief.loose.2
+  set goal 74
+end
+
+on look loose-stone
+  say lena loose-stone.look
+end
+
+on look hollow
+  if took-token
+    say lena hollow.empty
+  else
+    say lena hollow.look
+  end
+end
+
+on use hollow
+  if took-token
+    say lena hollow.empty
+    stop
+  end
+  anim lena reach
+  sound coin
+  gain token
+  set took-token
+  say lena token.found.1
+  say lena token.found.2
+  say lena token.found.3
+  say kev-court token.found.4
+  say lena token.found.5
+  clear kept-phone
+  if has phone
+    set kept-phone
+    lose phone
+  end
+  clear kept-page
+  if has page
+    set kept-page
+    lose page
+  end
+  clear kept-bonefolder
+  if has bonefolder
+    set kept-bonefolder
+    lose bonefolder
+  end
+  clear kept-brush
+  if has brush
+    set kept-brush
+    lose brush
+  end
+  clear kept-napkin
+  if has napkin
+    set kept-napkin
+    lose napkin
+  end
+  clear kept-token
+  if has token
+    set kept-token
+    lose token
+  end
+  goto quay start
+end
+
+# ---- the napkin ----
+
+on look napkin
+  say lena napkin.look
+end
+
+on use napkin
+  anim lena reach
+  gain napkin
+  hide napkin
+  say lena napkin.take
+end
+
+# ---- Kev ----
+
+on look kev-court
+  say lena kev-court.look
+end
+
+on talk kev-court
+  dialog kev-court
+end
+
+option kev-court cipher kev-court.q.cipher once
+  say lena kev-court.cipher.1
+  say kev-court kev-court.cipher.2
+  say lena kev-court.cipher.3
+  say kev-court kev-court.cipher.4
+end
+
+option kev-court lift kev-court.q.lift once if stone-loose
+  say lena kev-court.lift.1
+  say kev-court kev-court.lift.2
+  walk kev-court 230 310
+  face kev-court left
+  anim kev-court reach
+  sound door
+  hide relief
+  show hollow
+  show loose-stone
+  say kev-court kev-court.lift.3
+  say kev-court kev-court.lift.4
+  say lena kev-court.lift.5
+  set goal 75
+  exit
+end
+
+option kev-court bye kev-court.q.bye
+  say kev-court kev-court.bye
+  exit
+end
+
+# ---- Madame Morin, of the café ----
+
+on look morin
+  say lena morin.look
+end
+
+on talk morin
+  dialog morin
+end
+
+option morin old morin.q.old once
+  say lena morin.old.1
+  say morin morin.old.2
+  say morin morin.old.3
+end
+
+option morin board morin.q.board if not allowed
+  say lena morin.board.1
+  say morin morin.board.2
+  say lena morin.board.3
+  say morin morin.board.4
+end
+
+option morin menu morin.q.menu once if decoded
+  say lena morin.menu.1
+  say morin morin.menu.2
+  say morin morin.menu.3
+  say morin morin.menu.4
+  say lena morin.menu.5
+  say morin morin.menu.6
+  set allowed
+  if not board-moved
+    set goal 71
+  end
+end
+
+option morin bye morin.q.bye
+  say morin morin.bye
+  exit
+end
+
+on use page morin
+  say lena morin.page
+end
