@@ -161,6 +161,7 @@ end
 
 # Three questions; a wrong answer starts them again, and costs nothing.
 
+# --8<-- [start:quiz]
 option quiz arrest-1314 quiz.a.1314 if quiz == 0
   say lena quiz.1314.1
   say ines quiz.1314.2
@@ -181,6 +182,8 @@ option quiz arrest-1119 quiz.a.1119 if quiz == 0
   set quiz 0
   exit
 end
+
+# --8<-- [end:quiz]
 
 option quiz seal-church quiz.a.church if quiz == 1
   say lena quiz.church.1
