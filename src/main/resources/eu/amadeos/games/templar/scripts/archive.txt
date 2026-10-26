@@ -1,0 +1,338 @@
+# Act 3, scene 8: the archive in the tower. The other half of the chirograph, a locked door, and a way out.
+
+on enter archive
+  if not been-archive
+    set been-archive
+    say ines-archive archive.intro.1
+    say ines-archive archive.intro.2
+    say lena archive.intro.3
+    say ines-archive archive.intro.4
+    walk ines-archive 40 318
+    hide ines-archive
+    sound door
+    set goal 100
+  end
+end
+
+on exit archive-door
+  if rescued
+    goto cloister arrival
+    stop
+  end
+  if locked
+    say lena archive-door.locked
+    stop
+  end
+  if not joined
+    say lena archive-door.notyet
+    stop
+  end
+  goto charola from-archive
+end
+
+on look registers
+  say lena registers.look.1
+  say lena registers.look.2
+end
+
+on use registers
+  say lena registers.use
+end
+
+# ---- the register on the lectern ----
+
+on look register
+  if found-half
+    say lena register.empty
+    stop
+  end
+  say lena register.look.1
+  say lena register.look.2
+  set goal 101
+end
+
+on use register
+  if found-half
+    say lena register.empty
+    stop
+  end
+  anim lena reach
+  sound paper
+  say lena register.use.1
+  say lena register.use.2
+  set goal 101
+end
+
+on use bonefolder register
+  if found-half
+    say lena register.empty
+    stop
+  end
+  anim lena reach
+  sound paper
+  wait 0.6
+  sound discovery
+  gain half
+  set found-half
+  say lena half.found.1
+  say lena half.found.2
+  set goal 102
+end
+
+on use page half
+  if joined
+    stop
+  end
+  anim lena point
+  sound discovery
+  lose page
+  lose half
+  gain chirograph
+  set joined
+  say lena joined.1
+  say lena joined.2
+  say lena joined.3
+  say lena joined.4
+  say lena joined.5
+  wait 0.4
+  show helene-archive
+  sound door
+  say helene-archive joined.helene.1
+  say lena joined.helene.2
+  say helene-archive joined.helene.3
+  say lena joined.helene.4
+  say helene-archive joined.helene.5
+  hide helene-archive
+  sound door
+  wait 0.4
+  say lena joined.helene.6
+  set locked
+  set goal 103
+end
+
+on use half page
+  if joined
+    stop
+  end
+  say lena half.page
+end
+
+# ---- the desk ----
+
+on look reading-desk
+  say lena reading-desk.look
+end
+
+on use reading-desk
+  say lena reading-desk.use
+end
+
+on look desk-pencil
+  say lena desk-pencil.look
+end
+
+on use desk-pencil
+  anim lena reach
+  gain pencil
+  hide desk-pencil
+  say lena pencil.take
+end
+
+on look rules
+  say lena rules.look
+end
+
+on use pencil napkin
+  anim lena point
+  sound paper
+  lose napkin
+  gain note
+  say lena note.write.1
+  say lena note.write.2
+  if pigeon-here
+    set goal 106
+  else
+    set goal 105
+  end
+end
+
+on use napkin pencil
+  say lena napkin.pencil
+end
+
+# ---- the book lift ----
+
+on look book-lift
+  if lift-up
+    say lena book-lift.up
+  else
+    say lena book-lift.look
+  end
+end
+
+on use book-lift
+  if lift-up
+    if locked
+      say lena book-lift.small
+    else
+      say lena book-lift.up
+    end
+    stop
+  end
+  anim lena reach
+  sound creak
+  wait 0.8
+  set lift-up
+  show lift-box
+  show lunch-bag
+  say lena book-lift.use.1
+  say lena book-lift.use.2
+end
+
+on look lift-box
+  say lena book-lift.up
+end
+
+on use lift-box
+  say lena book-lift.small
+end
+
+on use note lift-box
+  say lena book-lift.note
+end
+
+on use note book-lift
+  say lena book-lift.note
+end
+
+on look lunch-bag
+  say lena lunch-bag.look
+end
+
+on use lunch-bag
+  anim lena reach
+  sound paper
+  gain pastry
+  hide lunch-bag
+  say lena lunch-bag.take.1
+  say lena lunch-bag.take.2
+end
+
+# ---- the window over the cloister ----
+
+on look tower-window
+  say lena tower-window.look.1
+  if locked
+    say lena tower-window.look.2
+  end
+end
+
+on use tower-window
+  if not locked
+    say lena tower-window.notyet
+    stop
+  end
+  anim lena reach
+  sound creak
+  hide tower-window
+  show tower-window-open
+  set window-open
+  say lena tower-window.open.1
+  say lena tower-window.open.2
+  set goal 104
+end
+
+on look tower-window-open
+  say lena tower-window.look.1
+  say lena tower-window.look.2
+end
+
+on use tower-window-open
+  say lena tower-window.shout
+end
+
+on use pastry tower-window
+  say lena pastry.closed
+end
+
+on use pastry tower-window-open
+  anim lena reach
+  lose pastry
+  wait 0.6
+  show pigeon-archive
+  sound coo
+  set pigeon-here
+  say lena pastry.window.1
+  say lena pastry.window.2
+  say lena pastry.window.3
+  if has note
+    set goal 106
+  else
+    set goal 105
+  end
+end
+
+on use note tower-window
+  say lena note.closed
+end
+
+on use note tower-window-open
+  if not pigeon-here
+    say lena note.nobody
+    stop
+  end
+  anim lena reach
+  say lena rescue.1
+  sound camera
+  wait 0.8
+  say lena rescue.2
+  say lena rescue.3
+  wait 1.0
+  sound door
+  show ines-archive
+  lose note
+  say ines-archive rescue.4
+  say ines-archive rescue.5
+  say lena rescue.6
+  say ines-archive rescue.7
+  set rescued
+  goto cloister arrival
+end
+
+on look pastry
+  say lena pastry.look
+end
+
+on use pastry
+  say lena pastry.use
+end
+
+on look pigeon-archive
+  say lena pigeon-archive.look
+end
+
+on use pigeon-archive
+  sound coo
+  say lena pigeon-archive.use
+end
+
+on look pencil
+  say lena pencil.look
+end
+
+on use note pigeon-archive
+  say lena note.pigeon
+end
+
+on look half
+  say lena half.look
+end
+
+on look chirograph
+  say lena chirograph.look.1
+  say lena chirograph.look.2
+end
+
+on look note
+  say lena note.look
+end

@@ -43,7 +43,16 @@ final class Hud {
             Map.entry("lena", c(0xfff2c8)), Map.entry("aimery", c(0xc8f0a8)), Map.entry("gerard", c(0xf4f4f4)),
             Map.entry("guard", c(0xd8c0a0)), Map.entry("soldier", c(0x9ab8ff)), Map.entry("lefort", c(0xa8d8f0)),
             Map.entry("kev", c(0xffb060)), Map.entry("helene", c(0xe8a8d8)), Map.entry("driver", c(0xb8b8c0)),
-            Map.entry("guide", c(0xfff07a)), Map.entry("cat", c(0xe0e0e0)), Map.entry("pigeon", c(0xd0d0e0)));
+            Map.entry("guide", c(0xfff07a)), Map.entry("cat", c(0xe0e0e0)), Map.entry("pigeon", c(0xd0d0e0)),
+            Map.entry("ines", c(0xb8f0d0)));
+
+    /** The colour of a speaker's lines; "kev-court" speaks in Kev's colour. */
+    static Color voice(String actor) {
+        Color voice = VOICES.get(actor);
+        int dash = actor.indexOf('-');
+        if (voice == null && dash > 0) voice = VOICES.get(actor.substring(0, dash));
+        return voice == null ? Color.WHITE : voice;
+    }
 
     private final Messages msg;
     private double bar;
@@ -109,7 +118,7 @@ final class Hud {
         Adventure.Line line = a.line();
         if (line != null) {
             Point2D head = RoomView.head(a, line.actor());
-            Color voice = VOICES.getOrDefault(line.actor(), Color.WHITE);
+            Color voice = voice(line.actor());
             if (head == null) SpokenText.draw(g, line.text(), SPEECH, voice, W / 2, 60, 420, screen);
             else SpokenText.draw(g, line.text(), SPEECH, voice, head.getX(), head.getY() - 4, 300, screen);
         }

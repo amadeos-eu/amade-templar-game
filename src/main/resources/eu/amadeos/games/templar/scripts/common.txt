@@ -5,6 +5,12 @@ on look phone
 end
 
 on use phone
+  if locked
+    if not rescued
+      say lena phone.archive
+      stop
+    end
+  end
   say lena phone.use
 end
 

@@ -1,0 +1,17 @@
+# The Charola, the round church of the Templars in the Convent of Christ at Tomar.
+room charola
+background charola
+depth 300 0.9 400 1.25
+floor 0 304  70 300  580 300  640 306  640 400  0 400
+hole 470 322  566 322  566 338  470 338            # the showcase
+spot arrival 230 356 right
+spot from-archive 84 318 right
+
+hotspot octagon 228 40 184 250 stand 320 312 up
+hotspot paintings 0 30 220 250 stand 160 312 up
+hotspot charola-window 440 40 60 110 stand 470 312 up
+hotspot rope 226 270 188 30 stand 320 316 up
+hotspot showcase 470 248 96 86 stand 520 348 up
+exit tower-door 34 176 56 124 stand 70 308 left to archive arrival
+
+layer showcase 0 0 baseline 338

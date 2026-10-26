@@ -51,6 +51,12 @@ class PlaythroughTest {
         settle();
     }
 
+    void look(String id) {
+        settle();
+        game.click(Interaction.RIGHT, at(id));
+        settle();
+    }
+
     void use(String item, String id) {
         settle();
         game.clickItem(Interaction.LEFT, item);
@@ -335,11 +341,119 @@ class PlaythroughTest {
         choose("page");
         assertTrue(game.flags().is("fog-seen"));
         settle();
-        assertEquals("court", game.room().id());
-        assertTrue(game.flags().is("finished"));
+        assertEquals("charola", game.room().id(), "after the ending in the café, Act 3 begins in Tomar");
+        assertFalse(game.flags().is("finished"));
         assertTrue(game.inventory().has("token"));
         assertTrue(game.inventory().has("page"));
         assertFalse(game.inventory().has("lantern"));
+    }
+
+    void actTwo() {
+        actOne();
+        cart();
+        harbour();
+        court();
+        use("lantern", "ship");
+        use("etienne");
+        choose("page");
+        settle();
+    }
+
+    // --8<-- [start:charola]
+    void charola() {
+        look("showcase");
+        use("ines");
+        choose("open");
+        choose("arrest-1307");
+        choose("seal-riders");
+        choose("heirs-christ");
+        choose("bye");
+        use("token", "showcase");
+        use("tower-door");
+    }
+    // --8<-- [end:charola]
+
+    void archive() {
+        use("bonefolder", "register");
+        combine("page", "half");
+        use("desk-pencil");
+        combine("pencil", "napkin");
+        use("book-lift");
+        use("lunch-bag");
+        use("tower-window");
+        use("pastry", "tower-window-open");
+        use("note", "tower-window-open");
+    }
+
+    @Test
+    void aWrongAnswerStartsDonaInesQuestionsAgain() {
+        actTwo();
+        use("tower-door");
+        assertEquals("charola", game.room().id(), "the tower is locked");
+        use("ines");
+        assertFalse(game.choices().stream().anyMatch(c -> c.id().equals("open")),
+                "she is asked to open the showcase only after Lena has looked at it");
+        choose("bye");
+        look("showcase");
+        use("ines");
+        choose("open");
+        choose("arrest-1314");
+        assertEquals(0, game.flags().get("quiz"));
+        choose("open");
+        choose("arrest-1307");
+        choose("seal-lion");
+        assertEquals(0, game.flags().get("quiz"), "every wrong answer starts the questions again");
+        choose("open");
+        choose("arrest-1307");
+        choose("seal-riders");
+        choose("think");
+        choose("bye");
+        assertFalse(game.flags().is("quiz-done"));
+        use("token", "showcase");
+        assertFalse(game.flags().is("token-fits"), "the glass is in the way");
+    }
+
+    @Test
+    void lenaIsLockedInTheArchiveAndThePigeonGetsHerOut() {
+        actTwo();
+        charola();
+        assertEquals("archive", game.room().id());
+        use("archive-door");
+        assertEquals("archive", game.room().id(), "she doesn't leave before she has found something");
+        use("bonefolder", "register");
+        assertTrue(game.inventory().has("half"));
+        combine("page", "half");
+        assertTrue(game.inventory().has("chirograph"));
+        assertTrue(game.flags().is("locked"));
+        use("archive-door");
+        assertEquals("archive", game.room().id(), "Hélène has locked the door");
+        use("book-lift");
+        use("lunch-bag");
+        use("pastry", "tower-window");
+        assertTrue(game.inventory().has("pastry"), "crumbs need an open window");
+        use("tower-window");
+        use("pastry", "tower-window-open");
+        assertTrue(game.flags().is("pigeon-here"));
+        use("desk-pencil");
+        combine("pencil", "napkin");
+        assertTrue(game.inventory().has("note"));
+        use("note", "tower-window-open");
+        assertEquals("cloister", game.room().id());
+    }
+
+    @Test
+    void theChestHoldsTheKingsPromisesAndTheStoryEnds() {
+        actTwo();
+        charola();
+        archive();
+        assertEquals("cloister", game.room().id());
+        use("chirograph", "helene-cloister");
+        assertFalse(game.flags().is("finished"), "Lena first looks into the chest");
+        look("iron-chest-open");
+        use("chirograph", "helene-cloister");
+        settle();
+        assertTrue(game.flags().is("finished"));
+        assertTrue(game.figures().stream().noneMatch(f -> f.id().equals("helene-cloister")), "Hélène has left");
     }
 
     @Test

@@ -1,0 +1,26 @@
+# The archive of the convent, high in a tower, with the registers of the Order of Christ.
+room archive
+background archive
+depth 300 0.9 400 1.25
+floor 0 306  80 300  560 300  640 306  640 400  0 400
+hole 252 324  304 324  304 338  252 338            # the lectern
+hole 420 318  524 318  524 334  420 334            # the desk
+spot arrival 96 330 right
+
+hotspot registers 150 50 260 240 stand 300 312 up
+hotspot register 244 276 68 22 stand 278 346 up
+hotspot reading-desk 420 270 104 60 stand 470 344 up
+hotspot desk-pencil 484 288 26 10 stand 470 344 up
+hotspot rules 432 172 50 30 stand 456 312 up
+hotspot book-lift 98 196 50 60 stand 126 314 up
+hotspot lift-box 98 196 50 60 stand 126 314 up
+hotspot lunch-bag 104 230 28 20 stand 126 314 up
+hotspot tower-window 540 100 80 136 stand 560 314 up
+hotspot tower-window-open 540 100 80 136 stand 560 314 up
+exit archive-door 6 160 50 140 stand 40 318 left to charola from-archive
+
+layer lectern 0 0 baseline 338
+layer desk 0 0 baseline 334
+hidden lift-box
+hidden lunch-bag
+hidden tower-window-open

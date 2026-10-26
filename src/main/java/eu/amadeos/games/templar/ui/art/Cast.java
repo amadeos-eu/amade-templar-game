@@ -72,6 +72,11 @@ public final class Cast {
             Beard.NONE, c(0x5a2a3a), c(0x5a2a3a), c(0x2a2a2a), c(0x2a1a12), Garment.APRON, c(0xf0ece0), 30,
             EnumSet.of(Extra.GLASSES), c(0x5a2a3a));
 
+    /** Dona Inês, the guide at the Convent of Christ: black hair in a chignon, a navy blazer, a red scarf. */
+    public static final Look INES = new Look("ines", 109, 1.06, true, Look.SKIN_OLIVE, c(0x1e1612), Hair.CHIGNON,
+            Beard.NONE, c(0xf0ece4), c(0x23304c), c(0x23304c), c(0x1a1414), Garment.JACKET, c(0x23304c), 44,
+            EnumSet.of(Extra.SCARF, Extra.EARRINGS, Extra.GLASSES), c(0xa8201c));
+
     // ---- 1307 ----
 
     /** Aimery, a squire of sixteen: brown tunic with belt and pouch, green hose, a bowl cut. */
@@ -120,10 +125,13 @@ public final class Cast {
             Map.entry("guard", GUARD), Map.entry("soldier", SOLDIER), Map.entry("soldier2", SOLDIER),
             Map.entry("gerard-cart", GERARD), Map.entry("soldier-cart", SOLDIER), Map.entry("raoul", RAOUL),
             Map.entry("fisherman", FISHERMAN), Map.entry("kev-harbour", KEV), Map.entry("kev-court", KEV),
-            Map.entry("morin", MORIN), Map.entry("etienne", ETIENNE), Map.entry("captain", CAPTAIN));
+            Map.entry("morin", MORIN), Map.entry("etienne", ETIENNE), Map.entry("captain", CAPTAIN),
+            Map.entry("ines", INES), Map.entry("ines-archive", INES), Map.entry("ines-cloister", INES),
+            Map.entry("kev-tomar", KEV), Map.entry("kev-cloister", KEV), Map.entry("helene-tomar", HELENE),
+            Map.entry("helene-archive", HELENE), Map.entry("helene-cloister", HELENE));
 
     /** Rooms where Lena has her coat on. */
-    private static final Set<String> OUTDOORS = Set.of("square", "bridge", "harbour", "court");
+    private static final Set<String> OUTDOORS = Set.of("square", "bridge", "harbour", "court", "cloister");
 
     /** The look of a person in a room, or null for an animal or someone drawn otherwise. */
     public static Look of(String id, String room) {
