@@ -18,7 +18,7 @@ public final class Animals {
     }
 
     public static boolean isAnimal(String id) {
-        return id.equals("cat") || id.equals("pigeon");
+        return id.equals("cat") || id.equals("pigeon") || id.startsWith("pigeon-");
     }
 
     /** {@code walking} with {@code phase} 0 to 1 through a step cycle; otherwise sitting. */

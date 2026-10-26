@@ -21,6 +21,9 @@ public final class Rooms {
         ART.put("harbour", Harbour::new);
         ART.put("court", Court::new);
         ART.put("quay", Quay::new);
+        ART.put("charola", Charola::new);
+        ART.put("archive", Archive::new);
+        ART.put("cloister", Cloister::new);
     }
 
     private Rooms() {

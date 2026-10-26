@@ -1,0 +1,282 @@
+# Act 3, scene 7: the Charola, the round church of the Templars at Tomar. Dona Inês, her showcase and her questions.
+
+on enter charola
+  if not been-charola
+    set been-charola
+    title card.tomar
+    say lena charola.intro.1
+    say helene-tomar charola.helene.1
+    say lena charola.helene.2
+    say helene-tomar charola.helene.3
+    say lena charola.helene.4
+    say helene-tomar charola.helene.5
+    walk helene-tomar 70 308
+    hide helene-tomar
+    sound door
+    say kev-tomar charola.kev.1
+    say ines charola.kev.2
+    say kev-tomar charola.kev.3
+    set goal 90
+  end
+end
+
+on look octagon
+  say lena octagon.look.1
+  say lena octagon.look.2
+end
+
+on use octagon
+  say lena octagon.use
+end
+
+on look paintings
+  say lena paintings.look
+end
+
+on use paintings
+  say lena paintings.use
+end
+
+on look charola-window
+  say lena charola-window.look
+end
+
+on look rope
+  say lena rope.look
+end
+
+on use rope
+  say ines rope.use
+end
+
+on exit tower-door
+  if not archive-open
+    say lena tower-door.locked
+    stop
+  end
+  goto archive arrival
+end
+
+# ---- the showcase ----
+
+on look showcase
+  if token-fits
+    say lena showcase.after
+    stop
+  end
+  say lena showcase.look.1
+  say lena showcase.look.2
+  if quiz-done
+    say lena showcase.open
+  else
+    set may-ask
+    set goal 91
+  end
+end
+
+on use showcase
+  if quiz-done
+    say lena showcase.open
+  else
+    say lena showcase.locked
+  end
+end
+
+on use token showcase
+  if token-fits
+    say lena showcase.after
+    stop
+  end
+  if not quiz-done
+    say lena showcase.glass
+    stop
+  end
+  anim lena reach
+  sound discovery
+  set token-fits
+  say lena token.fits.1
+  say lena token.fits.2
+  say ines token.fits.3
+  say ines token.fits.4
+  say lena token.fits.5
+  say ines token.fits.6
+  walk ines 90 316
+  face ines left
+  sound door
+  set archive-open
+  say ines token.fits.7
+  set goal 94
+end
+
+# ---- Dona Inês ----
+
+on look ines
+  say lena ines.look
+end
+
+on talk ines
+  dialog ines
+end
+
+on use page ines
+  say ines ines.page
+end
+
+on use phone ines
+  say ines ines.phone
+end
+
+option ines who ines.q.who once
+  say lena ines.who.1
+  say ines ines.who.2
+  say ines ines.who.3
+end
+
+option ines helene ines.q.helene once
+  say lena ines.helene.1
+  say ines ines.helene.2
+  say ines ines.helene.3
+end
+
+option ines round ines.q.round once
+  say lena ines.round.1
+  say ines ines.round.2
+  say ines ines.round.3
+end
+
+option ines open ines.q.open if may-ask
+  say lena ines.open.1
+  say ines ines.open.2
+  say ines ines.open.3
+  set quiz 0
+  set goal 92
+  say ines quiz.q.1
+  dialog quiz
+end
+
+option ines bye ines.q.bye
+  say ines ines.bye
+  exit
+end
+
+# Three questions; a wrong answer starts them again, and costs nothing.
+
+option quiz arrest-1314 quiz.a.1314 if quiz == 0
+  say lena quiz.1314.1
+  say ines quiz.1314.2
+  set quiz 0
+  exit
+end
+
+option quiz arrest-1307 quiz.a.1307 if quiz == 0
+  say lena quiz.1307.1
+  say ines quiz.right.1
+  set quiz 1
+  say ines quiz.q.2
+end
+
+option quiz arrest-1119 quiz.a.1119 if quiz == 0
+  say lena quiz.1119.1
+  say ines quiz.1119.2
+  set quiz 0
+  exit
+end
+
+option quiz seal-church quiz.a.church if quiz == 1
+  say lena quiz.church.1
+  say ines quiz.church.2
+  set quiz 0
+  exit
+end
+
+option quiz seal-lion quiz.a.lion if quiz == 1
+  say lena quiz.lion.1
+  say ines quiz.lion.2
+  set quiz 0
+  exit
+end
+
+option quiz seal-riders quiz.a.riders if quiz == 1
+  say lena quiz.riders.1
+  say ines quiz.right.2
+  set quiz 2
+  say ines quiz.q.3
+end
+
+option quiz heirs-christ quiz.a.christ if quiz == 2
+  say lena quiz.christ.1
+  say ines quiz.christ.2
+  say ines quiz.christ.3
+  anim ines reach
+  sound door
+  set quiz 3
+  set quiz-done
+  clear may-ask
+  say ines quiz.christ.4
+  set goal 93
+  exit
+end
+
+option quiz heirs-hospital quiz.a.hospital if quiz == 2
+  say lena quiz.hospital.1
+  say ines quiz.hospital.2
+  set quiz 0
+  exit
+end
+
+option quiz heirs-king quiz.a.king if quiz == 2
+  say lena quiz.king.1
+  say ines quiz.king.2
+  set quiz 0
+  exit
+end
+
+option quiz think quiz.a.think
+  say ines quiz.think
+  set quiz 0
+  exit
+end
+
+# ---- Kev, and the pigeon ----
+
+on look kev-tomar
+  say lena kev-tomar.look
+end
+
+on talk kev-tomar
+  dialog kev-tomar
+end
+
+option kev-tomar pigeon kev-tomar.q.pigeon once
+  say lena kev-tomar.pigeon.1
+  say kev-tomar kev-tomar.pigeon.2
+  say kev-tomar kev-tomar.pigeon.3
+  say lena kev-tomar.pigeon.4
+end
+
+option kev-tomar stream kev-tomar.q.stream once
+  say lena kev-tomar.stream.1
+  say kev-tomar kev-tomar.stream.2
+  say lena kev-tomar.stream.3
+  say kev-tomar kev-tomar.stream.4
+end
+
+option kev-tomar answers kev-tomar.q.answers once if may-ask
+  say lena kev-tomar.answers.1
+  say kev-tomar kev-tomar.answers.2
+  say lena kev-tomar.answers.3
+end
+
+option kev-tomar bye kev-tomar.q.bye
+  say kev-tomar kev-tomar.bye
+  exit
+end
+
+on look pigeon-tomar
+  say lena pigeon-tomar.look
+end
+
+on use pigeon-tomar
+  sound coo
+  say lena pigeon-tomar.use
+end

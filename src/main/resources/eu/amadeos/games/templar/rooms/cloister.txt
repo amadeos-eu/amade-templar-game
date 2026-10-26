@@ -1,0 +1,16 @@
+# The cemetery cloister of the convent: two storeys of arches round a garden, and a slab with a cross.
+room cloister
+background cloister
+depth 296 0.9 400 1.25
+floor 0 300  640 300  640 400  0 400
+hole 300 330  384 330  384 350  300 350            # the open grave of the chest
+spot arrival 190 348 right
+
+hotspot arcades 0 20 640 260 stand 320 310 up
+hotspot orange-tree 250 120 120 170 stand 300 306 up
+hotspot slab 296 316 92 36 stand 300 360 right
+hotspot iron-chest 316 322 56 22 stand 300 360 right
+hotspot iron-chest-open 316 306 56 38 stand 300 360 right
+hotspot cloister-gate 0 150 30 160 stand 20 340 left
+
+hidden iron-chest-open

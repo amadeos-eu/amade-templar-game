@@ -145,6 +145,78 @@ public final class Items {
                 g.setColor(c(0xe8e0c0));
                 g.fill(new Ellipse2D.Double(-5, -8, 10, 4));
             }
+            case "half" -> {
+                // the Tomar half: parchment with a wavy cut along its left edge
+                g.setPaint(new GradientPaint(-12, -9, c(0xeadcb4), 12, 9, c(0xc0a880)));
+                g.fill(poly(-10, -9, -12, -5, -9, -1, -12, 3, -9, 7, -11, 10, 12, 9, 11, -10));
+                g.setColor(c(0x5a4a3a, 170));
+                g.setStroke(new BasicStroke(0.8f));
+                for (int i = 0; i < 4; i++) g.draw(new Line2D.Double(-6, -6 + i * 3.4, 8, -6.6 + i * 3.4));
+            }
+            case "chirograph" -> {
+                // both halves, side by side, the wavy cut between them
+                g.setPaint(new GradientPaint(-16, -9, c(0xf0e2bc), 16, 9, c(0xc8b088)));
+                g.fill(poly(-16, -8, 16, -10, 17, 8, -15, 10));
+                g.setColor(c(0x6a5a3a));
+                g.setStroke(new BasicStroke(0.7f));
+                g.draw(Brush.curve(1, -9, -1, -4, 2, 0, -1, 4, 1, 9));
+                g.setColor(c(0x5a4a3a, 170));
+                for (int i = 0; i < 4; i++) {
+                    g.draw(new Line2D.Double(-13, -6 + i * 3.4, -3, -6.4 + i * 3.4));
+                    g.draw(new Line2D.Double(4, -6.4 + i * 3.4, 14, -6.8 + i * 3.4));
+                }
+                g.setColor(c(0x8a1e14));
+                g.fill(new Ellipse2D.Double(-12, 4, 5, 4));
+            }
+            case "napkin", "note" -> {
+                g.setColor(c(0xf4f0e6));
+                g.fill(poly(-11, -8, 11, -9, 12, 8, -10, 9));
+                g.setColor(c(0x9a2a22));
+                g.setStroke(new BasicStroke(0.6f));
+                g.draw(new Rectangle2D.Double(-9, -7, 19, 14));
+                if (item.equals("note")) {
+                    g.setColor(c(0x3a3a3a));
+                    g.setStroke(new BasicStroke(1f));
+                    for (int i = 0; i < 3; i++) g.draw(new Line2D.Double(-6, -3 + i * 3.4, 6 - i * 2, -3 + i * 3.4));
+                }
+            }
+            case "token" -> {
+                g.setPaint(new GradientPaint(-7, -7, c(0xb0b4b8), 7, 7, c(0x5a5e66)));
+                g.fill(new Ellipse2D.Double(-8, -8, 16, 16));
+                g.setColor(c(0x3a3e44));
+                g.setStroke(new BasicStroke(0.8f));
+                g.draw(new Ellipse2D.Double(-6.5, -6.5, 13, 13));
+                g.fill(poly(-3.5, 3, -3.5, -1, 0, -4, 3.5, -1, 3.5, 3));
+            }
+            case "lantern" -> {
+                g.setColor(c(0x2a2a2e));
+                g.fill(new Rectangle2D.Double(-5, -9, 10, 2));
+                g.fill(new Rectangle2D.Double(-5, 7, 10, 2));
+                g.setColor(c(0xffd070));
+                g.fill(new Rectangle2D.Double(-4, -7, 8, 14));
+                g.setColor(c(0x2a2a2e));
+                g.setStroke(new BasicStroke(1f));
+                g.draw(new Rectangle2D.Double(-4, -7, 8, 14));
+                g.draw(new Arc2D.Double(-3, -13, 6, 8, 0, 180, Arc2D.OPEN));
+            }
+            case "pencil" -> {
+                g.rotate(-0.45);
+                g.setColor(c(0x2a5a3a));
+                g.fill(new Rectangle2D.Double(-12, -1.8, 20, 3.6));
+                g.setColor(c(0xe0c090));
+                g.fill(poly(8, -1.8, 13, 0, 8, 1.8));
+                g.setColor(c(0x2a2a2a));
+                g.fill(poly(11.5, -0.6, 13, 0, 11.5, 0.6));
+            }
+            case "pastry" -> {
+                g.setPaint(new GradientPaint(0, -4, c(0xe8b050), 0, 6, c(0xa86a24)));
+                g.fill(new Ellipse2D.Double(-10, -5, 20, 11));
+                g.setPaint(new GradientPaint(0, -3, c(0xfce48a), 0, 3, c(0xe8b040)));
+                g.fill(new Ellipse2D.Double(-7, -3.5, 14, 6.5));
+                g.setColor(c(0x5a2a0a));
+                g.fill(new Ellipse2D.Double(-3, -2, 3, 2));
+                g.fill(new Ellipse2D.Double(1.5, -0.5, 2.4, 1.6));
+            }
             default -> {
                 g.setColor(c(0xd8c8a0));
                 g.fill(new Ellipse2D.Double(-6, -6, 12, 12));

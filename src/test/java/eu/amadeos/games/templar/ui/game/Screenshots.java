@@ -67,10 +67,7 @@ public final class Screenshots {
 
         // The first flashback: Aimery in the prison cart, singing the message to Raoul in Latin.
         Shot cart = room("cart", "start");
-        for (int i = 0; i < 4; i++) {
-            cart.run(1);
-            while (cart.adventure.skip()) cart.run(0.1);
-        }
+        settle(cart);
         cart.adventure.flags().set("may-sing");
         cart.click(Interaction.LEFT, 546, 300);
         cart.run(2);
@@ -82,6 +79,35 @@ public final class Screenshots {
         room("court", "arrival", 1, 300, 330).save(new File(dir, "court.png"));
         room("quay", "start", 1, 200, 340).save(new File(dir, "quay.png"));
 
+        // Act 3, Tomar: Dona Inês in the Charola, the archive with the pigeon on the sill, the chest in the cloister.
+        Shot charola = room("charola", "arrival");
+        settle(charola);
+        charola.adventure.flags().set("may-ask");
+        charola.click(Interaction.LEFT, 604, 300);
+        charola.run(4);
+        while (charola.adventure.skip()) charola.run(0.1);
+        charola.run(0.5);
+        charola.save(new File(dir, "charola.png"));
+
+        Shot archive = room("archive", "arrival", 1, 360, 340);
+        for (String hotspot : new String[]{"tower-window-open", "pigeon-archive", "lift-box"}) archive.adventure.show(hotspot, true);
+        archive.adventure.show("tower-window", false);
+        archive.run(0.5);
+        archive.save(new File(dir, "archive.png"));
+
+        room("cloister", "arrival", 1, 240, 360).save(new File(dir, "cloister.png"));
+
+        // The epilogue, at its page about Portugal.
+        Shot end = room("cloister", "arrival");
+        settle(end);
+        end.adventure.flags().set("finished");
+        end.run(2);
+        for (int i = 0; i < 4; i++) {
+            end.click(Interaction.LEFT, 320, 200);
+            end.run(1.5);
+        }
+        end.save(new File(dir, "epilogue.png"));
+
         // The notebook over the workshop.
         Shot notebook = room("workshop", "start", 1, 330, 304);
         notebook.key(KeyEvent.VK_N);
@@ -92,6 +118,14 @@ public final class Screenshots {
 
         walkArea(new File(dir, "walkarea.png"));
         cast(new File(dir, "cast.png"));
+    }
+
+    /** Plays a scene's opening to its end, clicking away the lines, so the player may act. */
+    static void settle(Shot shot) {
+        for (int i = 0; i < 6; i++) {
+            shot.run(1);
+            while (shot.adventure.skip()) shot.run(0.1);
+        }
     }
 
     /** A new game, moved to a room, with the pointer clicked at (x, y) {@code clicks} times, a second apart. */
@@ -157,7 +191,7 @@ public final class Screenshots {
     static void cast(File file) throws Exception {
         Look[] looks = {Cast.AIMERY, Cast.GERARD, Cast.GUARD, Cast.SOLDIER, Cast.LENA, Cast.LENA_OUT, Cast.LEFORT,
                 Cast.KEV, Cast.HELENE, Cast.DRIVER, Cast.GUIDE, Cast.TOURIST_A, Cast.TOURIST_B, Cast.RAOUL,
-                Cast.ETIENNE, Cast.CAPTAIN, Cast.FISHERMAN, Cast.MORIN};
+                Cast.ETIENNE, Cast.CAPTAIN, Cast.FISHERMAN, Cast.MORIN, Cast.INES};
         double scale = 2;
         int cw = 70, ch = 150, cols = looks.length;
         BufferedImage image = new BufferedImage((int) (cols * cw * scale), (int) (ch * scale), BufferedImage.TYPE_INT_ARGB);

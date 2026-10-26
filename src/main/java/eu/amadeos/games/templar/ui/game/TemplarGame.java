@@ -335,15 +335,24 @@ public final class TemplarGame implements Arena {
         }
     }
 
-    /** The end of what is written so far: Act 2 comes in a later version. */
+    /**
+     * The end of the story: "The End", then what really happened, page by page, and what the game made up.
+     * A click turns the page; after the last one comes the title screen.
+     */
     final class EndScene implements Scene {
+        static final int PAGES = 7;
         private double age;
+        private int page;
 
         @Override
         public void update(double seconds) {
             age += seconds;
-            if (age > 1.5 && (mouse.wasPressed(Interaction.LEFT) || keyboard.wasPressed(KeyEvent.VK_ENTER)
-                    || keyboard.wasPressed(KeyEvent.VK_ESCAPE))) scenes.replace(new TitleScene());
+            if (age > 1.2 && (mouse.wasPressed(Interaction.LEFT) || keyboard.wasPressed(KeyEvent.VK_ENTER)
+                    || keyboard.wasPressed(KeyEvent.VK_SPACE))) {
+                age = 0;
+                if (++page > PAGES) scenes.replace(new TitleScene());
+            }
+            if (keyboard.wasPressed(KeyEvent.VK_ESCAPE)) scenes.replace(new TitleScene());
         }
 
         @Override
@@ -353,11 +362,39 @@ public final class TemplarGame implements Arena {
 
         @Override
         public void renderOverlay(Graphics2D g, double alpha) {
-            TitleArt.title(g, msg.get("end.title"), msg.get("end.subtitle"), Math.min(1, age / 1.5));
+            double fade = Math.min(1, age / 0.8);
+            if (page == 0) TitleArt.title(g, msg.get("end.title"), msg.get("end.subtitle"), fade);
+            else fact(g, page, fade);
             g.setFont(new Font(Font.SERIF, Font.ITALIC, 13));
             g.setColor(c(0xe8dcc0));
             String s = msg.get("end.back");
-            g.drawString(s, 320 - g.getFontMetrics().stringWidth(s) / 2, 330);
+            g.drawString(s, 320 - g.getFontMetrics().stringWidth(s) / 2, 370);
         }
+
+        // --8<-- [start:epilogue]
+        /** One page of "What really happened": a heading and a few lines, on a dark panel over the title picture. */
+        private void fact(Graphics2D g, int n, double fade) {
+            int a = (int) (255 * fade);
+            g.setColor(new Color(12, 8, 4, (int) (190 * fade)));
+            g.fill(new java.awt.geom.RoundRectangle2D.Double(60, 70, 520, 270, 14, 14));
+            g.setFont(new Font(Font.SERIF, Font.ITALIC, 14));
+            g.setColor(c(0xc8a868, a));
+            String over = msg.get("epilogue.title") + "  ·  " + n + " / " + PAGES;
+            g.drawString(over, 320 - g.getFontMetrics().stringWidth(over) / 2, 100);
+            g.setFont(new Font(Font.SERIF, Font.BOLD | Font.ITALIC, 24));
+            g.setColor(c(0xf2d48a, a));
+            String head = msg.get("epilogue." + n + ".head");
+            g.drawString(head, 320 - g.getFontMetrics().stringWidth(head) / 2, 136);
+            Font body = new Font(Font.SERIF, Font.PLAIN, 15);
+            g.setFont(body);
+            g.setColor(c(0xeee4cc, a));
+            double y = 172;
+            for (String line : eu.amadeos.gameengine.adventure.SpokenText.wrap(msg.get("epilogue." + n + ".text"), body,
+                    g.getFontRenderContext(), 470)) {
+                g.drawString(line, 85f, (float) y);
+                y += 21;
+            }
+        }
+        // --8<-- [end:epilogue]
     }
 }

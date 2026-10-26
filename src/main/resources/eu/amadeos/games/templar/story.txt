@@ -17,6 +17,9 @@ room cart aimery
 room harbour lena
 room court lena
 room quay raoul
+room charola lena
+room archive lena
+room cloister lena
 
 person gerard chapter 470 324 left
 person guard courtyard 566 318 left
@@ -40,6 +43,17 @@ person morin court 548 304 left
 person kev-court court 476 334 left
 person etienne quay 360 330 right hidden
 person captain quay 520 320 left hidden
+person ines charola 604 338 left
+person kev-tomar charola 352 350 left
+person pigeon-tomar charola 404 374 left height 14
+person helene-tomar charola 160 326 right
+person ines-archive archive 196 318 left
+person helene-archive archive 40 312 right hidden
+person pigeon-archive archive 592 232 left height 14 hidden
+person helene-cloister cloister 420 330 left
+person ines-cloister cloister 120 326 right hidden
+person kev-cloister cloister 560 344 left
+person pigeon-cloister cloister 512 372 left height 14
 
 script common.txt
 script chapter.txt
@@ -53,3 +67,6 @@ script cart.txt
 script harbour.txt
 script court.txt
 script quay.txt
+script charola.txt
+script archive.txt
+script cloister.txt

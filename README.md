@@ -18,7 +18,13 @@
 - **F11** switches to full screen and back. *Game → Graphics* chooses **Direct** (the screen's full size) or **Pixels** (640 × 400, enlarged by whole factors). **F12** shows how long each frame takes.
 - The sounds can be switched off under *Game → Sound*.
 
-So far the game has the **prologue** in the Paris Temple, 1307 (the treasurer's chamber, the courtyard and the library), and **Act 1** in today's Paris (the restoration workshop, the reading room of the library, the Square du Temple and the Pont Neuf at night). Act 1 ends with the trail leading to La Rochelle.
+The whole story is there:
+
+- **Prologue**, the Paris Temple in 1307: the treasurer's chamber, the courtyard and the library.
+- **Act 1**, today's Paris: the restoration workshop, the reading room of the library, the Square du Temple and the Pont Neuf at night.
+- **Act 2**, La Rochelle: a flashback to the prison cart at dawn, the old harbour, the Cour du Temple café, and a second flashback to the quay in fog.
+- **Act 3**, the Convent of Christ at Tomar: the Charola, the archive in the tower and the cloister.
+- **Epilogue**, "What really happened": what is history in the game and what was made up.
 
 ## Files
 
@@ -36,7 +42,7 @@ The whole story is data in `src/main/resources/eu/amadeos/games/templar/`, read 
 - `scripts/<file>.txt` say what happens: `on look psalter`, `on use bonefolder psalter`, `on talk lefort`, dialog `option`s, with commands like `say`, `walk`, `gain`, `set`, `show`, `goto`, `title`, `dialog`, and `if` … `else` … `end`.
 - `messages*.properties` hold every sentence, in every language. Scripts only name text keys.
 
-`StoryTest` checks that every text exists, that every door leads to a room and a spot, and that no two rooms share a hotspot name. `PlaythroughTest` plays the prologue and Act 1 with clicks, as a player would, so a puzzle that can't be solved fails the build.
+`StoryTest` checks that every text exists, that every door leads to a room and a spot, and that no two rooms share a hotspot name. `PlaythroughTest` plays the whole story with clicks, as a player would, so a puzzle that can't be solved fails the build.
 
 The rooms are painted by code in `ui.art.rooms`, one class per room, at twice the logical size. Each object is drawn on its own layer with a dark ink outline. The people are drawn by `ui.art.Figure` from a `Look` (build, clothes, hair) and a `Pose`. They are seen from the side, the front and the back, and are tinted to each room's light.
 
