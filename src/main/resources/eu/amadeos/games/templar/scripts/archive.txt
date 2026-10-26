@@ -5,7 +5,7 @@ on enter archive
     set been-archive
     say ines-archive archive.intro.1
     say ines-archive archive.intro.2
-    say lena archive.intro.3
+    say maria archive.intro.3
     say ines-archive archive.intro.4
     walk ines-archive 40 318
     hide ines-archive
@@ -20,62 +20,62 @@ on exit archive-door
     stop
   end
   if locked
-    say lena archive-door.locked
+    say maria archive-door.locked
     stop
   end
   if not joined
-    say lena archive-door.notyet
+    say maria archive-door.notyet
     stop
   end
   goto charola from-archive
 end
 
 on look registers
-  say lena registers.look.1
-  say lena registers.look.2
+  say maria registers.look.1
+  say maria registers.look.2
 end
 
 on use registers
-  say lena registers.use
+  say maria registers.use
 end
 
 # ---- the register on the lectern ----
 
 on look register
   if found-half
-    say lena register.empty
+    say maria register.empty
     stop
   end
-  say lena register.look.1
-  say lena register.look.2
+  say maria register.look.1
+  say maria register.look.2
   set goal 101
 end
 
 on use register
   if found-half
-    say lena register.empty
+    say maria register.empty
     stop
   end
-  anim lena reach
+  anim maria reach
   sound paper
-  say lena register.use.1
-  say lena register.use.2
+  say maria register.use.1
+  say maria register.use.2
   set goal 101
 end
 
 on use bonefolder register
   if found-half
-    say lena register.empty
+    say maria register.empty
     stop
   end
-  anim lena reach
+  anim maria reach
   sound paper
   wait 0.6
   sound discovery
   gain half
   set found-half
-  say lena half.found.1
-  say lena half.found.2
+  say maria half.found.1
+  say maria half.found.2
   set goal 102
 end
 
@@ -83,29 +83,29 @@ on use page half
   if joined
     stop
   end
-  anim lena point
+  anim maria point
   sound discovery
   lose page
   lose half
   gain chirograph
   set joined
-  say lena joined.1
-  say lena joined.2
-  say lena joined.3
-  say lena joined.4
-  say lena joined.5
+  say maria joined.1
+  say maria joined.2
+  say maria joined.3
+  say maria joined.4
+  say maria joined.5
   wait 0.4
   show helene-archive
   sound door
   say helene-archive joined.helene.1
-  say lena joined.helene.2
+  say maria joined.helene.2
   say helene-archive joined.helene.3
-  say lena joined.helene.4
+  say maria joined.helene.4
   say helene-archive joined.helene.5
   hide helene-archive
   sound door
   wait 0.4
-  say lena joined.helene.6
+  say maria joined.helene.6
   set locked
   set goal 103
 end
@@ -114,41 +114,41 @@ on use half page
   if joined
     stop
   end
-  say lena half.page
+  say maria half.page
 end
 
 # ---- the desk ----
 
 on look reading-desk
-  say lena reading-desk.look
+  say maria reading-desk.look
 end
 
 on use reading-desk
-  say lena reading-desk.use
+  say maria reading-desk.use
 end
 
 on look desk-pencil
-  say lena desk-pencil.look
+  say maria desk-pencil.look
 end
 
 on use desk-pencil
-  anim lena reach
+  anim maria reach
   gain pencil
   hide desk-pencil
-  say lena pencil.take
+  say maria pencil.take
 end
 
 on look rules
-  say lena rules.look
+  say maria rules.look
 end
 
 on use pencil napkin
-  anim lena point
+  anim maria point
   sound paper
   lose napkin
   gain note
-  say lena note.write.1
-  say lena note.write.2
+  say maria note.write.1
+  say maria note.write.2
   if pigeon-here
     set goal 106
   else
@@ -157,114 +157,114 @@ on use pencil napkin
 end
 
 on use napkin pencil
-  say lena napkin.pencil
+  say maria napkin.pencil
 end
 
 # ---- the book lift ----
 
 on look book-lift
   if lift-up
-    say lena book-lift.up
+    say maria book-lift.up
   else
-    say lena book-lift.look
+    say maria book-lift.look
   end
 end
 
 on use book-lift
   if lift-up
     if locked
-      say lena book-lift.small
+      say maria book-lift.small
     else
-      say lena book-lift.up
+      say maria book-lift.up
     end
     stop
   end
-  anim lena reach
+  anim maria reach
   sound creak
   wait 0.8
   set lift-up
   show lift-box
   show lunch-bag
-  say lena book-lift.use.1
-  say lena book-lift.use.2
+  say maria book-lift.use.1
+  say maria book-lift.use.2
 end
 
 on look lift-box
-  say lena book-lift.up
+  say maria book-lift.up
 end
 
 on use lift-box
-  say lena book-lift.small
+  say maria book-lift.small
 end
 
 on use note lift-box
-  say lena book-lift.note
+  say maria book-lift.note
 end
 
 on use note book-lift
-  say lena book-lift.note
+  say maria book-lift.note
 end
 
 on look lunch-bag
-  say lena lunch-bag.look
+  say maria lunch-bag.look
 end
 
 on use lunch-bag
-  anim lena reach
+  anim maria reach
   sound paper
   gain pastry
   hide lunch-bag
-  say lena lunch-bag.take.1
-  say lena lunch-bag.take.2
+  say maria lunch-bag.take.1
+  say maria lunch-bag.take.2
 end
 
 # ---- the window over the cloister ----
 
 on look tower-window
-  say lena tower-window.look.1
+  say maria tower-window.look.1
   if locked
-    say lena tower-window.look.2
+    say maria tower-window.look.2
   end
 end
 
 on use tower-window
   if not locked
-    say lena tower-window.notyet
+    say maria tower-window.notyet
     stop
   end
-  anim lena reach
+  anim maria reach
   sound creak
   hide tower-window
   show tower-window-open
   set window-open
-  say lena tower-window.open.1
-  say lena tower-window.open.2
+  say maria tower-window.open.1
+  say maria tower-window.open.2
   set goal 104
 end
 
 on look tower-window-open
-  say lena tower-window.look.1
-  say lena tower-window.look.2
+  say maria tower-window.look.1
+  say maria tower-window.look.2
 end
 
 on use tower-window-open
-  say lena tower-window.shout
+  say maria tower-window.shout
 end
 
 on use pastry tower-window
-  say lena pastry.closed
+  say maria pastry.closed
 end
 
 on use pastry tower-window-open
-  anim lena reach
+  anim maria reach
   lose pastry
   wait 0.6
   show pigeon-archive
   sound coo
   set pigeon-here
-  say lena pastry.window.1
-  say lena pastry.window.2
-  say lena pastry.window.3
+  say maria pastry.window.1
+  say maria pastry.window.2
+  say maria pastry.window.3
   if has note
     set goal 106
   else
@@ -273,66 +273,66 @@ on use pastry tower-window-open
 end
 
 on use note tower-window
-  say lena note.closed
+  say maria note.closed
 end
 
 on use note tower-window-open
   if not pigeon-here
-    say lena note.nobody
+    say maria note.nobody
     stop
   end
-  anim lena reach
-  say lena rescue.1
+  anim maria reach
+  say maria rescue.1
   sound camera
   wait 0.8
-  say lena rescue.2
-  say lena rescue.3
+  say maria rescue.2
+  say maria rescue.3
   wait 1.0
   sound door
   show ines-archive
   lose note
   say ines-archive rescue.4
   say ines-archive rescue.5
-  say lena rescue.6
+  say maria rescue.6
   say ines-archive rescue.7
   set rescued
   goto cloister arrival
 end
 
 on look pastry
-  say lena pastry.look
+  say maria pastry.look
 end
 
 on use pastry
-  say lena pastry.use
+  say maria pastry.use
 end
 
 on look pigeon-archive
-  say lena pigeon-archive.look
+  say maria pigeon-archive.look
 end
 
 on use pigeon-archive
   sound coo
-  say lena pigeon-archive.use
+  say maria pigeon-archive.use
 end
 
 on look pencil
-  say lena pencil.look
+  say maria pencil.look
 end
 
 on use note pigeon-archive
-  say lena note.pigeon
+  say maria note.pigeon
 end
 
 on look half
-  say lena half.look
+  say maria half.look
 end
 
 on look chirograph
-  say lena chirograph.look.1
-  say lena chirograph.look.2
+  say maria chirograph.look.1
+  say maria chirograph.look.2
 end
 
 on look note
-  say lena note.look
+  say maria note.look
 end

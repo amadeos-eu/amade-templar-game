@@ -3,108 +3,108 @@
 on enter square
   if not been-square
     set been-square
-    say lena square.intro.1
-    say lena square.intro.2
+    say maria square.intro.1
+    say maria square.intro.2
     set goal 30
   end
 end
 
 on look houses
-  say lena houses.look
+  say maria houses.look
 end
 
 on use houses
-  say lena houses.use
+  say maria houses.use
 end
 
 on look railing
-  say lena railing.look
+  say maria railing.look
 end
 
 on use railing
-  say lena railing.use
+  say maria railing.use
 end
 
 on look playground
-  say lena playground.look
+  say maria playground.look
 end
 
 on use playground
-  say lena playground.use
+  say maria playground.use
 end
 
 on look lamppost
-  say lena lamppost.look
+  say maria lamppost.look
 end
 
 on use lamppost
-  say lena lamppost.use
+  say maria lamppost.use
 end
 
 on look park-bench
-  say lena bench.square.look
+  say maria bench.square.look
 end
 
 on use park-bench
-  say lena bench.square.use
+  say maria bench.square.use
 end
 
 on look kev-sandwich
-  say lena kev-sandwich.look
+  say maria kev-sandwich.look
 end
 
 on use kev-sandwich
-  say lena kev-sandwich.use
+  say maria kev-sandwich.use
 end
 
 on look half-sandwich
-  say lena half-sandwich.look
+  say maria half-sandwich.look
 end
 
 on use half-sandwich
-  anim lena pickup
+  anim maria pickup
   hide half-sandwich
   gain sandwich
-  say lena half-sandwich.take
+  say maria half-sandwich.take
   if molay
     set goal 33
   end
 end
 
 on look board
-  say lena board.look.1
-  say lena board.look.2
+  say maria board.look.1
+  say maria board.look.2
   if not read-board
     set read-board
-    say lena board.look.3
+    say maria board.look.3
     set goal 31
     show helene
     walk helene 176 336
     face helene left
-    face lena right
+    face maria right
     say helene helene.hello
     dialog helene
   end
 end
 
 on use board
-  say lena board.look.1
-  say lena board.look.2
+  say maria board.look.1
+  say maria board.look.2
   if not read-board
     set read-board
-    say lena board.look.3
+    say maria board.look.3
     set goal 31
     show helene
     walk helene 176 336
     face helene left
-    face lena right
+    face maria right
     say helene helene.hello
     dialog helene
   end
 end
 
 on look helene
-  say lena helene.look
+  say maria helene.look
 end
 
 on talk helene
@@ -123,12 +123,12 @@ end
 
 option helene offer helene.q.offer once
   say helene helene.offer.1
-  say lena helene.offer.2
+  say maria helene.offer.2
   say helene helene.offer.3
 end
 
 option helene no helene.q.no
-  say lena helene.no.1
+  say maria helene.no.1
   say helene helene.no.2
   walk helene 10 362
   hide helene
@@ -137,7 +137,7 @@ option helene no helene.q.no
 end
 
 on look kev
-  say lena kev.look
+  say maria kev.look
 end
 
 on talk kev
@@ -147,22 +147,22 @@ end
 option kev who kev.q.who once
   say kev kev.who.1
   say kev kev.who.2
-  say lena kev.who.3
+  say maria kev.who.3
 end
 
 option kev templars kev.q.templars once
   say kev kev.templars.1
-  say lena kev.templars.2
+  say maria kev.templars.2
   say kev kev.templars.3
 end
 
 option kev curse kev.q.curse once if read-board
   say kev kev.curse.1
   say kev kev.curse.2
-  say lena kev.curse.3
-  say lena kev.curse.4
+  say maria kev.curse.3
+  say maria kev.curse.4
   say kev kev.curse.5
-  say lena kev.curse.6
+  say maria kev.curse.6
   set molay
   if has sandwich
     set goal 33
@@ -195,7 +195,7 @@ option kev bye kev.q.bye
 end
 
 on look pigeon
-  say lena pigeon.square.look
+  say maria pigeon.square.look
 end
 
 on talk pigeon
@@ -203,7 +203,7 @@ on talk pigeon
 end
 
 on use sandwich pigeon
-  say lena pigeon.square.feed
+  say maria pigeon.square.feed
 end
 
 on use sandwich kev
@@ -211,20 +211,20 @@ on use sandwich kev
 end
 
 on use page kev
-  say lena kev.page
+  say maria kev.page
 end
 
 on use page helene
-  say lena helene.page
+  say maria helene.page
 end
 
 on look metro
-  say lena metro.look
+  say maria metro.look
 end
 
 on exit metro
   if not molay
-    say lena metro.not-yet
+    say maria metro.not-yet
     stop
   end
   sound door
@@ -232,7 +232,7 @@ on exit metro
 end
 
 on look marais
-  say lena marais.look
+  say maria marais.look
 end
 
 on exit marais

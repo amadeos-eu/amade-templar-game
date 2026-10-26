@@ -432,7 +432,7 @@ public final class Figure {
         // eye, lid, brow
         g.setColor(c(0xf4eee6));
         g.fill(new Ellipse2D.Double(-6.6, -1.3, 2.6, 1.5));
-        g.setColor(look.name().equals("lena") ? c(0x3a5a4a) : c(0x4a3a2a));
+        g.setColor(look.name().equals("maria") ? c(0x3a5a4a) : c(0x4a3a2a));
         g.fill(new Ellipse2D.Double(-6.5, -1.3, 1.5, 1.5));
         g.setColor(c(0x1a0e08));
         g.fill(new Ellipse2D.Double(-6.3, -1.0, 0.8, 0.8));
@@ -923,7 +923,7 @@ public final class Figure {
             double ex = s * 2.6;
             g.setColor(c(0xf4eee6));
             g.fill(new Ellipse2D.Double(ex - 1.4, -1.4, 2.8, 1.6));
-            g.setColor(look.name().equals("lena") ? c(0x3a5a4a) : c(0x4a3a2a));
+            g.setColor(look.name().equals("maria") ? c(0x3a5a4a) : c(0x4a3a2a));
             g.fill(new Ellipse2D.Double(ex - 0.8, -1.4, 1.6, 1.6));
             g.setColor(c(0x1a0e08));
             g.fill(new Ellipse2D.Double(ex - 0.4, -1.1, 0.8, 0.8));

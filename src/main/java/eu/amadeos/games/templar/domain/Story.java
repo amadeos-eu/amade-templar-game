@@ -121,7 +121,7 @@ public final class Story {
         return room;
     }
 
-    /** Who the player is in a room: Aimery in 1307, Lena today. */
+    /** Who the player is in a room: Aimery in 1307, Maria today. */
     public String hero(String room) {
         return heroes.get(room);
     }

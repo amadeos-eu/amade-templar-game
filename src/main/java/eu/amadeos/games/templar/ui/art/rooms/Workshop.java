@@ -25,7 +25,7 @@ import java.util.function.Consumer;
 import static eu.amadeos.games.templar.ui.art.Brush.c;
 
 /**
- * Lena's restoration workshop in a small Paris library, late in the evening: the arched window over the roofs,
+ * Maria's restoration workshop in a small Paris library, late in the evening: the arched window over the roofs,
  * the shelves, the workbench with the psalter under the lamp, the door to the reading room.
  */
 public final class Workshop extends RoomArt {

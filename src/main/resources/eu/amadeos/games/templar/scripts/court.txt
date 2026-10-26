@@ -22,14 +22,14 @@ on enter court
     if kept-token
       gain token
     end
-      say lena court.end.1
-      say lena court.end.2
-      say lena court.end.3
+      say maria court.end.1
+      say maria court.end.2
+      say maria court.end.3
       anim kev-court point
       say kev-court court.end.4
-      say lena court.end.5
+      say maria court.end.5
       say kev-court court.end.6
-      say lena court.end.7
+      say maria court.end.7
       title card.act2.end
       goto charola arrival
     end
@@ -37,43 +37,43 @@ on enter court
   end
   if not been-court
     set been-court
-    say lena court.intro.1
+    say maria court.intro.1
     say kev-court court.intro.2
-    say lena court.intro.3
+    say maria court.intro.3
     set goal 70
   end
 end
 
 on look night-sky
-  say lena night-sky.look
+  say maria night-sky.look
 end
 
 on look old-wall
-  say lena old-wall.look
+  say maria old-wall.look
 end
 
 on use old-wall
-  say lena old-wall.use
+  say maria old-wall.use
 end
 
 on look street-sign
-  say lena street-sign.look
+  say maria street-sign.look
 end
 
 on look cafe
-  say lena cafe.look
+  say maria cafe.look
 end
 
 on use cafe
-  say lena cafe.use
+  say maria cafe.use
 end
 
 on look cafe-window
-  say lena cafe-window.look
+  say maria cafe-window.look
 end
 
 on look terrace-lights
-  say lena terrace-lights.look
+  say maria terrace-lights.look
 end
 
 on exit back-harbour
@@ -87,53 +87,53 @@ end
 
 on look chalkboard
   if decoded
-    say lena chalkboard.decoded
+    say maria chalkboard.decoded
   else
-    say lena chalkboard.look.1
-    say lena chalkboard.look.2
+    say maria chalkboard.look.1
+    say maria chalkboard.look.2
   end
-  say lena chalkboard.behind
+  say maria chalkboard.behind
 end
 
 on use chalkboard
   if not allowed
-    say lena chalkboard.ask
+    say maria chalkboard.ask
     stop
   end
-  anim lena reach
+  anim maria reach
   sound door
   hide chalkboard
   show moved-board
   set board-moved
-  say lena chalkboard.moved
+  say maria chalkboard.moved
   set goal 72
 end
 
 on use napkin chalkboard
   if decoded
-    say lena chalkboard.decoded
+    say maria chalkboard.decoded
     stop
   end
-  anim lena point
-  say lena decode.1
-  say lena decode.2
+  anim maria point
+  say maria decode.1
+  say maria decode.2
   say kev-court decode.3
-  say lena decode.4
+  say maria decode.4
   set decoded
   set goal 71
 end
 
 on look moved-board
-  say lena chalkboard.decoded
+  say maria chalkboard.decoded
 end
 
 on look relief
   if not board-moved
-    say lena relief.hidden
+    say maria relief.hidden
     stop
   end
-  say lena relief.look.1
-  say lena relief.look.2
+  say maria relief.look.1
+  say maria relief.look.2
   if not stone-loose
     set goal 73
   end
@@ -141,59 +141,59 @@ end
 
 on use relief
   if not board-moved
-    say lena relief.blocked
+    say maria relief.blocked
     stop
   end
   if stone-loose
-    say lena relief.heavy
+    say maria relief.heavy
   else
-    say lena relief.use
+    say maria relief.use
   end
 end
 
 on use bonefolder relief
   if not board-moved
-    say lena relief.blocked
+    say maria relief.blocked
     stop
   end
   if stone-loose
-    say lena relief.heavy
+    say maria relief.heavy
     stop
   end
-  anim lena reach
+  anim maria reach
   sound paper
   set stone-loose
-  say lena relief.loose.1
-  say lena relief.loose.2
+  say maria relief.loose.1
+  say maria relief.loose.2
   set goal 74
 end
 
 on look loose-stone
-  say lena loose-stone.look
+  say maria loose-stone.look
 end
 
 on look hollow
   if took-token
-    say lena hollow.empty
+    say maria hollow.empty
   else
-    say lena hollow.look
+    say maria hollow.look
   end
 end
 
 on use hollow
   if took-token
-    say lena hollow.empty
+    say maria hollow.empty
     stop
   end
-  anim lena reach
+  anim maria reach
   sound coin
   gain token
   set took-token
-  say lena token.found.1
-  say lena token.found.2
-  say lena token.found.3
+  say maria token.found.1
+  say maria token.found.2
+  say maria token.found.3
   say kev-court token.found.4
-  say lena token.found.5
+  say maria token.found.5
   clear kept-phone
   if has phone
     set kept-phone
@@ -230,20 +230,20 @@ end
 # ---- the napkin ----
 
 on look napkin
-  say lena napkin.look
+  say maria napkin.look
 end
 
 on use napkin
-  anim lena reach
+  anim maria reach
   gain napkin
   hide napkin
-  say lena napkin.take
+  say maria napkin.take
 end
 
 # ---- Kev ----
 
 on look kev-court
-  say lena kev-court.look
+  say maria kev-court.look
 end
 
 on talk kev-court
@@ -251,14 +251,14 @@ on talk kev-court
 end
 
 option kev-court cipher kev-court.q.cipher once
-  say lena kev-court.cipher.1
+  say maria kev-court.cipher.1
   say kev-court kev-court.cipher.2
-  say lena kev-court.cipher.3
+  say maria kev-court.cipher.3
   say kev-court kev-court.cipher.4
 end
 
 option kev-court lift kev-court.q.lift once if stone-loose
-  say lena kev-court.lift.1
+  say maria kev-court.lift.1
   say kev-court kev-court.lift.2
   walk kev-court 230 310
   face kev-court left
@@ -269,7 +269,7 @@ option kev-court lift kev-court.q.lift once if stone-loose
   show loose-stone
   say kev-court kev-court.lift.3
   say kev-court kev-court.lift.4
-  say lena kev-court.lift.5
+  say maria kev-court.lift.5
   set goal 75
   exit
 end
@@ -282,7 +282,7 @@ end
 # ---- Madame Morin, of the café ----
 
 on look morin
-  say lena morin.look
+  say maria morin.look
 end
 
 on talk morin
@@ -290,24 +290,24 @@ on talk morin
 end
 
 option morin old morin.q.old once
-  say lena morin.old.1
+  say maria morin.old.1
   say morin morin.old.2
   say morin morin.old.3
 end
 
 option morin board morin.q.board if not allowed
-  say lena morin.board.1
+  say maria morin.board.1
   say morin morin.board.2
-  say lena morin.board.3
+  say maria morin.board.3
   say morin morin.board.4
 end
 
 option morin menu morin.q.menu once if decoded
-  say lena morin.menu.1
+  say maria morin.menu.1
   say morin morin.menu.2
   say morin morin.menu.3
   say morin morin.menu.4
-  say lena morin.menu.5
+  say maria morin.menu.5
   say morin morin.menu.6
   set allowed
   if not board-moved
@@ -321,5 +321,5 @@ option morin bye morin.q.bye
 end
 
 on use page morin
-  say lena morin.page
+  say maria morin.page
 end

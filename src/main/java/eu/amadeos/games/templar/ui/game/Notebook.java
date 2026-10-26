@@ -14,7 +14,7 @@ import java.util.List;
 import static eu.amadeos.games.templar.ui.art.Brush.c;
 
 /**
- * Lena's notebook, opened with N: what she wants to do next, in one line, from the story's flag {@code goal}.
+ * Maria's notebook, opened with N: what she wants to do next, in one line, from the story's flag {@code goal}.
  * Pressing N again while it is open adds a hint, {@code hint.<goal>}; a third time closes it.
  */
 final class Notebook {

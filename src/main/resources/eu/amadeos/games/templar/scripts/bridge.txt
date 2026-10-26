@@ -3,101 +3,101 @@
 on enter bridge
   if not been-bridge
     set been-bridge
-    say lena bridge.intro
+    say maria bridge.intro
     face driver left
     say driver driver.hello.1
-    say lena driver.hello.2
+    say maria driver.hello.2
     say driver driver.hello.3
     set goal 40
   end
 end
 
 on look far-bank
-  say lena far-bank.look
+  say maria far-bank.look
 end
 
 on look river
-  say lena river.look
+  say maria river.look
 end
 
 on use river
-  say lena river.use
+  say maria river.use
 end
 
 on look statue
-  say lena statue.look
+  say maria statue.look
 end
 
 on use statue
-  say lena statue.use
+  say maria statue.use
 end
 
 on use sandwich statue
-  say lena statue.sandwich
+  say maria statue.sandwich
 end
 
 on look parapet
-  say lena parapet.look
+  say maria parapet.look
 end
 
 on use parapet
-  say lena parapet.use
+  say maria parapet.use
 end
 
 on look bridge-lamp
-  say lena bridge-lamp.look
+  say maria bridge-lamp.look
 end
 
 on use bridge-lamp
-  say lena bridge-lamp.use
+  say maria bridge-lamp.use
 end
 
 on look wall
-  say lena wall.look
+  say maria wall.look
 end
 
 on use wall
-  say lena wall.use
+  say maria wall.use
 end
 
 on look steps
-  say lena steps.look
+  say maria steps.look
 end
 
 on use steps
-  say lena steps.use
+  say maria steps.use
 end
 
 on look plaque
   if not driver-gone
-    say lena plaque.blocked
+    say maria plaque.blocked
     stop
   end
-  say lena plaque.look.1
-  say lena plaque.look.2
+  say maria plaque.look.1
+  say maria plaque.look.2
   if not read-plaque
     set read-plaque
-    say lena plaque.look.3
+    say maria plaque.look.3
     set goal 41
   end
 end
 
 on use plaque
   if not driver-gone
-    say lena plaque.blocked
+    say maria plaque.blocked
     stop
   end
-  say lena plaque.look.1
-  say lena plaque.look.2
+  say maria plaque.look.1
+  say maria plaque.look.2
   if not read-plaque
     set read-plaque
-    say lena plaque.look.3
+    say maria plaque.look.3
     set goal 41
   end
 end
 
 on look driver
-  say lena driver.look
+  say maria driver.look
 end
 
 on talk driver
@@ -110,21 +110,21 @@ option driver who driver.q.who once
 end
 
 option driver no driver.q.no
-  say lena driver.no.1
+  say maria driver.no.1
   say driver driver.no.2
   exit
 end
 
 on use page driver
-  say lena driver.page
+  say maria driver.page
 end
 
 on use sandwich driver
-  anim lena reach
+  anim maria reach
   lose sandwich
   sound pigeons
   show swarm
-  say lena driver.sandwich
+  say maria driver.sandwich
   say driver driver.pigeons
   show guide
   show tourist1
@@ -135,7 +135,7 @@ on use sandwich driver
   face guide right
   say guide guide.tour.1
   say guide guide.tour.2
-  say lena guide.tour.3
+  say maria guide.tour.3
   say guide guide.tour.4
   say tourist1 guide.tour.5
   say driver driver.leave
@@ -155,21 +155,21 @@ end
 
 on use phone plaque
   if not read-plaque
-    say lena phone.plaque.early
+    say maria phone.plaque.early
     stop
   end
-  anim lena phone
-  say lena calendar.1
-  say lena calendar.2
+  anim maria phone
+  say maria calendar.1
+  say maria calendar.2
   sound discovery
-  say lena calendar.3
-  say lena calendar.4
+  say maria calendar.3
+  say maria calendar.4
   title card.act1.end
   goto cart start
 end
 
 on look guide
-  say lena guide.look
+  say maria guide.look
 end
 
 on exit metro-bridge
@@ -178,5 +178,5 @@ on exit metro-bridge
 end
 
 on look swarm
-  say lena swarm.look
+  say maria swarm.look
 end

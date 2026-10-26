@@ -9,17 +9,17 @@ start chapter start
 room chapter aimery
 room courtyard aimery
 room library aimery
-room workshop lena
-room reading lena
-room square lena
-room bridge lena
+room workshop maria
+room reading maria
+room square maria
+room bridge maria
 room cart aimery
-room harbour lena
-room court lena
+room harbour maria
+room court maria
 room quay raoul
-room charola lena
-room archive lena
-room cloister lena
+room charola maria
+room archive maria
+room cloister maria
 
 person gerard chapter 470 324 left
 person guard courtyard 566 318 left

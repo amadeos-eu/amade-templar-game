@@ -18,16 +18,16 @@ public final class Cast {
 
     // ---- today ----
 
-    // --8<-- [start:lena]
-    /** Lena Vogt, book restorer from Leipzig: navy roll-neck, dark trousers, long auburn hair, glasses. */
-    public static final Look LENA = new Look("lena", 115, 1.02, true, Look.SKIN_LIGHT, c(0x7a3a20), Hair.LONG,
+    // --8<-- [start:maria]
+    /** Maria Vogt, book restorer from Leipzig: navy roll-neck, dark trousers, long auburn hair, glasses. */
+    public static final Look MARIA = new Look("maria", 115, 1.02, true, Look.SKIN_LIGHT, c(0x7a3a20), Hair.LONG,
             Beard.NONE, c(0x2e3548), c(0x2e3548), c(0x2c2e36), c(0x4a2a1a), Garment.APRON, c(0xddcba6), 34,
             EnumSet.of(Extra.GLASSES, Extra.ROLL_NECK), c(0x2e5a6a));
 
-    /** Lena outdoors: her rust-red coat and the teal scarf from the hook in the workshop. */
-    public static final Look LENA_OUT = LENA.wearing(Garment.COAT, c(0x7a2e28), 38,
+    /** Maria outdoors: her rust-red coat and the teal scarf from the hook in the workshop. */
+    public static final Look MARIA_OUT = MARIA.wearing(Garment.COAT, c(0x7a2e28), 38,
             EnumSet.of(Extra.GLASSES, Extra.ROLL_NECK, Extra.SCARF));
-    // --8<-- [end:lena]
+    // --8<-- [end:maria]
 
     /** Monsieur Lefort, the archivist: bald with a grey fringe, round glasses, tweed and a bow tie. */
     public static final Look LEFORT = new Look("lefort", 110, 1.06, false, Look.SKIN_FAIR, c(0xb8b4ac), Hair.FRINGE,
@@ -119,7 +119,7 @@ public final class Cast {
             EnumSet.of(Extra.BELT, Extra.POUCH), c(0x6a2a22));
 
     private static final Map<String, Look> BY_ID = Map.ofEntries(
-            Map.entry("lena", LENA), Map.entry("lefort", LEFORT), Map.entry("kev", KEV), Map.entry("helene", HELENE),
+            Map.entry("maria", MARIA), Map.entry("lefort", LEFORT), Map.entry("kev", KEV), Map.entry("helene", HELENE),
             Map.entry("driver", DRIVER), Map.entry("guide", GUIDE), Map.entry("tourist1", TOURIST_A),
             Map.entry("tourist2", TOURIST_B), Map.entry("aimery", AIMERY), Map.entry("gerard", GERARD),
             Map.entry("guard", GUARD), Map.entry("soldier", SOLDIER), Map.entry("soldier2", SOLDIER),
@@ -130,12 +130,12 @@ public final class Cast {
             Map.entry("kev-tomar", KEV), Map.entry("kev-cloister", KEV), Map.entry("helene-tomar", HELENE),
             Map.entry("helene-archive", HELENE), Map.entry("helene-cloister", HELENE));
 
-    /** Rooms where Lena has her coat on. */
+    /** Rooms where Maria has her coat on. */
     private static final Set<String> OUTDOORS = Set.of("square", "bridge", "harbour", "court", "cloister");
 
     /** The look of a person in a room, or null for an animal or someone drawn otherwise. */
     public static Look of(String id, String room) {
-        if (id.equals("lena") && OUTDOORS.contains(room)) return LENA_OUT;
+        if (id.equals("maria") && OUTDOORS.contains(room)) return MARIA_OUT;
         if (id.equals("raoul") && room.equals("quay")) return RAOUL_LANTERN;
         return BY_ID.get(id);
     }

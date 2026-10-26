@@ -4,9 +4,9 @@
 on enter reading
   if not met-lefort
     set met-lefort
-    face lena right
+    face maria right
     say lefort lefort.hello.1
-    say lena lefort.hello.2
+    say maria lefort.hello.2
     say lefort lefort.hello.3
     set goal 20
   end
@@ -17,11 +17,11 @@ on talk lefort
 end
 
 option lefort page lefort.q.page once if has page
-  say lena lefort.page.1
-  anim lena reach
+  say maria lefort.page.1
+  anim maria reach
   say lefort lefort.page.2
   say lefort lefort.page.3
-  say lena lefort.page.4
+  say maria lefort.page.4
   say lefort lefort.page.5
   set lefort 1
   set goal 21
@@ -29,19 +29,19 @@ end
 # --8<-- [end:lefort]
 
 option lefort why lefort.q.coffee if lefort == 1
-  say lena lefort.coffee.1
+  say maria lefort.coffee.1
   say lefort lefort.coffee.2
   say lefort lefort.coffee.3
 end
 
 option lefort give lefort.q.give once if has coffee
-  anim lena reach
+  anim maria reach
   lose coffee
   set lefort 2
   say lefort lefort.give.1
   say lefort lefort.give.2
   say lefort lefort.give.3
-  say lena lefort.give.4
+  say maria lefort.give.4
   say lefort lefort.give.5
   say lefort lefort.give.6
   set goal 22
@@ -58,7 +58,7 @@ option lefort sum lefort.q.sum if lefort == 2
 end
 
 option lefort history lefort.q.history once
-  say lena lefort.history.1
+  say maria lefort.history.1
   say lefort lefort.history.2
   say lefort lefort.history.3
   say lefort lefort.history.4
@@ -67,14 +67,14 @@ end
 option lefort friday lefort.q.friday once if lefort == 2
   say lefort lefort.friday.1
   say lefort lefort.friday.2
-  say lena lefort.friday.3
+  say maria lefort.friday.3
   say lefort lefort.friday.4
 end
 
 option lefort temple lefort.q.temple once if read-sum
   say lefort lefort.temple.1
   say lefort lefort.temple.2
-  say lena lefort.temple.3
+  say maria lefort.temple.3
 end
 
 option lefort bye dialog.bye
@@ -83,19 +83,19 @@ option lefort bye dialog.bye
 end
 
 option sum twelve sum.12
-  say lena sum.answer.12
+  say maria sum.answer.12
   say lefort sum.wrong
 end
 
 option sum twenty sum.20
-  say lena sum.answer.20
+  say maria sum.answer.20
   say lefort sum.wrong
 end
 
 option sum all sum.240 if not read-sum
-  say lena sum.answer.240
+  say maria sum.answer.240
   say lefort sum.right.1
-  say lena sum.right.2
+  say maria sum.right.2
   say lefort sum.right.3
   set read-sum
   set goal 23
@@ -108,7 +108,7 @@ option sum later sum.later
 end
 
 on look lefort
-  say lena lefort.look
+  say maria lefort.look
 end
 
 on use coffee lefort
@@ -120,116 +120,116 @@ on use page lefort
 end
 
 on look machine
-  say lena machine.look
+  say maria machine.look
 end
 
 on use machine
   if not has cup
-    say lena machine.no-cup
+    say maria machine.no-cup
   else
-    say lena machine.no-coin
+    say maria machine.no-coin
   end
 end
 
 on use coin machine
   if not has cup
-    say lena machine.no-cup
+    say maria machine.no-cup
   else
-    anim lena reach
+    anim maria reach
     lose coin
     lose cup
     sound coffee
     wait 1.2
-    anim lena reach
+    anim maria reach
     gain coffee
-    say lena machine.coffee
+    say maria machine.coffee
   end
 end
 
 on use cup machine
   if not has coin
-    say lena machine.no-coin
+    say maria machine.no-coin
   else
-    anim lena reach
+    anim maria reach
     lose coin
     lose cup
     sound coffee
     wait 1.2
-    anim lena reach
+    anim maria reach
     gain coffee
-    say lena machine.coffee
+    say maria machine.coffee
   end
 end
 
 on look rack
-  say lena rack.look
+  say maria rack.look
 end
 
 on use rack
-  say lena rack.use
+  say maria rack.use
 end
 
 on look lefort-cup
-  say lena lefort-cup.look
+  say maria lefort-cup.look
 end
 
 on use lefort-cup
-  anim lena reach
+  anim maria reach
   hide lefort-cup
   gain cup
-  say lena lefort-cup.take
+  say maria lefort-cup.take
 end
 
 on look bookcase
-  say lena bookcase.look
+  say maria bookcase.look
 end
 
 on use bookcase
-  say lena bookcase.use
+  say maria bookcase.use
 end
 
 on look ladder
-  say lena ladder.look
+  say maria ladder.look
 end
 
 on use ladder
-  say lena ladder.use
+  say maria ladder.use
 end
 
 on look tall-window
-  say lena tall-window.look
+  say maria tall-window.look
 end
 
 on use tall-window
-  say lena tall-window.use
+  say maria tall-window.use
 end
 
 on look clock
-  say lena clock.look
+  say maria clock.look
 end
 
 on use clock
-  say lena clock.use
+  say maria clock.use
 end
 
 on look reading-table
-  say lena reading-table.look
+  say maria reading-table.look
 end
 
 on use reading-table
-  say lena reading-table.use
+  say maria reading-table.use
 end
 
 on look desk
-  say lena desk.look
+  say maria desk.look
 end
 
 on use desk
-  say lena desk.use
+  say maria desk.use
 end
 
 on look ledger-tables
-  say lena ledger-tables.look
+  say maria ledger-tables.look
 end
 
 on use ledger-tables
@@ -237,7 +237,7 @@ on use ledger-tables
 end
 
 on look atelier
-  say lena atelier.look
+  say maria atelier.look
 end
 
 on exit atelier
@@ -246,12 +246,12 @@ on exit atelier
 end
 
 on look street
-  say lena street.look
+  say maria street.look
 end
 
 on exit street
   if not read-sum
-    say lena street.not-yet
+    say maria street.not-yet
     stop
   end
   sound door

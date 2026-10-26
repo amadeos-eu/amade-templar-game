@@ -52,7 +52,7 @@ public final class Screenshots {
         room("courtyard", "chapter", 1, 360, 330).save(new File(dir, "courtyard.png"));
         room("library", "door", 1, 430, 330).save(new File(dir, "library.png"));
 
-        // The workshop: Lena behind the workbench, the README's picture.
+        // The workshop: Maria behind the workbench, the README's picture.
         room("workshop", "start", 1, 330, 304).save(new File(dir, "amade-templar-game.png"));
 
         // The reading room with Lefort's dialog open.
@@ -189,7 +189,7 @@ public final class Screenshots {
 
     /** The people of the prologue and Act 1, from the side, the front and the back. */
     static void cast(File file) throws Exception {
-        Look[] looks = {Cast.AIMERY, Cast.GERARD, Cast.GUARD, Cast.SOLDIER, Cast.LENA, Cast.LENA_OUT, Cast.LEFORT,
+        Look[] looks = {Cast.AIMERY, Cast.GERARD, Cast.GUARD, Cast.SOLDIER, Cast.MARIA, Cast.MARIA_OUT, Cast.LEFORT,
                 Cast.KEV, Cast.HELENE, Cast.DRIVER, Cast.GUIDE, Cast.TOURIST_A, Cast.TOURIST_B, Cast.RAOUL,
                 Cast.ETIENNE, Cast.CAPTAIN, Cast.FISHERMAN, Cast.MORIN, Cast.INES};
         double scale = 2;
