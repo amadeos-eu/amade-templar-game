@@ -5,7 +5,7 @@ on enter cloister
     set been-cloister
     show ines-cloister
     say helene-cloister cloister.intro.1
-    say lena cloister.intro.2
+    say maria cloister.intro.2
     say helene-cloister cloister.intro.3
     say ines-cloister cloister.intro.4
     anim helene-cloister reach
@@ -21,37 +21,37 @@ on enter cloister
 end
 
 on look arcades
-  say lena arcades.look.1
-  say lena arcades.look.2
+  say maria arcades.look.1
+  say maria arcades.look.2
 end
 
 on use arcades
-  say lena arcades.use
+  say maria arcades.use
 end
 
 on look orange-tree
-  say lena orange-tree.look
+  say maria orange-tree.look
 end
 
 on use orange-tree
-  say lena orange-tree.use
+  say maria orange-tree.use
 end
 
 on look slab
-  say lena slab.look
+  say maria slab.look
 end
 
 on use slab
-  say lena slab.use
+  say maria slab.use
 end
 
 on look iron-chest
-  say lena iron-chest.look
+  say maria iron-chest.look
 end
 
 on look iron-chest-open
-  say lena iron-chest-open.look.1
-  say lena iron-chest-open.look.2
+  say maria iron-chest-open.look.1
+  say maria iron-chest-open.look.2
   if not seen-bills
     set seen-bills
     set goal 111
@@ -63,21 +63,21 @@ on use iron-chest-open
 end
 
 on exit cloister-gate
-  say lena cloister-gate.notnow
+  say maria cloister-gate.notnow
 end
 
 on look cloister-gate
-  say lena cloister-gate.look
+  say maria cloister-gate.look
 end
 
 on use cloister-gate
-  say lena cloister-gate.notnow
+  say maria cloister-gate.notnow
 end
 
 # ---- Hélène ----
 
 on look helene-cloister
-  say lena helene-cloister.look
+  say maria helene-cloister.look
 end
 
 on talk helene-cloister
@@ -85,9 +85,9 @@ on talk helene-cloister
 end
 
 option helene-cloister gold helene-cloister.q.gold once
-  say lena helene-cloister.gold.1
+  say maria helene-cloister.gold.1
   say helene-cloister helene-cloister.gold.2
-  say lena helene-cloister.gold.3
+  say maria helene-cloister.gold.3
   say helene-cloister helene-cloister.gold.4
   if not seen-bills
     set goal 111
@@ -95,16 +95,16 @@ option helene-cloister gold helene-cloister.q.gold once
 end
 
 option helene-cloister family helene-cloister.q.family once
-  say lena helene-cloister.family.1
+  say maria helene-cloister.family.1
   say helene-cloister helene-cloister.family.2
   say helene-cloister helene-cloister.family.3
-  say lena helene-cloister.family.4
+  say maria helene-cloister.family.4
 end
 
 option helene-cloister read helene-cloister.q.read if seen-bills
-  say lena helene-cloister.read.1
+  say maria helene-cloister.read.1
   say helene-cloister helene-cloister.read.2
-  say lena helene-cloister.read.3
+  say maria helene-cloister.read.3
   set goal 112
 end
 
@@ -117,18 +117,18 @@ end
 
 on use chirograph helene-cloister
   if not seen-bills
-    say lena finale.early
+    say maria finale.early
     stop
   end
-  anim lena point
-  say lena finale.1
-  say lena finale.2
+  anim maria point
+  say maria finale.1
+  say maria finale.2
   anim helene-cloister reach
   sound paper
   say helene-cloister finale.3
   say helene-cloister finale.4
   sound discovery
-  say lena finale.5
+  say maria finale.5
   say kev-cloister finale.6
   say ines-cloister finale.7
   say helene-cloister finale.8
@@ -137,22 +137,22 @@ on use chirograph helene-cloister
   hide helene-cloister
   sound door
   wait 0.5
-  say lena finale.10
+  say maria finale.10
   say ines-cloister finale.11
-  say lena finale.12
-  say lena finale.13
+  say maria finale.12
+  say maria finale.13
   anim kev-cloister point
   say kev-cloister finale.14
-  say lena finale.15
+  say maria finale.15
   say kev-cloister finale.16
   sound coo
-  say lena finale.17
+  say maria finale.17
   title card.finale
   set finished
 end
 
 on use chirograph iron-chest-open
-  say lena finale.chest
+  say maria finale.chest
 end
 
 on use chirograph ines-cloister
@@ -164,34 +164,34 @@ on use chirograph kev-cloister
 end
 
 on use chirograph
-  say lena chirograph.use
+  say maria chirograph.use
 end
 
 # ---- Inês and Kev ----
 
 on look ines-cloister
-  say lena ines.look
+  say maria ines.look
 end
 
 on talk ines-cloister
-  say lena ines-cloister.talk.1
+  say maria ines-cloister.talk.1
   say ines-cloister ines-cloister.talk.2
 end
 
 on look kev-cloister
-  say lena kev-tomar.look
+  say maria kev-tomar.look
 end
 
 on talk kev-cloister
-  say lena kev-cloister.talk.1
+  say maria kev-cloister.talk.1
   say kev-cloister kev-cloister.talk.2
 end
 
 on look pigeon-cloister
-  say lena pigeon-cloister.look
+  say maria pigeon-cloister.look
 end
 
 on use pigeon-cloister
   sound coo
-  say lena pigeon-tomar.use
+  say maria pigeon-tomar.use
 end

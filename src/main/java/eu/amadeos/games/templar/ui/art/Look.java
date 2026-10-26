@@ -54,7 +54,7 @@ public record Look(String name, double height, double build, boolean female, Col
         return extras.contains(extra);
     }
 
-    /** A copy with other clothes over the same person, as Lena without her apron outdoors. */
+    /** A copy with other clothes over the same person, as Maria without her apron outdoors. */
     public Look wearing(Garment garment, Color color, double hem, Set<Extra> extras) {
         return new Look(name, height, build, female, skin, hair, hairStyle, beard, top, sleeve, legs, shoes, garment,
                 color, hem, extras, accent);

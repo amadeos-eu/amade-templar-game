@@ -1,6 +1,6 @@
 # amade-templar-game
 
-**amade-templar-game**, *The Seal of the Templars*, is the point-and-click adventure of the [amadeOS](https://github.com/datazuul/amadeos) desktop. On the night of 12 October 1307, the squire Aimery has to get the last page of the Temple's accounts with the Crown out of the Paris Temple before the King's men arrive. Today, the book restorer Lena Vogt finds that page in the binding of a medieval psalter. With it she finds a debt the King of France never paid. The game has painted rooms, people drawn to real proportions, dialogues with choices and a notebook with hints. The history is true, and legends are called legends. It is built on [amade-game-engine](https://github.com/datazuul/amade-game-engine) and runs on other operating systems as well.
+**amade-templar-game**, *The Seal of the Templars*, is the point-and-click adventure of the [amadeOS](https://github.com/datazuul/amadeos) desktop. On the night of 12 October 1307, the squire Aimery has to get the last page of the Temple's accounts with the Crown out of the Paris Temple before the King's men arrive. Today, the book restorer Maria Vogt finds that page in the binding of a medieval psalter. With it she finds a debt the King of France never paid. The game has painted rooms, people drawn to real proportions, dialogues with choices and a notebook with hints. The history is true, and legends are called legends. It is built on [amade-game-engine](https://github.com/datazuul/amade-game-engine) and runs on other operating systems as well.
 
 ![License](https://img.shields.io/badge/license-EUPL--1.2-blue)
 ![Java](https://img.shields.io/badge/Java-25-orange)
@@ -13,7 +13,7 @@
 - **Right button**: look at something.
 - Move the pointer to the top of the screen to see the inventory. Click an item to take it in hand, then click on something in the room to use the item there, or on another item to combine the two. The right button puts the item back.
 - In a dialog, click one of the lines at the bottom.
-- **Esc** or **.** skips a line. **N** opens Lena's (or Aimery's) notebook with the next goal; press **N** again for a hint.
+- **Esc** or **.** skips a line. **N** opens Maria's (or Aimery's) notebook with the next goal; press **N** again for a hint.
 - **F5** saves, **F9** continues the saved game. The game also saves itself in every new room, and *Game → Continue Saved Game* picks up there.
 - **F11** switches to full screen and back. *Game → Graphics* chooses **Direct** (the screen's full size) or **Pixels** (640 × 400, enlarged by whole factors). **F12** shows how long each frame takes.
 - The sounds can be switched off under *Game → Sound*.
@@ -37,7 +37,7 @@ The whole story is there:
 
 The whole story is data in `src/main/resources/eu/amadeos/games/templar/`, read by the engine's `adventure` package:
 
-- `story.txt` lists the rooms, who the player is in each (Aimery or Lena), the people and where they stand, and the script files.
+- `story.txt` lists the rooms, who the player is in each (Aimery or Maria), the people and where they stand, and the script files.
 - `rooms/<room>.txt` describes a room: its floor as a polygon with holes, the depth scale, named spots, the hotspots with the place to stand, the exits, and the layers people walk behind.
 - `scripts/<file>.txt` say what happens: `on look psalter`, `on use bonefolder psalter`, `on talk lefort`, dialog `option`s, with commands like `say`, `walk`, `gain`, `set`, `show`, `goto`, `title`, `dialog`, and `if` … `else` … `end`.
 - `messages*.properties` hold every sentence, in every language. Scripts only name text keys.

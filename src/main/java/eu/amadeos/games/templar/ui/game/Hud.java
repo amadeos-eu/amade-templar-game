@@ -40,7 +40,7 @@ final class Hud {
     static final Color GOLD = c(0xf2d48a);
     /** The colour of each speaker's lines. */
     static final Map<String, Color> VOICES = Map.ofEntries(
-            Map.entry("lena", c(0xfff2c8)), Map.entry("aimery", c(0xc8f0a8)), Map.entry("gerard", c(0xf4f4f4)),
+            Map.entry("maria", c(0xfff2c8)), Map.entry("aimery", c(0xc8f0a8)), Map.entry("gerard", c(0xf4f4f4)),
             Map.entry("guard", c(0xd8c0a0)), Map.entry("soldier", c(0x9ab8ff)), Map.entry("lefort", c(0xa8d8f0)),
             Map.entry("kev", c(0xffb060)), Map.entry("helene", c(0xe8a8d8)), Map.entry("driver", c(0xb8b8c0)),
             Map.entry("guide", c(0xfff07a)), Map.entry("cat", c(0xe0e0e0)), Map.entry("pigeon", c(0xd0d0e0)),

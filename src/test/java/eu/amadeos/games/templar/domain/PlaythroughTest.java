@@ -127,11 +127,11 @@ class PlaythroughTest {
     }
 
     @Test
-    void aimeryHidesThePageAndLenaWakesUpInTheWorkshop() {
+    void aimeryHidesThePageAndMariaWakesUpInTheWorkshop() {
         prologue();
         settle();
         assertEquals("workshop", game.room().id());
-        assertEquals("lena", game.hero().id());
+        assertEquals("maria", game.hero().id());
         assertEquals(List.of("phone"), game.inventory().items());
     }
 
@@ -144,7 +144,7 @@ class PlaythroughTest {
     }
 
     @Test
-    void lenaFindsThePageInTheBinding() {
+    void mariaFindsThePageInTheBinding() {
         workshop();
         assertTrue(game.flags().is("found-page"));
         assertTrue(game.inventory().has("coin"));
@@ -171,7 +171,7 @@ class PlaythroughTest {
         readingRoom();
         assertEquals("square", game.room().id());
         use("metro");
-        assertEquals("square", game.room().id(), "the metro waits until Lena knows where to go");
+        assertEquals("square", game.room().id(), "the metro waits until Maria knows where to go");
         use("board");
         assertTrue(game.isChoosing(), "Hélène makes her offer");
         choose("offer");
@@ -215,7 +215,7 @@ class PlaythroughTest {
         use("phone", "plaque");
         assertEquals("cart", game.room().id(), "act 1 ends and the first flashback begins");
         assertEquals("aimery", game.hero().id());
-        assertTrue(game.inventory().items().isEmpty(), "Lena's things wait for her");
+        assertTrue(game.inventory().items().isEmpty(), "Maria's things wait for her");
     }
 
     void actOne() {
@@ -264,7 +264,7 @@ class PlaythroughTest {
         choose("bye");
         cart();
         assertEquals("harbour", game.room().id());
-        assertEquals("lena", game.hero().id());
+        assertEquals("maria", game.hero().id());
         assertTrue(game.inventory().has("phone"));
         assertTrue(game.inventory().has("page"));
         assertTrue(game.inventory().has("bonefolder"));
@@ -286,7 +286,7 @@ class PlaythroughTest {
         actOne();
         cart();
         use("old-town");
-        assertEquals("harbour", game.room().id(), "the old town waits until Lena knows where to look");
+        assertEquals("harbour", game.room().id(), "the old town waits until Maria knows where to look");
         use("phone", "barometer");
         use("fisherman");
         choose("templars");
@@ -392,7 +392,7 @@ class PlaythroughTest {
         assertEquals("charola", game.room().id(), "the tower is locked");
         use("ines");
         assertFalse(game.choices().stream().anyMatch(c -> c.id().equals("open")),
-                "she is asked to open the showcase only after Lena has looked at it");
+                "she is asked to open the showcase only after Maria has looked at it");
         choose("bye");
         look("showcase");
         use("ines");
@@ -414,7 +414,7 @@ class PlaythroughTest {
     }
 
     @Test
-    void lenaIsLockedInTheArchiveAndThePigeonGetsHerOut() {
+    void mariaIsLockedInTheArchiveAndThePigeonGetsHerOut() {
         actTwo();
         charola();
         assertEquals("archive", game.room().id());
@@ -448,7 +448,7 @@ class PlaythroughTest {
         archive();
         assertEquals("cloister", game.room().id());
         use("chirograph", "helene-cloister");
-        assertFalse(game.flags().is("finished"), "Lena first looks into the chest");
+        assertFalse(game.flags().is("finished"), "Maria first looks into the chest");
         look("iron-chest-open");
         use("chirograph", "helene-cloister");
         settle();

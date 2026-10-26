@@ -19,11 +19,11 @@
   <summary xml:lang="it">Un giallo punta e clicca a Parigi, dalla notte dell'arresto dei Templari nel 1307 a oggi</summary>
 
   <description>
-    <p>The adventure of the amadeOS desktop. Paris, 12 October 1307: the squire Aimery must get the last page of the Temple's accounts with the Crown out of the house before the King's men come. Paris, today: the book restorer Lena Vogt finds that page in the binding of a medieval psalter, and with it a debt the King of France never paid.</p>
-    <p xml:lang="de">Das Adventure des amadeOS-Desktops. Paris, 12. Oktober 1307: Der Knappe Aimery muss die letzte Seite der Abrechnung des Tempels mit der Krone aus dem Haus schaffen, bevor die Männer des Königs kommen. Paris, heute: Die Buchrestauratorin Lena Vogt findet diese Seite im Einband eines mittelalterlichen Psalters, und mit ihr eine Schuld, die der König von Frankreich nie bezahlt hat.</p>
-    <p xml:lang="fr">L'aventure du bureau amadeOS. Paris, 12 octobre 1307 : l'écuyer Aimery doit faire sortir de la maison la dernière page des comptes du Temple avec la Couronne avant l'arrivée des hommes du roi. Paris, aujourd'hui : la restauratrice de livres Lena Vogt trouve cette page dans la reliure d'un psautier médiéval, et avec elle une dette que le roi de France n'a jamais payée.</p>
-    <p xml:lang="es">La aventura del escritorio amadeOS. París, 12 de octubre de 1307: el escudero Aimery debe sacar de la casa la última página de las cuentas del Temple con la Corona antes de que lleguen los hombres del rey. París, hoy: la restauradora de libros Lena Vogt encuentra esa página en la encuadernación de un salterio medieval, y con ella una deuda que el rey de Francia nunca pagó.</p>
-    <p xml:lang="it">L'avventura del desktop amadeOS. Parigi, 12 ottobre 1307: lo scudiero Aimery deve portare fuori dalla casa l'ultima pagina dei conti del Tempio con la Corona prima che arrivino gli uomini del re. Parigi, oggi: la restauratrice di libri Lena Vogt trova quella pagina nella legatura di un salterio medievale, e con essa un debito che il re di Francia non ha mai pagato.</p>
+    <p>The adventure of the amadeOS desktop. Paris, 12 October 1307: the squire Aimery must get the last page of the Temple's accounts with the Crown out of the house before the King's men come. Paris, today: the book restorer Maria Vogt finds that page in the binding of a medieval psalter, and with it a debt the King of France never paid.</p>
+    <p xml:lang="de">Das Adventure des amadeOS-Desktops. Paris, 12. Oktober 1307: Der Knappe Aimery muss die letzte Seite der Abrechnung des Tempels mit der Krone aus dem Haus schaffen, bevor die Männer des Königs kommen. Paris, heute: Die Buchrestauratorin Maria Vogt findet diese Seite im Einband eines mittelalterlichen Psalters, und mit ihr eine Schuld, die der König von Frankreich nie bezahlt hat.</p>
+    <p xml:lang="fr">L'aventure du bureau amadeOS. Paris, 12 octobre 1307 : l'écuyer Aimery doit faire sortir de la maison la dernière page des comptes du Temple avec la Couronne avant l'arrivée des hommes du roi. Paris, aujourd'hui : la restauratrice de livres Maria Vogt trouve cette page dans la reliure d'un psautier médiéval, et avec elle une dette que le roi de France n'a jamais payée.</p>
+    <p xml:lang="es">La aventura del escritorio amadeOS. París, 12 de octubre de 1307: el escudero Aimery debe sacar de la casa la última página de las cuentas del Temple con la Corona antes de que lleguen los hombres del rey. París, hoy: la restauradora de libros Maria Vogt encuentra esa página en la encuadernación de un salterio medieval, y con ella una deuda que el rey de Francia nunca pagó.</p>
+    <p xml:lang="it">L'avventura del desktop amadeOS. Parigi, 12 ottobre 1307: lo scudiero Aimery deve portare fuori dalla casa l'ultima pagina dei conti del Tempio con la Corona prima che arrivino gli uomini del re. Parigi, oggi: la restauratrice di libri Maria Vogt trova quella pagina nella legatura di un salterio medievale, e con essa un debito che il re di Francia non ha mai pagato.</p>
     <ul>
       <li>A prologue in the Paris Temple in 1307 and three acts: Paris today, La Rochelle with two flashbacks, and the Convent of Christ at Tomar</li>
       <li xml:lang="de">Ein Prolog im Pariser Tempel 1307 und drei Akte: Paris heute, La Rochelle mit zwei Rückblenden und der Christuskonvent in Tomar</li>
@@ -73,11 +73,11 @@
 
   <screenshots>
     <screenshot type="default">
-      <caption>Lena's restoration workshop in the evening</caption>
-      <caption xml:lang="de">Lenas Restaurierungswerkstatt am Abend</caption>
-      <caption xml:lang="fr">L'atelier de restauration de Lena, le soir</caption>
-      <caption xml:lang="es">El taller de restauración de Lena al anochecer</caption>
-      <caption xml:lang="it">Il laboratorio di restauro di Lena, la sera</caption>
+      <caption>Maria's restoration workshop in the evening</caption>
+      <caption xml:lang="de">Marias Restaurierungswerkstatt am Abend</caption>
+      <caption xml:lang="fr">L'atelier de restauration de Maria, le soir</caption>
+      <caption xml:lang="es">El taller de restauración de Maria al anochecer</caption>
+      <caption xml:lang="it">Il laboratorio di restauro di Maria, la sera</caption>
       <image>https://raw.githubusercontent.com/datazuul/amade-templar-game/main/docs/screenshots/amade-templar-game.png</image>
     </screenshot>
   </screenshots>

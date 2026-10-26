@@ -1,85 +1,85 @@
 # What the things in the inventory are, wherever the hero is.
 
 on look phone
-  say lena phone.look
+  say maria phone.look
 end
 
 on use phone
   if locked
     if not rescued
-      say lena phone.archive
+      say maria phone.archive
       stop
     end
   end
-  say lena phone.use
+  say maria phone.use
 end
 
 on look page
-  say lena page.look.1
-  say lena page.look.2
-  say lena page.look.3
+  say maria page.look.1
+  say maria page.look.2
+  say maria page.look.3
 end
 
 on use page
-  say lena page.use
+  say maria page.use
 end
 
 on use phone page
   sound camera
-  say lena phone.page
+  say maria phone.page
 end
 
 on look bonefolder
-  say lena bonefolder.look
+  say maria bonefolder.look
 end
 
 on look brush
-  say lena brush.look
+  say maria brush.look
 end
 
 on look damp-brush
-  say lena damp-brush.look
+  say maria damp-brush.look
 end
 
 on look coin
-  say lena coin.look
+  say maria coin.look
 end
 
 on look cup
-  say lena cup.look
+  say maria cup.look
 end
 
 on look coffee
-  say lena coffee.look
+  say maria coffee.look
 end
 
 on use coffee
-  say lena coffee.use
+  say maria coffee.use
 end
 
 on look sandwich
-  say lena sandwich.look
+  say maria sandwich.look
 end
 
 on use sandwich
-  say lena sandwich.use
+  say maria sandwich.use
 end
 
 on look token
-  say lena token.look
+  say maria token.look
 end
 
 on use token
-  say lena token.use
+  say maria token.use
 end
 
 on use phone token
   sound camera
-  say lena phone.token
+  say maria phone.token
 end
 
 on use napkin page
-  say lena napkin.page
+  say maria napkin.page
 end
 
 # Aimery's things, in 1307.

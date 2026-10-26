@@ -1,4 +1,4 @@
-# Lena's restoration workshop, Paris, today, in the evening.
+# Maria's restoration workshop, Paris, today, in the evening.
 room workshop
 background workshop
 depth 262 1.12 400 1.45

@@ -16,115 +16,115 @@ on enter harbour
       gain brush
     end
     title card.rochelle
-    say lena harbour.intro.1
-    say lena harbour.intro.2
+    say maria harbour.intro.1
+    say maria harbour.intro.2
     face kev-harbour right
     say kev-harbour harbour.kev.1
-    say lena harbour.kev.2
+    say maria harbour.kev.2
     say kev-harbour harbour.kev.3
-    say lena harbour.kev.4
+    say maria harbour.kev.4
     set goal 60
   end
 end
 
 on look sunset
-  say lena sunset.look
+  say maria sunset.look
 end
 
 on look saint-nicolas
-  say lena saint-nicolas.look.1
-  say lena saint-nicolas.look.2
+  say maria saint-nicolas.look.1
+  say maria saint-nicolas.look.2
 end
 
 on use saint-nicolas
-  say lena saint-nicolas.use
+  say maria saint-nicolas.use
 end
 
 on look chain-tower
-  say lena chain-tower.look
+  say maria chain-tower.look
 end
 
 on use chain-tower
-  say lena chain-tower.use
+  say maria chain-tower.use
 end
 
 on look harbour-water
-  say lena harbour-water.look
+  say maria harbour-water.look
 end
 
 on use harbour-water
-  say lena harbour-water.use
+  say maria harbour-water.use
 end
 
 on look boat
-  say lena boat.look
+  say maria boat.look
 end
 
 on use boat
-  say lena boat.use
+  say maria boat.use
 end
 
 on look nets
-  say lena nets.look
+  say maria nets.look
 end
 
 on use nets
-  say lena nets.use
+  say maria nets.use
 end
 
 on look gulls
-  say lena gulls.look
+  say maria gulls.look
 end
 
 on use gulls
-  say lena gulls.use
+  say maria gulls.use
 end
 
 on use sandwich gulls
-  say lena gulls.sandwich
+  say maria gulls.sandwich
 end
 
 on look clock-gate
-  say lena clock-gate.look
+  say maria clock-gate.look
 end
 
 on use clock-gate
-  say lena clock-gate.use
+  say maria clock-gate.use
 end
 
 on look office
-  say lena office.look
+  say maria office.look
 end
 
 on use office
-  say lena office.use
+  say maria office.use
 end
 
 on look barometer
   if read-barometer
-    say lena barometer.again
+    say maria barometer.again
     stop
   end
-  say lena barometer.dark
+  say maria barometer.dark
 end
 
 on use barometer
   if read-barometer
-    say lena barometer.again
+    say maria barometer.again
     stop
   end
-  say lena barometer.dark
+  say maria barometer.dark
 end
 
 on use phone barometer
   if read-barometer
-    say lena barometer.again
+    say maria barometer.again
     stop
   end
-  anim lena phone
+  anim maria phone
   sound camera
-  say lena barometer.read.1
-  say lena barometer.read.2
+  say maria barometer.read.1
+  say maria barometer.read.2
   set read-barometer
   if fisher-weather
     set can-forecast
@@ -133,24 +133,24 @@ on use phone barometer
 end
 
 on use phone office
-  say lena office.phone
+  say maria office.phone
 end
 
 on look quay-lamp
-  say lena quay-lamp.look
+  say maria quay-lamp.look
 end
 
 on look quay-bollard
-  say lena quay-bollard.look
+  say maria quay-bollard.look
 end
 
 on use quay-bollard
-  say lena quay-bollard.use
+  say maria quay-bollard.use
 end
 
 on exit old-town
   if not fisher-done
-    say lena old-town.where
+    say maria old-town.where
     stop
   end
   goto court arrival
@@ -159,7 +159,7 @@ end
 # ---- Kev ----
 
 on look kev-harbour
-  say lena kev-harbour.look
+  say maria kev-harbour.look
 end
 
 on talk kev-harbour
@@ -167,26 +167,26 @@ on talk kev-harbour
 end
 
 option kev-harbour who kev-harbour.q.who once
-  say lena kev-harbour.who.1
+  say maria kev-harbour.who.1
   say kev-harbour kev-harbour.who.2
   say kev-harbour kev-harbour.who.3
-  say lena kev-harbour.who.4
+  say maria kev-harbour.who.4
 end
 
 option kev-harbour fleet kev-harbour.q.fleet once
-  say lena kev-harbour.fleet.1
+  say maria kev-harbour.fleet.1
   say kev-harbour kev-harbour.fleet.2
-  say lena kev-harbour.fleet.3
+  say maria kev-harbour.fleet.3
   say kev-harbour kev-harbour.fleet.4
 end
 
 option kev-harbour weather kev-harbour.q.weather once if fisher-weather
-  say lena kev-harbour.weather.1
+  say maria kev-harbour.weather.1
   anim kev-harbour point
   say kev-harbour kev-harbour.weather.2
-  say lena kev-harbour.weather.3
+  say maria kev-harbour.weather.3
   say kev-harbour kev-harbour.weather.4
-  say lena kev-harbour.weather.5
+  say maria kev-harbour.weather.5
   say kev-harbour kev-harbour.weather.6
   set new-rochelle
 end
@@ -197,13 +197,13 @@ option kev-harbour bye kev-harbour.q.bye
 end
 
 on use page kev-harbour
-  say lena kev-harbour.page
+  say maria kev-harbour.page
 end
 
 # ---- the old fisherman ----
 
 on look fisherman
-  say lena fisherman.look
+  say maria fisherman.look
 end
 
 on talk fisherman
@@ -211,9 +211,9 @@ on talk fisherman
 end
 
 option fisherman templars fisherman.q.templars if not fisher-weather
-  say lena fisherman.templars.1
+  say maria fisherman.templars.1
   say fisherman fisherman.templars.2
-  say lena fisherman.templars.3
+  say maria fisherman.templars.3
   say fisherman fisherman.templars.4
   say fisherman fisherman.templars.5
   set fisher-weather
@@ -227,25 +227,25 @@ end
 
 option fisherman again fisherman.q.again if fisher-weather
   if fisher-done
-    say lena fisherman.done.1
+    say maria fisherman.done.1
     say fisherman fisherman.done.2
     stop
   end
-  say lena fisherman.again.1
+  say maria fisherman.again.1
   say fisherman fisherman.again.2
 end
 
 option fisherman app fisherman.q.app once if new-rochelle
-  say lena fisherman.app.1
+  say maria fisherman.app.1
   say fisherman fisherman.app.2
   say fisherman fisherman.app.3
 end
 
 option fisherman barometer fisherman.q.barometer once if can-forecast
-  say lena fisherman.barometer.1
+  say maria fisherman.barometer.1
   say fisherman fisherman.barometer.2
   say fisherman fisherman.barometer.3
-  say lena fisherman.barometer.4
+  say maria fisherman.barometer.4
   say fisherman fisherman.barometer.5
   say fisherman fisherman.barometer.6
   say fisherman fisherman.barometer.7
@@ -254,7 +254,7 @@ option fisherman barometer fisherman.q.barometer once if can-forecast
 end
 
 option fisherman towers fisherman.q.towers once
-  say lena fisherman.towers.1
+  say maria fisherman.towers.1
   say fisherman fisherman.towers.2
 end
 
@@ -264,5 +264,5 @@ option fisherman bye fisherman.q.bye
 end
 
 on use page fisherman
-  say lena fisherman.page
+  say maria fisherman.page
 end

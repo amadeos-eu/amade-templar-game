@@ -147,7 +147,7 @@ class StoryTest {
     void theStoryStartsIn1307AndEveryRoomHasAHero() {
         assertEquals("chapter", story.startRoom());
         assertEquals("aimery", story.hero("chapter"));
-        assertEquals("lena", story.hero("workshop"));
+        assertEquals("maria", story.hero("workshop"));
         for (String room : story.rooms().keySet()) assertNotNull(story.hero(room), room);
     }
 }
