@@ -78,7 +78,7 @@ With `../amade-game-engine` (and `../amade-commons`) checked out next to this re
 
 From the engine: `WalkArea`, `DepthScale`, `Actor`, `Hotspot`, `Room`, `Script`, `ScriptRunner`, `Flags`, `Inventory`, `Interaction`, `SpokenText` (the `adventure` package), plus `TextData`, `SaveFile`, `GameLoop`, `GameCanvas`, `Mouse`, `Keyboard`, `Mixer`, `SceneStack`, `FullScreen`.
 
-Comments of the form `// --8<-- [start:name]` mark the excerpts that the [Game Developer's Handbook](https://datazuul.github.io/amade-game-engine/) quotes. Chapter 50, the first chapter of Part V "Stories", is about this game.
+Comments of the form `// --8<-- [start:name]` mark the excerpts that the [Game Developer's Handbook](https://docs.amadeos.eu/amade-game-engine/) quotes. Chapter 50, the first chapter of Part V "Stories", is about this game.
 
 ## Licence
 
