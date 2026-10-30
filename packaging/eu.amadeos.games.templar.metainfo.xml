@@ -65,8 +65,8 @@
     <category>AdventureGame</category>
   </categories>
 
-  <url type="homepage">https://github.com/datazuul/amade-templar-game</url>
-  <url type="bugtracker">https://github.com/datazuul/amade-templar-game/issues</url>
+  <url type="homepage">https://github.com/amadeos-eu/amade-templar-game</url>
+  <url type="bugtracker">https://github.com/amadeos-eu/amade-templar-game/issues</url>
   <developer id="eu.amadeos">
     <name>amadeOS Project</name>
   </developer>
@@ -78,7 +78,7 @@
       <caption xml:lang="fr">L'atelier de restauration de Maria, le soir</caption>
       <caption xml:lang="es">El taller de restauración de Maria al anochecer</caption>
       <caption xml:lang="it">Il laboratorio di restauro di Maria, la sera</caption>
-      <image>https://raw.githubusercontent.com/datazuul/amade-templar-game/main/docs/screenshots/amade-templar-game.png</image>
+      <image>https://raw.githubusercontent.com/amadeos-eu/amade-templar-game/main/docs/screenshots/amade-templar-game.png</image>
     </screenshot>
   </screenshots>
 
